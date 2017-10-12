@@ -1,5 +1,5 @@
 
-public class Tableau
+public class TableauStack
 {
 
 }
