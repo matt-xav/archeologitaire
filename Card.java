@@ -49,19 +49,21 @@ public class Card
 
     public String getFileName()
     {
+    	/// need to compress images 
+    	
         if (!isFaceUp)  
-        	return "back.jpg"; 
+        	return "back.gif"; 
         if (rank == 10) 
-        	return "t" + suit + ".jpg";
+        	return "t" + suit + ".gif";
         if (rank == 11) 
-        	return "j" + suit + ".jpg";
+        	return "j" + suit + ".gif";
         if (rank == 12) 
-        	return "q" + suit + ".jpg";
+        	return "q" + suit + ".gif";
         if (rank == 13) 
-        	return "k" + suit + ".jpg";
+        	return "k" + suit + ".gif";
         if (rank == 1)  
-        	return "a" + suit + ".jpg";
+        	return "a" + suit + ".gif";
         
-        return rank + suit + ".jpg";
+        return rank + suit + ".gif";
     }
 }
