@@ -1,9 +1,9 @@
 
 public class Card 
 {
-	public int 		rank;
-    public String 	suit;
-    public boolean  isFaceUp;
+	private int 		rank;
+    private String 	suit;
+    private boolean  isFaceUp;
     
     /**
      * Constructs a Card object
@@ -46,6 +46,8 @@ public class Card
     {
         isFaceUp = false;
     }
+
+    public void display(){}
 
     public String getFileName()
     {

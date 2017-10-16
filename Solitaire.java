@@ -1,11 +1,11 @@
 
 public class Solitaire
 {
-	private Stack<Card> MyDrawStack;
-	private Stack<Card> MyDiscardStack;
+	private Stack MyDrawStack;
+	private Stack MyDiscardStack;
 	
-	private FoundationStack<Card>[] myFoundations;
-	private TableauStack<Card>[] myTableau;
+	private FoundationStack[] myFoundations;
+	private TableauStack[] myTableaus;
 	
 	
 	public Solitaire() { /**Enter Code*/ }
