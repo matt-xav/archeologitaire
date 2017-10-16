@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,31 +125,31 @@ public class Deck
 		myDeck.add(new Card2("Queen",  "Spades", faceCardValue));
 		myDeck.add(new Card2("King",  "Spades", faceCardValue));
 
-		myDeck.add(new Card("Two",  "Diamonds", 2));
-		myDeck.add(new Card("Three",  "Diamonds", 3));
-		myDeck.add(new Card("Four",  "Diamonds", 4));
-		myDeck.add(new Card("Five",  "Diamonds", 5));
-		myDeck.add(new Card("Six",  "Diamonds", 6));
-		myDeck.add(new Card("Seven",  "Diamonds", 7));
-		myDeck.add(new Card("Eight",  "Diamonds", 8));
-		myDeck.add(new Card("Nine",  "Diamonds", 9));
-		myDeck.add(new Card("Ten",  "Diamonds", 10));
-		myDeck.add(new Card("Jack",  "Diamonds", faceCardValue));
-		myDeck.add(new Card("Queen",  "Diamonds", faceCardValue));
-		myDeck.add(new Card("King",  "Diamonds", faceCardValue));
+		myDeck.add(new Card2("Two",  "Diamonds", 2));
+		myDeck.add(new Card2("Three",  "Diamonds", 3));
+		myDeck.add(new Card2("Four",  "Diamonds", 4));
+		myDeck.add(new Card2("Five",  "Diamonds", 5));
+		myDeck.add(new Card2("Six",  "Diamonds", 6));
+		myDeck.add(new Card2("Seven",  "Diamonds", 7));
+		myDeck.add(new Card2("Eight",  "Diamonds", 8));
+		myDeck.add(new Card2("Nine",  "Diamonds", 9));
+		myDeck.add(new Card2("Ten",  "Diamonds", 10));
+		myDeck.add(new Card2("Jack",  "Diamonds", faceCardValue));
+		myDeck.add(new Card2("Queen",  "Diamonds", faceCardValue));
+		myDeck.add(new Card2("King",  "Diamonds", faceCardValue));
 
-		myDeck.add(new Card("Two",  "Clubs", 2));
-		myDeck.add(new Card("Three",  "Clubs", 3));
-		myDeck.add(new Card("Four",  "Clubs", 4));
-		myDeck.add(new Card("Five",  "Clubs", 5));
-		myDeck.add(new Card("Six",  "Clubs", 6));
-		myDeck.add(new Card("Seven",  "Clubs", 7));
-		myDeck.add(new Card("Eight",  "Clubs", 8));
-		myDeck.add(new Card("Nine",  "Clubs", 9));
-		myDeck.add(new Card("Ten",  "Clubs", 10));
-		myDeck.add(new Card("Jack",  "Clubs", faceCardValue));
-		myDeck.add(new Card("Queen",  "Clubs", faceCardValue));
-		myDeck.add(new Card("King",  "Clubs", faceCardValue));
+		myDeck.add(new Card2("Two",  "Clubs", 2));
+		myDeck.add(new Card2("Three",  "Clubs", 3));
+		myDeck.add(new Card2("Four",  "Clubs", 4));
+		myDeck.add(new Card2("Five",  "Clubs", 5));
+		myDeck.add(new Card2("Six",  "Clubs", 6));
+		myDeck.add(new Card2("Seven",  "Clubs", 7));
+		myDeck.add(new Card2("Eight",  "Clubs", 8));
+		myDeck.add(new Card2("Nine",  "Clubs", 9));
+		myDeck.add(new Card2("Ten",  "Clubs", 10));
+		myDeck.add(new Card2("Jack",  "Clubs", faceCardValue));
+		myDeck.add(new Card2("Queen",  "Clubs", faceCardValue));
+		myDeck.add(new Card2("King",  "Clubs", faceCardValue));
 
 		myDeck.add(new Card("Ace", "Hearts", aceValue));
 		myDeck.add(new Card("Ace", "Spades", aceValue));

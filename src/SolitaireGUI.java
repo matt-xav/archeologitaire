@@ -1,5 +1,7 @@
-import java.awt.EventQueue;
+package src;
 
+import java.awt.EventQueue;
+import java.util.Stack;
 import javax.swing.JFrame;
 
 public class SolitaireGUI

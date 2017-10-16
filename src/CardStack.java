@@ -1,10 +1,13 @@
+package src;
+
+import java.util.Stack;
 
 public class CardStack
 {
     private Stack<Card> Cards;
-    private int StackSize
+    private int StackSize;
 
-    public Stack(){
+    public CardStack(){
         Cards = new Stack();
     }
 
