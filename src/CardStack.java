@@ -22,4 +22,16 @@ public class CardStack
     displayStack(){//draw cards all on same xz
 
     }
+
+	public Card peek()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int size()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
