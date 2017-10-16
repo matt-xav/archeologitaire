@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import java.awt.event.MouseListener;
 
@@ -5,6 +6,10 @@ import java.awt.event.MouseListener;
 import java.util.Stack;
 
 public class Solitaire
+=======
+
+public class Solitaire implements MouseController
+>>>>>>> parent of de8015e... Introduced Java 9
 {
 	private CardStack myDrawStack;
 	private CardStack myDiscardStack;
@@ -128,9 +133,9 @@ public class Solitaire
 =======
 	public Card getDrawCard() { /**Enter Code*/ }
 	 
-	public Card getDiscardCard() { /*Enter Code*/ }
+	public Card getDiscardCard() { /**Enter Code*/ }
 
-	public Card getFoundationCard() { /*Enter Code*/ }
+	public Card getFoundationCard() { /**Enter Code*/ }
 	 
 	public Stack<Card> getStack() { /**Enter Code*/ }
 	 
