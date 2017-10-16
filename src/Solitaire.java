@@ -1,5 +1,6 @@
+import java.awt.event.MouseListener;
 
-public class Solitaire implements MouseController
+public class Solitaire
 {
 	private CardStack myDrawStack;
 	private CardStack myDiscardStack;
@@ -16,9 +17,9 @@ public class Solitaire implements MouseController
 
 	public Card getDrawCard() { /**Enter Code*/ }
 	 
-	public Card getDiscardCard() { /**Enter Code*/ }
+	public Card getDiscardCard() { /*Enter Code*/ }
 
-	public Card getFoundationCard() { /**Enter Code*/ }
+	public Card getFoundationCard() { /*Enter Code*/ }
 	 
 	public Stack<Card> getStack() { /**Enter Code*/ }
 	 
