@@ -69,6 +69,6 @@ public class Card
     }
 
     public String toString(){
-        return String.format("Card: %s%s", getSuit(), getRank());
+        return String.format("Card: %s%s", getSuit(), getRank());//need to add special things for j, k, q, a
     }
 }
