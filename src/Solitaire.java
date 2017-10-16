@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import java.awt.event.MouseListener;
+=======
+package src;
+
+import java.util.Stack;
+>>>>>>> 16993dc77b1bc1771cc1cbf63f93e1e16072f085
 
 public class Solitaire
 {
