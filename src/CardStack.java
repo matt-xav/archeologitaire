@@ -1,17 +1,19 @@
 import java.util.Stack;
 
-public class CardStack
+import
+
+public class CardStack extends Stack
 {
-    private Stack<Card> Cards;
     private int StackSize;
 
-    public CardStack() {
-        Cards = new Stack<Card>();
+    public CardStack()
+    {
     }
 
 
-    public Card drawTop(){
-        return Cards.pop();
+    public Card drawTop()
+    {
+        return pop();
     }
 
     public boolean addTop(Card c){
@@ -22,15 +24,4 @@ public class CardStack
 
     }
 
-	public Card peek()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int size()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }
