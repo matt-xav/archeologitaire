@@ -4,7 +4,7 @@ public class test{
 
     public static void main(String[] args){
         //testStack = new CardStack();
-        Card testCard = new Card("c", 13);
+        Card testCard = new Card(13, "c");
         System.out.print(testCard);
     }
 }

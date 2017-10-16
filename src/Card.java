@@ -71,6 +71,6 @@ public class Card
     }
 
     public String toString(){
-        return String.format("Card: %s%s" getSuit, (rank == 10) ? "t" || (rank == 11) ? "j" || (rank == 12) ? "q" ||(rank == 13) ? || "k" || (rank == 1) ? "a" || rank)
+        return String.format("Card: %s%s", getSuit(), getRank());
     }
 }

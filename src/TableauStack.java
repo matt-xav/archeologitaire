@@ -3,7 +3,7 @@ import java.util.Stack;
 
 public class TableauStack
 {
-    displayStack(){//draw cards staggered
+    public void displayStack(){//draw cards staggered
 
     }
 }
