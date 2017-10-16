@@ -1,20 +1,15 @@
 
-public class Stack
+public class CardStack
 {
-    private Card[] Cards;
+    private Stack<Card> Cards;
     private int StackSize
 
     public Stack(){
-        Cards = new Card[0];
-    }
-
-    public Stack(int stacksize){
-        Cards = new Card[stacksize];
-        StackSize = stacksize;
+        Cards = new Stack();
     }
 
     public Card drawTop(){
-
+        return Cards.pop();
     }
 
     boolean addTop(Card c){

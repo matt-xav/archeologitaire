@@ -1,9 +1,9 @@
 
 public class Card 
 {
-	private int 		rank;
-    private String 	suit;
-    private boolean  isFaceUp;
+	private int rank;
+    private String suit;
+    private boolean isFaceUp;
     
     /**
      * Constructs a Card object
@@ -12,8 +12,8 @@ public class Card
      */
     public Card(int newRank, String newSuit)
     {
-        rank	 = newRank;
-        suit 	 = newSuit;
+        rank = newRank;
+        suit = newSuit;
         isFaceUp = false;
     }
     
@@ -67,5 +67,9 @@ public class Card
         	return "a" + suit + ".gif";
         
         return rank + suit + ".gif";
+    }
+
+    public String toString(){
+        return String.format("Card: %s%s" getSuit, (rank == 10) ? "t" || (rank == 11) ? "j" || (rank == 12) ? "q" ||(rank == 13) ? || "k" || (rank == 1) ? "a" || rank)
     }
 }

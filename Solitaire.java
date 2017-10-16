@@ -1,14 +1,18 @@
 
-public class Solitaire
+public class Solitaire implements MouseController
 {
-	private Stack MyDrawStack;
-	private Stack MyDiscardStack;
+	private CardStack myDrawStack;
+	private CardStack myDiscardStack;
 	
 	private FoundationStack[] myFoundations;
 	private TableauStack[] myTableaus;
 	
 	
-	public Solitaire() { /**Enter Code*/ }
+	public Solitaire() {
+		myDrawStack = new CardStack();
+		myDiscardStack = new CardStack();
+
+	}
 
 	public Card getDrawCard() { /**Enter Code*/ }
 	 
