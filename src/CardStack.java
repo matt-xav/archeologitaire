@@ -1,6 +1,8 @@
+package src;
+
 import java.util.Stack;
 
-import
+
 
 public class CardStack extends Stack
 {
@@ -8,6 +10,7 @@ public class CardStack extends Stack
 
     public CardStack()
     {
+    	
     }
 
 
@@ -16,9 +19,7 @@ public class CardStack extends Stack
         return pop();
     }
 
-    public boolean addTop(Card c){
-        return false;
-    }
+   
 
     public void displayStack(){//draw cards all on same xz
 

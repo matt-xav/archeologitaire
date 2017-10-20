@@ -1,3 +1,5 @@
+package src;
+
 public class Card
 {
 	private int rank;
@@ -46,12 +48,14 @@ public class Card
         isFaceUp = false;
     }
 
-    public void display(){}
+    //added 
+    public void display()
+    {
+    	/**Enter Code*/ 
+    }
 
     public String getFileName()
     {
-    	/// need to compress images 
-    	
         if (!isFaceUp)  
         	return "back.gif"; 
         if (rank == 10) 
@@ -68,7 +72,9 @@ public class Card
         return rank + suit + ".gif";
     }
 
-    public String toString(){
+    // added 
+    public String toString()
+    {
         return String.format("Card: %s%s", getSuit(), getRank());//need to add special things for j, k, q, a
     }
 }
