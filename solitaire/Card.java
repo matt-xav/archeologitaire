@@ -12,7 +12,6 @@ import java.awt.geom.RoundRectangle2D;
  * and value. Values are ranked from Ace (value = 1) to King (value = 13). Cards
  * are immutable with respect to suit and value. Cards are also comparable with
  * respect to value.
-
  */
 public class Card implements Comparable<Card>
 {

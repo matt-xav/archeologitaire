@@ -2,7 +2,7 @@ package solitaire;
 
 /**
  * A StackOfCards in which all cards must be of the same suit and each card's
- *  value is 1 more than that of the card below it. 
+ * value is 1 more than that of the card below it. 
  * The bottom card must be an ace.
  */
 public class Foundation extends StackOfCards

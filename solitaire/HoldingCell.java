@@ -3,6 +3,8 @@ package solitaire;
 
 /**
  * A StackOfCards that holds one card. 
+ * 
+ * Borrowed From:
  */
 public class HoldingCell extends StackOfCards
 {
@@ -17,7 +19,8 @@ public class HoldingCell extends StackOfCards
 		super(x, y, cardWidth, 0, 0);
 	}
 	
-	/** Adds the given card to this stack. The card will then be the only card in the
+	/** 
+	 * Adds the given card to this stack. The card will then be the only card in the
 	 * stack afterwards.
 	 */
 	public void push(Card card)

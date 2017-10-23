@@ -22,9 +22,9 @@ public class Queue<T> implements Iterable<T>
 	/** Adds the given value to the queue. */
 	public void enqueue(T value)
 	{
-		elements.reverse(); // First we reverse the elements so that the new
+		elements.reverse();  // First we reverse the elements so that the new
 		elements.push(value);// element will be at the bottom of the stack.
-		elements.reverse(); // Then reverse again to put the elements in order.
+		elements.reverse();  // Then reverse again to put the elements in order.
 	}
 	
 	/** Removes and returns the element that was added before all others. */
