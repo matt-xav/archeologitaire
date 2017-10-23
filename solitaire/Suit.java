@@ -7,10 +7,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-/**
- * Holds suits of stand French playing cards. Methods are included to get the
- * suit's color and draw the suit's symbol.
- */
 public enum Suit
 {
 	SPADES, HEARTS, DIAMONDS, CLUBS;
@@ -25,9 +21,7 @@ public enum Suit
 	 */
 	private static Image SPADES_ICON, HEARTS_ICON, DIAMONDS_ICON, CLUBS_ICON;
 	
-	/**
-	 * Constructor which sets the symbol for the suit.
-	 */
+	/** Constructor which sets the symbol for the suit. */
 	private Suit()
 	{
 		setImages();
@@ -50,9 +44,7 @@ public enum Suit
 		}
 	}
 	
-	/**
-	 * Sets the image for {@link #symbol} depending on this suit.
-	 */
+	/** Sets the image for symbol depending on this suit. */
 	private void setSymbol()
 	{
 		switch (this)
@@ -72,12 +64,7 @@ public enum Suit
 		}
 	}
 	
-	/**
-	 * Returns the color of the suit based on standard French card suits.
-	 * 
-	 * @return {@link Color#RED} if the suit is HEARTS or DIAMONDS, otherwise
-	 *         {@link Color#BLACK}.
-	 */
+	/** Returns the color of the suit based on standard French card suits. */
 	public Color getColor()
 	{
 		switch (this)
@@ -92,17 +79,7 @@ public enum Suit
 		}
 	}
 	
-	/**
-	 * Draws the suit at a given location with given dimensions.
-	 * 
-	 * @param x
-	 *            The x coordinate of the center of the drawing.
-	 * @param y
-	 *            The y coordinate of the center of the drawing.
-	 * @param width
-	 *            The width of the image. The height of the image is calculated
-	 *            based on this width. Overall, the image will be roughly a square.
-	 */
+	/** Draws the suit at a given location with given dimensions. */
 	public void draw(Graphics pane, int x, int y, int width)
 	{
 		if (symbol == null)

@@ -22,9 +22,10 @@ public class Tableau extends StackOfCards
 	 *            stack.
 	 * @param y - The y coordinate for the center of the card on the bottom of the
 	 *            stack.
+	 *            
 	 * @param cardWidth - The width of each card in the stack.
-	 * @param offsetY - The difference in y coordinates of a card in the stack with that
-	 *            of the card below it.
+	 * @param offsetY -   The difference in y coordinates of a card in the stack with that
+	 *            		    of the card below it.
 	 */
 	public Tableau(int x, int y, int cardWidth, int offsetY)
 	{
@@ -155,7 +156,7 @@ public class Tableau extends StackOfCards
 	/**
 	 * Determines if all cards in the stack are visible and alternate in color. 
 	 * (the colors are ignored if any card is hidden).
-	 * */
+	 */
 	public static boolean isVisible(Stack<Card> stack)
 	{
 		Stack<Card> copy = stack.copy();

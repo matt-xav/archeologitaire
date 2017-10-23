@@ -17,10 +17,7 @@ public class StackOfCards extends Stack<Card>
 	// with the card below it. The bottom card will have coordinates (x,y).
 	protected int offsetX, offsetY;
 	
-	/**
-	 * Instantiates an empty StackOfCards where all cards will have no
-	 * size and be positioned at the origin.
-	 */
+	/** Instantiates an empty StackOfCards */
 	public StackOfCards()
 	{
 	}

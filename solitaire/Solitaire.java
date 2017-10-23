@@ -33,7 +33,7 @@ public class Solitaire implements MouseListener, MouseMotionListener
 
 	protected Queue<StackOfCards> animationQueue;
 	
-	/** Do nothing constructor. */
+	/** Instantiates an empty Solitaire Constructor */
 	public Solitaire()
 	{
 	}
