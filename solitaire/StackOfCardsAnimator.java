@@ -5,6 +5,8 @@ import java.awt.Component;
 /**
  * Moves a StackOfCards from a source location to a the location of a
  * destination 
+ * 
+ * Borrowed from:
  */
 public class StackOfCardsAnimator implements Runnable
 {

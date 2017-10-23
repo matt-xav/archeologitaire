@@ -161,11 +161,13 @@ public class StackOfCards extends Stack<Card>
 	
 	
 	/***************************************************************************************
-	 * Reorders all of the cards randomly. The positions of the cards will be
-	 * changed accordingly.
 	 * 
+	 * Borrowed the following code from:
 	 * 
-	 */
+	 ****************************************************************************************/
+	
+	/**Reorders all of the cards randomly. The positions of the cards will be
+	 * changed accordingly. */
 	public void shuffle()
 	{
 		// First merge shuffle is performed and the Knuth/Fisher-Yates shuffle is.
