@@ -66,7 +66,7 @@ public class Dirt extends JPanel implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		Point p = e.getLocationOnScreen();
-		p.setLocation(p.getX() - myFrame.getX(), p.getY() - myFrame.getY() - 30);
+		p.setLocation(p.getX() - myFrame.getX()-7, p.getY() - myFrame.getY() - 30);
 		int px = (int) (p.getX()); int py = (int) (p.getY());
 		int xlim = px + digRadius;
 		int ylim = py + digRadius;
@@ -75,6 +75,9 @@ public class Dirt extends JPanel implements MouseListener{
 				if(i >= 0 && i < WIDTH && j >= 0 && j < LENGTH) {//ensure we don't go out of bounds
 					if(Math.sqrt((px-i)*(px-i) + (py-j)*(py-j)) <= digRadius) {
 						dirtLocations[i][j] = 0;
+						/*if(Math.sqrt((px-i)*(px-i) + (py-j)*(py-j)) == 0) {
+							dirtLocations[i][j] = 1;
+						}*/
 					}
 				}
 			}
