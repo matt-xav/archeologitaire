@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 package src;
 
 import java.awt.Color;
@@ -14,10 +18,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Dirt extends JPanel implements MouseListener, MouseMotionListener{
-	private static JFrame myFrame;
 	
-	private final int WIDTH = 600;
-	private final int HEIGHT = 500;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame myFrame;
+	private int WIDTH;
+	private int HEIGHT;
 	private int xOffset = 0;
 	private int yOffset = 0;
 	
@@ -27,20 +35,12 @@ public class Dirt extends JPanel implements MouseListener, MouseMotionListener{
 	private final int digRadius = 50;
 	
 	private Random myRand;
-
-	public static void main(String[] args) {
-		myFrame = new JFrame();
-		Dirt myPanel = new Dirt(myFrame);
-	}
 	
 	public Dirt(JFrame frame){
 		super();
-		frame = new JFrame();
-		frame.setTitle("Dirt");
-		frame.setSize(WIDTH, HEIGHT);
-		frame.add(this);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		WIDTH = frame.getWidth();
+		HEIGHT = frame.getHeight();
+		myFrame = frame;
 		
 		//methodology borrowed from Steve Harper's dolpin code
 		int borderWidth = (WIDTH - frame.getContentPane().getWidth())/2;
@@ -133,6 +133,17 @@ public class Dirt extends JPanel implements MouseListener, MouseMotionListener{
 	public void mouseMoved(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	//main method for testing purposes
+	public static void main(String[] args) {
+		JFrame thisFrame = new JFrame();
+		thisFrame.setTitle("Dirt");
+		thisFrame.setSize(1080, 700); //height, width
+		thisFrame.setVisible(true);
+		thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Dirt myPanel = new Dirt(thisFrame);
+		thisFrame.add(myPanel);
 	}
 
 }
