@@ -47,10 +47,14 @@ public class Cursed extends JPanel implements MouseMotionListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
-		g.fillRect(x, y, WIDTH, HEIGHT);
 		if(mouseLocation.getX() > x && mouseLocation.getX() < WIDTH && mouseLocation.getY() > y && mouseLocation.getY() < HEIGHT) {
-			g.setColor(Color.WHITE);
-			g.fillOval((int) mouseLocation.getX() - radius, (int) mouseLocation.getY() - radius, radius*2, radius*2);
+			g.setColor(Color.BLACK); //draw rectangles
+			g.fillRect(x, y, WIDTH, (int) mouseLocation.getY() - radius);
+			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());
+			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);
+			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);
+		}else{
+			g.fillRect(x, y, WIDTH, HEIGHT);
 		}
 	}
 
