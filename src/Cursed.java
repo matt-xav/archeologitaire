@@ -20,7 +20,7 @@ public class Cursed extends JPanel implements MouseMotionListener {
 	private int x;
 	private int y;
 	
-	private int radius = 50;//radius of mouse "lantern"
+	private int radius = 45;//radius of mouse "lantern"
 	
 	private Point mouseLocation;
 	
@@ -49,10 +49,39 @@ public class Cursed extends JPanel implements MouseMotionListener {
 		g.setColor(Color.BLACK);
 		if(mouseLocation.getX() > x && mouseLocation.getX() < WIDTH && mouseLocation.getY() > y && mouseLocation.getY() < HEIGHT) {
 			g.setColor(Color.BLACK); //draw rectangles
-			g.fillRect(x, y, WIDTH, (int) mouseLocation.getY() - radius);
-			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());
-			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);
-			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);
+			g.fillRect(x, y, WIDTH, (int) mouseLocation.getY() - radius); //top
+			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());//bottom
+			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);//left
+			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);//right
+			
+			//g.setColor(Color.RED);//rounding
+			double angle;
+			double rangle;
+			for(int i = 0; i < 90; i++) {
+				angle = (double) i;
+				rangle = Math.toRadians(angle);
+				//System.out.println(rangle);
+				g.fillRect(//upper left
+						(int) mouseLocation.getX()-radius, 
+						(int) mouseLocation.getY()-radius,
+						(int) (radius - (radius*Math.sin(rangle))), 
+						(int) (radius - (radius*Math.cos(rangle))));
+				g.fillRect(//upper right
+						(int) (mouseLocation.getX()+(radius*Math.sin(rangle)) + 1), //1 is added to compensate for the (int) conversion in Math.sin
+						(int) mouseLocation.getY()-radius,
+						(int) (radius - (radius*Math.sin(rangle))), 
+						(int) (radius - (radius*Math.cos(rangle))));
+				g.fillRect(//lower left
+						(int) mouseLocation.getX()-radius, 
+						(int) (mouseLocation.getY()+(radius*Math.cos(rangle)) + 1),
+						(int) (radius - (radius*Math.sin(rangle))), 
+						(int) (radius - (radius*Math.cos(rangle))));
+				g.fillRect(//lower left
+						(int) (mouseLocation.getX() + (radius*Math.sin(rangle)) + 1), 
+						(int) (mouseLocation.getY() + (radius*Math.cos(rangle)) + 1),
+						(int) (radius - (radius*Math.sin(rangle))), 
+						(int) (radius - (radius*Math.cos(rangle))));
+			}
 		}else{
 			g.fillRect(x, y, WIDTH, HEIGHT);
 		}
