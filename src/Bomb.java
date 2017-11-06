@@ -1,39 +1,33 @@
 package src;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import javax.swing.JPanel;
-
-public class Bomb extends JPanel implements MouseListener{
-
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+public class Bomb{
+	private int x;
+	private int y;
+	
+	public Bomb(int X, int Y) {
+		x = X;
+		y = Y;
+	}
+	
+	public Bomb() {
+		x = 0;
+		y = 0;
+	}
+	
+	public int getX() {
+		return x;
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public int getY() {
+		return y;
 	}
 
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void setX(int x) {
+		this.x = x;
 	}
 
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void setY(int y) {
+		this.y = y;
 	}
 }
+

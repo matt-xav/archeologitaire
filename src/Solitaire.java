@@ -1,3 +1,5 @@
+package src;
+
 import java.awt.event.MouseListener;
 
 
@@ -37,9 +39,9 @@ public class Solitaire
     
 	public Card getDrawCard() 
 	{ 
-		if (stock.size() == 0) 
+//		if (stock.size() == 0) 
         	return null;
-        return stock.peek();
+//        return stock.peek();
 	}
 	 
 	public Card getDiscardCard() 

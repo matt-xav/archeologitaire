@@ -20,7 +20,7 @@ public class Cursed extends JPanel implements MouseMotionListener {
 	private int x;
 	private int y;
 	
-	private int radius = 45;//radius of mouse "lantern"
+	private int radius = 25;//radius of mouse "lantern"
 	
 	private Point mouseLocation;
 	
@@ -40,12 +40,13 @@ public class Cursed extends JPanel implements MouseMotionListener {
         yOffset = HEIGHT - frame.getContentPane().getHeight()-borderWidth; // assume side border = bottom border; ignore title bar
 		
         mouseLocation = new Point(0, 0);
-
+        
 		addMouseMotionListener(this);
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		//g.drawImage(img, 0, 0, observer);
 		g.setColor(Color.BLACK);
 		if(mouseLocation.getX() > x && mouseLocation.getX() < WIDTH && mouseLocation.getY() > y && mouseLocation.getY() < HEIGHT) {
 			g.setColor(Color.BLACK); //draw rectangles
@@ -106,7 +107,7 @@ public class Cursed extends JPanel implements MouseMotionListener {
 	public static void main(String[] args) {
 		JFrame thisFrame = new JFrame();
 		thisFrame.setTitle("Cursed");
-		thisFrame.setSize(700, 400); //width, height
+		thisFrame.setSize(1400, 700); //width, height
 		thisFrame.setVisible(true);
 		thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Cursed myPanel = new Cursed(thisFrame);
