@@ -12,11 +12,15 @@ public class Test extends JPanel implements MouseListener{
 	public int WIDTH;
 	public int HEIGHT;
 	
+	private Card myCard;
+	
 	public Test(JFrame frame){
 		super();
 		WIDTH = frame.getWidth();
 		HEIGHT = frame.getHeight();
 		myFrame = frame;
+		
+		myCard = new Card(0, 0, 0, 30, "s");
 	}
 
     public static void main(String[] args){
