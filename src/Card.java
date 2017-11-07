@@ -1,20 +1,38 @@
 package src;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+import java.io.File;
+
+import javax.swing.ImageIcon;
+
 public class Card
 {
 	private int rank;
     private String suit;
     private boolean isFaceUp;
     
+	// The card's center's coordinates.
+	private int x, y;
+	
+	// The card's width and height. 
+	private int width, height;
+    
     /**
      * Constructs a Card object
      * @param newRank rank of the card
      * @param newSuit suit of the card
      */
-    public Card(int newRank, String newSuit)
+    public Card(int newRank, int x, int y, int width, String newSuit)
     {
         rank = newRank;
         suit = newSuit;
+        setSize(width);
+		this.x = x;
+		this.y = y;
         isFaceUp = false;
     }
     
@@ -71,7 +89,76 @@ public class Card
         
         return rank + suit + ".gif";
     }
+    
+	/**
+	 * draws the cards
+	 */
+	private void drawCard(Graphics g, Card card, int x, int y)
+	{
+		if (card == null)
+		{
+			g.setColor(Color.BLACK);
+			g.drawRect(x, y, width, height);
+		}
+		else
+		{
+			String fileName = card.getFileName();
+			if (!new File(fileName).exists())
+			    throw new IllegalArgumentException("bad file name:  " + fileName);
+			Image image = new ImageIcon(fileName).getImage();
+			g.drawImage(image, x, y, width, height, null);
+		}
+	}
+    
+	/** Returns whether or not some given coordinates are within the outline of the card. */
+	public boolean contains(int x, int y)
+	{
+		return getShape().contains(x, y);
+	}
+    
+	/**
+	 * Compares this card with some other card. Per the specifications, a negative
+	 * integer, zero, or a positive integer will be returned if this card is less
+	 * than, equal to, or greater than the given card respectively. Specifically,
+	 * the number returned is this card's value minus the given card's value.
+	 */
+	public int compareTo(Card card)
+	{
+		return rank - card.getRank();
+	}
+    
+	/** Sets the coordinates of the center of the card. */
+	public void setLocation(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
 
+	/** Returns the Shape of the card. */
+	public Shape getShape()
+	{
+		return new RoundRectangle2D.Double(x - width / 2, y - height / 2, width, height, width / 10, width / 10);
+	}
+    
+	public void setSize(int width)
+	{
+		this.width = width;
+		height = width * 3 / 2;
+	}
+    
+	/** Returns the x coordinate of the middle of the card. */
+	public int getX()
+	{
+		return x;
+	}
+	
+	/** Returns the y coordinate of the middle of the card. */
+	public int getY()
+	{
+		return y;
+	}
+    
+    
     // added 
     public String toString()
     {
