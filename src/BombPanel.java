@@ -1,5 +1,8 @@
 package src;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Polygon;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -12,19 +15,39 @@ public class BombPanel extends JPanel implements MouseListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private JFrame myFrame;
+	private int WIDTH;
+	private int HEIGHT;
+	private int xOffset = 0;
+	private int yOffset = 0;
 	
-	private Bomb[] bombarray;
+	private Polygon[] bombArray;
 	private int bombsNumber = 3;
 	
 	public BombPanel(JFrame frame) {
-		bombarray = new Bomb[bombsNumber];
+		super();
+		WIDTH = frame.getWidth();
+		HEIGHT = frame.getHeight();
+		myFrame = frame;
+		
+		//methodology borrowed from Steve Harper's dolpin code
+		int borderWidth = (WIDTH - frame.getContentPane().getWidth())/2;
+		xOffset = borderWidth;
+        yOffset = HEIGHT - frame.getContentPane().getHeight()-borderWidth; // assume side border = bottom border; ignore title bar
+        
+		bombArray = new Bomb[bombsNumber];
 		for(int i = 0; i < 3; i++) {
-			bombarray[i] = new Bomb();
+			bombArray[i] = new Bomb();
 		}
+		
+		addMouseListener(this);
 	}
 	
-	public static void paintComponent() {
-		
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.BLACK);
+		for(int i = 0; i < bombsNumber; i++) {
+			g.fillOval(bombArray[i].getX(), bombArray[i].getY(), bombArray[i].getWidth(), bombArray[i].getWidth());
+		}
 	}
 	
 	@Override
