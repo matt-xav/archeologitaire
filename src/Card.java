@@ -23,8 +23,6 @@ public class Card
     
     /**
      * Constructs a Card object
-     * @param newRank rank of the card
-     * @param newSuit suit of the card
      */
     public Card(int newRank, int x, int y, int width, String newSuit)
     {
