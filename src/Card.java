@@ -3,17 +3,19 @@ package src;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Polygon;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 
 import javax.swing.ImageIcon;
 
-public class Card
+public class Card extends Polygon
 {
 	private int rank;
     private String suit;
     private boolean isFaceUp;
+    public Image myCardImage;
     
 	// The card's center's coordinates.
 	private int x, y;
@@ -32,6 +34,7 @@ public class Card
 		this.x = x;
 		this.y = y;
         isFaceUp = false;
+        myCardImage = new ImageIcon(getFileName()).getImage();
     }
     
     public int getRank()
@@ -72,8 +75,8 @@ public class Card
 
     public String getFileName()
     {
-        if (!isFaceUp)  
-        	return "back.gif"; 
+//        if (!isFaceUp)  
+//        	return "back.gif"; 
         if (rank == 10) 
         	return "t" + suit + ".gif";
         if (rank == 11) 
@@ -91,7 +94,7 @@ public class Card
 	/**
 	 * draws the cards
 	 */
-	private void drawCard(Graphics g, Card card, int x, int y)
+	private void drawCard(Graphics g, Card card)
 	{
 		if (card == null)
 		{
@@ -100,11 +103,14 @@ public class Card
 		}
 		else
 		{
-			String fileName = card.getFileName();
-			if (!new File(fileName).exists())
-			    throw new IllegalArgumentException("bad file name:  " + fileName);
-			Image image = new ImageIcon(fileName).getImage();
-			g.drawImage(image, x, y, width, height, null);
+			if (card.isFaceUp())
+			{
+				if (!card.isFaceUp())
+				{
+					
+				}
+			}
+			g.drawImage(card.myCardImage, x, y, width, height, null);
 		}
 	}
     

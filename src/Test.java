@@ -20,7 +20,8 @@ public class Test extends JPanel implements MouseListener{
 		HEIGHT = frame.getHeight();
 		myFrame = frame;
 		
-		myCard = new Card(0, 0, 0, 30, "s");
+		myCard = new Card(1,10,10,219,"d");
+		
 	}
 
     public static void main(String[] args){
