@@ -28,7 +28,7 @@ public class Dirt extends JPanel implements MouseListener, MouseMotionListener{
 	private int yOffset = 0;
 	
 	//NOT WORKED OUT YET, KEEP AT 1
-	private int scale = 6;//the larger this number, the bigger the dirt will be
+	private int scale = 2;//the larger this number, the bigger the dirt will be
 	
 	private final Color BROWN = new Color(185, 122, 87);
 	
