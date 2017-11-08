@@ -6,8 +6,10 @@ import java.awt.Image;
 import java.awt.Polygon;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
-
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class Card extends Polygon
@@ -94,7 +96,7 @@ public class Card extends Polygon
 	/**
 	 * draws the cards
 	 */
-	private void drawCard(Graphics g, Card card)
+	public void drawCard(Graphics g, Card card)
 	{
 		if (card == null)
 		{
@@ -107,7 +109,15 @@ public class Card extends Polygon
 			{
 				if (!card.isFaceUp())
 				{
-					
+					BufferedImage img = null;
+					try
+					{
+						img = ImageIO.read(new File("back.gif"));
+					}
+					catch (IOException e)
+					{
+					}
+					g.drawImage(img, x, y, width, height, null);
 				}
 			}
 			g.drawImage(card.myCardImage, x, y, width, height, null);
