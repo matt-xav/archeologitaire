@@ -20,7 +20,7 @@ public class Solitaire extends JPanel
 
 	public static final int HORI_SPAC = 35;
 
-	public static final int TABLEAU_PILE_Y_LOC = 150;
+	public static final int TABLEAU_PILE_Y_LOC = 200;
 	
 	public static final int[] TABLEAU_PILE_X_LOCS =
 		{ 		(HORI_SPAC * 1) + (Card.WIDTH * 0), (HORI_SPAC * 2) + (Card.WIDTH * 1), (HORI_SPAC * 3) + (Card.WIDTH * 2), 
@@ -37,7 +37,7 @@ public class Solitaire extends JPanel
 	/** Constructor for a game panel. Adds mouse listeners and initializes deck and piles */
 	public Solitaire()
 	{
-		setBackground(new Color(0, 200, 0));
+		setBackground(Color.lightGray);
 		deck = new Deck();
 		tableauPiles = new Pile[7];
 		foundationPiles = new Pile[4];

@@ -1,14 +1,26 @@
 package src;
 
 import java.awt.EventQueue;
-import java.util.Stack;
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JMenu;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
+import java.awt.Font;
 
 public class SolitaireGUI
 {
-
 	private JFrame frame;
+	private Solitaire panel;
 	
+	private JMenuBar menuBar;
+	private JMenu mnFile;
+	private JMenuItem mntmNewGame;
+	private JMenuItem mntmQuitGame;
+
+
 	/**
 	 * Launch the application.
 	 */
@@ -22,15 +34,14 @@ public class SolitaireGUI
 				{
 					SolitaireGUI window = new SolitaireGUI();
 					window.frame.setVisible(true);
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-	
+
 	/**
 	 * Create the application.
 	 */
@@ -38,15 +49,59 @@ public class SolitaireGUI
 	{
 		initialize();
 	}
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize()
 	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
+		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Reaper.jpg"));
+		frame.setResizable(false);
+		frame.setTitle("Solitaire Dig");
+		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
 
+		panel = new Solitaire();
+		panel.setBounds(0, 0, 1064, 639);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		menuBar = new JMenuBar();
+		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		frame.setJMenuBar(menuBar);
+
+		mnFile = new JMenu("File");
+		mnFile.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		menuBar.add(mnFile);
+
+		mntmNewGame = new JMenuItem("New Game");
+		mntmNewGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mntmNewGame.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseReleased(MouseEvent e)
+			{
+				frame.dispose();
+				initialize();
+			}
+		});
+		mnFile.add(mntmNewGame);
+
+		mntmQuitGame = new JMenuItem("Quit Game");
+		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mntmQuitGame.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseReleased(MouseEvent e)
+			{
+				System.exit(0);
+			}
+		});
+		mnFile.add(mntmQuitGame);
+		frame.getContentPane().setLayout(null);
+
+	}
 }

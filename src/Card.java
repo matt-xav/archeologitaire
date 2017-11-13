@@ -30,8 +30,8 @@ public class Card extends Polygon
 	public Image myCardImage;
 
 	// The card's width and height.
-	public static final int HEIGHT = 100;
-	public static final int WIDTH = 60;
+	public static final int HEIGHT = 150;
+	public static final int WIDTH = 110;
 
 	/** Constructor that initializes the Rank, Suit, and the location to (0, 0) */
 	public Card(int newRank, String newSuit)
@@ -88,25 +88,26 @@ public class Card extends Polygon
 		{
 			g.setColor(Color.BLACK);
 			g.drawRect(cornerX, cornerY, WIDTH, HEIGHT);
-		} else
+		} 
+		else
 		{
-			if (!faceDown)
+			if (faceDown)
 			{
-				if (faceDown)
+				BufferedImage img = null;
+				try
 				{
-					BufferedImage img = null;
-					try
-					{
-						img = ImageIO.read(new File("back.gif"));
-					} catch (IOException e)
-					{
-					}
-					g.drawImage(img, cornerX, cornerY, WIDTH, HEIGHT, null);
+					img = ImageIO.read(new File("back.gif"));
+				} 
+				catch (IOException e)
+				{
 				}
+				g.drawImage(img, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
-			g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
+			else
+				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 		}
 	}
+
 
 	public int getX()
 	{

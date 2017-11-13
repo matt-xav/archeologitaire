@@ -62,7 +62,7 @@ public class Pile
 	{
 		if (pile.size() == 0 && pileType != DECK_PILE)
 		{
-			g.setColor(Color.white);
+			g.setColor(Color.black);
 			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT, 10, 10);
 			return;
 		}

@@ -3,6 +3,7 @@ package src;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,11 +19,12 @@ public class Test extends JPanel implements MouseListener
 	public Test(JFrame frame)
 	{
 		super();
+		setLayout(null);
 		WIDTH = frame.getWidth();
 		HEIGHT = frame.getHeight();
 		myFrame = frame;
 
-		card = new Card(12, 200, 200, 219, "c");
+		card = new Card(3, "c", 10, 10);
 	}
 
 	public static void main(String[] args)
@@ -33,12 +35,20 @@ public class Test extends JPanel implements MouseListener
 		thisFrame.setVisible(true);
 		thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Test myTest = new Test(thisFrame);
-		thisFrame.add(myTest);
+		thisFrame.getContentPane().add(myTest);
+		thisFrame.repaint();
 	}
 	
 	public void paintComponent(Graphics g)
 	{
-		card.drawCard(g, card);
+		try
+		{
+			card.draw(g);
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 
