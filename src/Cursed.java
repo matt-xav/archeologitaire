@@ -85,6 +85,7 @@ public class Cursed extends JPanel implements MouseMotionListener {
 			}
 		}else{
 			g.fillRect(x, y, WIDTH, HEIGHT);
+			//System.out.println("Something happened");
 		}
 	}
 
@@ -107,7 +108,7 @@ public class Cursed extends JPanel implements MouseMotionListener {
 	public static void main(String[] args) {
 		JFrame thisFrame = new JFrame();
 		thisFrame.setTitle("Cursed");
-		thisFrame.setSize(1400, 700); //width, height
+		thisFrame.setSize(1000, 600); //width, height
 		thisFrame.setVisible(true);
 		thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Cursed myPanel = new Cursed(thisFrame);

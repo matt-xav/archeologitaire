@@ -46,8 +46,9 @@ public class Dirt extends JPanel implements MouseListener, MouseMotionListener{
 		//methodology borrowed from Steve Harper's dolpin code
 		int borderWidth = (WIDTH - frame.getContentPane().getWidth())/2;
 		xOffset = borderWidth;
-        yOffset = HEIGHT - frame.getContentPane().getHeight()-borderWidth; // assume side border = bottom border; ignore title bar
-
+        yOffset = HEIGHT - frame.getContentPane().getHeight(); // assume side border = bottom border; ignore title bar
+        System.out.printf("frame.getContentPane.getWidth: %d%nframe.getContentPane().getHeight(); %d%nxOffest: %d%nyOffest: %d%n", 
+        		frame.getContentPane().getWidth(), frame.getContentPane().getHeight(), xOffset, yOffset);
 		
 		myRand = new Random();
 		dirtLocations = new int[WIDTH/scale][HEIGHT/scale];// initialize dirt locations
@@ -141,7 +142,7 @@ public class Dirt extends JPanel implements MouseListener, MouseMotionListener{
 	public static void main(String[] args) {
 		JFrame thisFrame = new JFrame();
 		thisFrame.setTitle("Dirt");
-		thisFrame.setSize(1400, 800); //height, width
+		thisFrame.setSize(500, 500); //height, width
 		thisFrame.setVisible(true);
 		thisFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dirt myPanel = new Dirt(thisFrame);
