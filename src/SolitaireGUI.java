@@ -8,7 +8,7 @@ public class SolitaireGUI
 {
 
 	private JFrame frame;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -22,14 +22,15 @@ public class SolitaireGUI
 				{
 					SolitaireGUI window = new SolitaireGUI();
 					window.frame.setVisible(true);
-				} catch (Exception e)
+				}
+				catch (Exception e)
 				{
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the application.
 	 */
@@ -37,7 +38,7 @@ public class SolitaireGUI
 	{
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
