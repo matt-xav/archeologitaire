@@ -44,7 +44,6 @@ public class Cursed extends JPanel implements MouseMotionListener
 
 		addMouseMotionListener(this);
 	}
-<<<<<<< HEAD
 	
 	public Cursed(JPanel panel) {
 		super();
@@ -61,8 +60,9 @@ public class Cursed extends JPanel implements MouseMotionListener
         
 		addMouseMotionListener(this);
 	}
-	
-	public void paintComponent(Graphics g) {
+
+	public void paintComponent(Graphics g)
+	{
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
 		System.out.println("Cursed.paintComponent");
@@ -72,26 +72,8 @@ public class Cursed extends JPanel implements MouseMotionListener
 			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());//bottom
 			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);//left
 			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);//right
-			
-			//g.setColor(Color.RED);//rounding
-=======
-
-	public void paintComponent(Graphics g)
-	{
-		super.paintComponent(g);
-		// g.drawImage(img, 0, 0, observer);
-		g.setColor(Color.BLACK);
-		if (mouseLocation.getX() > x && mouseLocation.getX() < WIDTH && mouseLocation.getY() > y
-				&& mouseLocation.getY() < HEIGHT)
-		{
-			g.setColor(Color.BLACK); // draw rectangles
-			g.fillRect(x, y, WIDTH, (int) mouseLocation.getY() - radius); // top
-			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());// bottom
-			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);// left
-			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);// right
 
 			// g.setColor(Color.RED);//rounding
->>>>>>> 3386ec7063e7ccfa08b15a64b945b4bf59468e0e
 			double angle;
 			double rangle;
 			for (int i = 0; i < 90; i++)
