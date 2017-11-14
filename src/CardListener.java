@@ -1,8 +1,6 @@
 package src;
 
-
 import java.awt.event.MouseEvent;
-
 import javax.swing.event.MouseInputAdapter;
 
 /**
@@ -11,18 +9,17 @@ import javax.swing.event.MouseInputAdapter;
 public class CardListener extends MouseInputAdapter
 {
 	private Solitaire panel;
-	
 	private Deck deck;
-	
-	private Pile[] tableaPiles;
-	private Pile[] foundationPiles;
 	
 	private Pile deckPile;
 	private Pile origPile;
 	
-	private int lastX, lastY;
+	private Pile[] tableaPiles;
+	private Pile[] foundationPiles;
+
+	private int lastX; 
+	private int lastY;
 	
-	/** Constructor for a Card Listener */
 	public CardListener(Solitaire panel)
 	{
 		this.panel = panel;

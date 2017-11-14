@@ -15,7 +15,6 @@ public class Deck
 	private int xLoc;
 	private int yLoc;
 
-	/** Constructor that adds 52 cards to the deck and shuffles it */
 	public Deck()
 	{
 		deck = new ArrayList<Card>();

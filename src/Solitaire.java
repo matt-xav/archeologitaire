@@ -15,26 +15,28 @@ public class Solitaire extends JPanel
 	private Deck deck;
 	private Pile deckPile;
 	
+	public Pile selectedPile; // The selected Pile is always drawn last (so it is on top of everything else)
+	
 	private Pile[] tableauPiles; 
 	private Pile[] foundationPiles;
 
 	public static final int HORI_SPAC = 35;
-
 	public static final int TABLEAU_PILE_Y_LOC = 200;
-	
-	public static final int[] TABLEAU_PILE_X_LOCS =
-		{ 		(HORI_SPAC * 1) + (Card.WIDTH * 0), (HORI_SPAC * 2) + (Card.WIDTH * 1), (HORI_SPAC * 3) + (Card.WIDTH * 2), 
-				(HORI_SPAC * 4) + (Card.WIDTH * 3), (HORI_SPAC * 5) + (Card.WIDTH * 4), (HORI_SPAC * 6) + (Card.WIDTH * 5),
-				(HORI_SPAC * 7) + (Card.WIDTH * 6) 
-		};
-	
 	public static final int FOUNDATION_PILE_Y_LOC = 20;
-	public static final int[] FOUNDATION_PILE_X_LOCS = { TABLEAU_PILE_X_LOCS[3], TABLEAU_PILE_X_LOCS[4], TABLEAU_PILE_X_LOCS[5], TABLEAU_PILE_X_LOCS[6] };
 
-	/** The selected Pile is always drawn last (so it is on top of everything else) */
-	public Pile selectedPile;
+	public static final int[] TABLEAU_PILE_X_LOCS ={(HORI_SPAC * 1) + (Card.WIDTH * 0), 
+													(HORI_SPAC * 2) + (Card.WIDTH * 1), 
+													(HORI_SPAC * 3) + (Card.WIDTH * 2), 
+													(HORI_SPAC * 4) + (Card.WIDTH * 3), 
+													(HORI_SPAC * 5) + (Card.WIDTH * 4), 
+													(HORI_SPAC * 6) + (Card.WIDTH * 5),
+													(HORI_SPAC * 7) + (Card.WIDTH * 6) };
 	
-	/** Constructor for a game panel. Adds mouse listeners and initializes deck and piles */
+	public static final int[] FOUNDATION_PILE_X_LOCS = {TABLEAU_PILE_X_LOCS[3], 
+														TABLEAU_PILE_X_LOCS[4], 
+														TABLEAU_PILE_X_LOCS[5], 
+														TABLEAU_PILE_X_LOCS[6] };
+
 	public Solitaire()
 	{
 		setBackground(Color.lightGray);
@@ -71,12 +73,6 @@ public class Solitaire extends JPanel
 		}
 	}
 	
-	/** Return the deck of cards */
-	public Deck getDeck()
-	{
-		return deck;
-	}
-	
 	/** Sets the location of all cards to their starting points */
 	public void setInitialLayout(Deck d)
 	{
@@ -111,9 +107,13 @@ public class Solitaire extends JPanel
 		return foundationPiles;
 	}
 	
-	/** @return the deck pile */
 	public Pile getDeckPile()
 	{
 		return deckPile;
 	}	
+	
+	public Deck getDeck()
+	{
+		return deck;
+	}
 }

@@ -4,11 +4,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
 import java.awt.Font;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
 
 public class SolitaireGUI
 {
@@ -34,7 +37,8 @@ public class SolitaireGUI
 				{
 					SolitaireGUI window = new SolitaireGUI();
 					window.frame.setVisible(true);
-				} catch (Exception e)
+				} 
+				catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -48,6 +52,7 @@ public class SolitaireGUI
 	public SolitaireGUI()
 	{
 		initialize();
+		panel.repaint();
 	}
 	
 	/**
@@ -88,8 +93,12 @@ public class SolitaireGUI
 			@Override
 			public void mouseReleased(MouseEvent e)
 			{
-				initialize();
 				frame.dispose();
+				SolitaireGUI window = new SolitaireGUI();
+				window.frame.setVisible(true);
+				initialize();
+				panel.repaint();
+				JOptionPane.showMessageDialog(frame,"New Game has Begun");
 			}
 		});
 		mnFile.add(mntmNewGame);

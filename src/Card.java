@@ -14,9 +14,6 @@ public class Card extends Polygon
 {
 	private static final long serialVersionUID = -1948500488018695977L;
 
-	/**
-	 * Added 2 more coordinates
-	 */
 	private int cornerX;
 	private int cornerY;
 	private int rightX;
@@ -31,13 +28,11 @@ public class Card extends Polygon
 	public static final int HEIGHT = 150;
 	public static final int WIDTH = 110;
 
-	/** Constructor that initializes the Rank, Suit, and the location to (0, 0) */
 	public Card(int newRank, String newSuit)
 	{
 		this(newRank, newSuit, 0, 0);
 	}
 
-	/** Constructor that initializes all variables to passed in parameters */
 	public Card(int newRank, String newSuit, int x, int y)
 	{
 		rank = newRank;
@@ -45,39 +40,6 @@ public class Card extends Polygon
 		setLocation(x, y);
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
-	}
-
-	public int getRank()
-	{
-		return rank;
-	}
-
-	public String getSuit()
-	{
-		return suit;
-	}
-
-	public boolean isRed()
-	{
-		return (suit.equals("d") || suit.equals("h"));
-	}
-
-	public String getFileName()
-	{
-		// if (!isFaceUp)
-		// return "back.gif";
-		if (rank == 10)
-			return "t" + suit + ".gif";
-		if (rank == 11)
-			return "j" + suit + ".gif";
-		if (rank == 12)
-			return "q" + suit + ".gif";
-		if (rank == 13)
-			return "k" + suit + ".gif";
-		if (rank == 1)
-			return "a" + suit + ".gif";
-
-		return rank + suit + ".gif";
 	}
 
 	public void display(Graphics g) throws IOException
@@ -106,6 +68,38 @@ public class Card extends Polygon
 		}
 	}
 
+	public String getFileName()
+	{
+		// if (!isFaceUp)
+		// return "back.gif";
+		if (rank == 10)
+			return "t" + suit + ".gif";
+		if (rank == 11)
+			return "j" + suit + ".gif";
+		if (rank == 12)
+			return "q" + suit + ".gif";
+		if (rank == 13)
+			return "k" + suit + ".gif";
+		if (rank == 1)
+			return "a" + suit + ".gif";
+
+		return rank + suit + ".gif";
+	}
+
+	public boolean isRed()
+	{
+		return (suit.equals("d") || suit.equals("h"));
+	}
+	
+	public int getRank()
+	{
+		return rank;
+	}
+
+	public String getSuit()
+	{
+		return suit;
+	}
 
 	public int getX()
 	{

@@ -35,9 +35,6 @@ public class Pile
 		this(0, 0, TEMP_PILE);
 	}
 
-	/**
-	 * Constructs a new pile of cards with an x location and a y location of (x,y)
-	 */
 	public Pile(int x, int y, int t)
 	{
 		pile = new ArrayList<Card>();
@@ -65,7 +62,6 @@ public class Pile
 			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT, 10, 10);
 			return;
 		}
-
 		if (pileType == DECK_PILE)
 		{
 			for (int i = 0; i < drawPile.length; i++)
@@ -75,20 +71,23 @@ public class Pile
 					try
 					{
 						drawPile[i].display(g);
-					} catch (IOException e)
+					} 
+					catch (IOException e)
 					{
 						e.printStackTrace();
 					}
 				}
 			}
-		} else
+		} 
+		else
 		{
 			for (int i = 0; i < pile.size(); i++)
 			{
 				try
 				{
 					pile.get(i).display(g);
-				} catch (IOException e)
+				} 
+				catch (IOException e)
 				{
 					e.printStackTrace();
 				}
@@ -110,10 +109,12 @@ public class Pile
 			{
 				height += VERT_DISPL;
 			}
-		} else if (pileType == FOUNDATION_PILE)
+		} 
+		else if (pileType == FOUNDATION_PILE)
 		{
 			c.setLocation(xLoc, yLoc);
-		} else if (pileType == DECK_PILE)
+		} 
+		else if (pileType == DECK_PILE)
 		{
 			c.setLocation(xLoc, yLoc);
 			updateTop3();
@@ -148,8 +149,7 @@ public class Pile
 			Card c = this.getCardOnTop();
 			if (c != null)
 			{
-				if ((e.getX() >= c.getX() && e.getX() <= c.getX() + Card.WIDTH)
-						&& (e.getY() >= c.getY() && e.getY() <= c.getY() + Card.HEIGHT))
+				if ((e.getX() >= c.getX() && e.getX() <= c.getX() + Card.WIDTH) && (e.getY() >= c.getY() && e.getY() <= c.getY() + Card.HEIGHT))
 				{
 					return this.getPileAt(this.size() - 1);
 				}
@@ -241,9 +241,9 @@ public class Pile
 	{
 		// this checks to see if any of the cards corners is on a pile
 		return (((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
-			|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
-			|| ((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
-			|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
+			||  ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
+			||  ((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
+			||  ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
 	}
 
 	public boolean droppedOnPile(Pile p)
@@ -252,7 +252,6 @@ public class Pile
 		{
 			return droppedOnPile(p.getCardAt(0));
 		}
-
 		return false;
 	}
 
