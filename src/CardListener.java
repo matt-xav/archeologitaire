@@ -214,7 +214,6 @@ public class CardListener extends MouseInputAdapter
 		{
 			origPile = deckPile;
 		}
-		panel.repaint();
 		return clicked;
 	}
 }
