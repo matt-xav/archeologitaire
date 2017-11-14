@@ -87,7 +87,7 @@ public class Card extends Polygon
 		if (myCardImage == null)
 		{
 			g.setColor(Color.BLACK);
-			g.drawRect(cornerX, cornerY, WIDTH, HEIGHT);
+			g.drawRoundRect(cornerX, cornerY, WIDTH, HEIGHT, 10, 10);
 		} 
 		else
 		{

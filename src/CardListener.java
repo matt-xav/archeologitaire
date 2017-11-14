@@ -95,7 +95,7 @@ public class CardListener extends MouseInputAdapter
 		if (p != null)
 		{
 			boolean validDrop = false;
-			// check to see if the selectedPile has been dropped on a main pile
+			// check to see if the selectedPile has been dropped on a tableau pile
 			for (int i = 0; i < tableaPiles.length; i++)
 			{
 				if (tableaPiles[i].droppedOnPile(p))
@@ -126,8 +126,7 @@ public class CardListener extends MouseInputAdapter
 					} // end isEmpty() condition
 				}
 			}
-			// if the drop is still invalid, check if it's been dropped on a suit pile
-			// instead
+			// if the drop is still invalid, check if it's been dropped on a foundation pile instead
 			if (!validDrop)
 			{
 				for (int i = 0; i < foundationPiles.length; i++)
@@ -150,7 +149,7 @@ public class CardListener extends MouseInputAdapter
 						{
 							if (p.size() == 1)
 							{
-								// only single cards can be added to suit piles the suits must be the same for
+								// only single cards can be added to foundation piles the suits must be the same for
 								// cards being added
 								if (p.getCardOnBottom().getSuit() == foundationPiles[i].getCardOnTop().getSuit())
 								{

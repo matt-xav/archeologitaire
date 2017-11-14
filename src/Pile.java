@@ -26,10 +26,9 @@ public class Pile
 	private int height;
 
 	public static final int VERT_DISPL = 22;
-
 	public static final int HORI_DISPL = 26;
 
-	private Card[] top3;
+	private Card[] drawPile;
 
 	public Pile()
 	{
@@ -54,7 +53,7 @@ public class Pile
 			pileType = t;
 		}
 		// the top3 are only used by DECK_PILE's
-		top3 = (pileType == DECK_PILE) ? new Card[3] : null;
+		drawPile = (pileType == DECK_PILE) ? new Card[3] : null;
 	}
 
 	/** Draws the pile of cards */
@@ -69,13 +68,13 @@ public class Pile
 
 		if (pileType == DECK_PILE)
 		{
-			for (int i = 0; i < top3.length; i++)
+			for (int i = 0; i < drawPile.length; i++)
 			{
-				if (top3[i] != null)
+				if (drawPile[i] != null)
 				{
 					try
 					{
-						top3[i].draw(g);
+						drawPile[i].draw(g);
 					} catch (IOException e)
 					{
 						e.printStackTrace();
@@ -242,12 +241,9 @@ public class Pile
 	{
 		// this checks to see if any of the cards corners is on a pile
 		return (((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
-				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width)
-						&& (c.getY() >= yLoc && c.getY() <= yLoc + height))
-				|| ((c.getX() >= xLoc && c.getX() <= xLoc + width)
-						&& (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
-				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width)
-						&& (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
+			|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
+			|| ((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
+			|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
 	}
 
 	public boolean droppedOnPile(Pile p)
@@ -331,24 +327,24 @@ public class Pile
 		if (pileType == DECK_PILE)
 		{
 			// first clear the top 3
-			for (int i = 0; i < top3.length; i++)
+			for (int i = 0; i < drawPile.length; i++)
 			{
-				top3[i] = null;
+				drawPile[i] = null;
 			}
 
 			if (this.size() >= 3)
 			{
 				for (int i = this.size() - 3, j = 0; i < this.size(); i++, j++)
 				{
-					top3[j] = this.getCardAt(i);
-					top3[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
+					drawPile[j] = this.getCardAt(i);
+					drawPile[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
 				}
 			} else
 			{
 				for (int i = 0; i < this.size(); i++)
 				{
-					top3[i] = this.getCardAt(i);
-					top3[i].setLocation(xLoc + (i * HORI_DISPL), yLoc);
+					drawPile[i] = this.getCardAt(i);
+					drawPile[i].setLocation(xLoc + (i * HORI_DISPL), yLoc);
 				}
 			}
 		}

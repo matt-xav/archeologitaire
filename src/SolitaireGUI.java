@@ -13,7 +13,7 @@ import java.awt.Font;
 public class SolitaireGUI
 {
 	private JFrame frame;
-	private Solitaire panel;
+	private static Solitaire panel;
 	
 	private JMenuBar menuBar;
 	private JMenu mnFile;
@@ -49,7 +49,7 @@ public class SolitaireGUI
 	{
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -84,8 +84,8 @@ public class SolitaireGUI
 			@Override
 			public void mouseReleased(MouseEvent e)
 			{
-				frame.dispose();
 				initialize();
+				frame.dispose();
 			}
 		});
 		mnFile.add(mntmNewGame);
@@ -102,6 +102,9 @@ public class SolitaireGUI
 		});
 		mnFile.add(mntmQuitGame);
 		frame.getContentPane().setLayout(null);
-
+		
+		panel.repaint();
 	}
+	
+	
 }
