@@ -63,7 +63,8 @@ public class SolitaireGUI
 		frame.setTitle("Solitaire Dig");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		frame.getContentPane().setLayout(null);
+		
 		panel = new Solitaire();
 		panel.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(panel);
@@ -101,8 +102,7 @@ public class SolitaireGUI
 			}
 		});
 		mnFile.add(mntmQuitGame);
-		frame.getContentPane().setLayout(null);
-		
+
 		panel.repaint();
 	}
 	
