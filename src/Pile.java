@@ -53,7 +53,7 @@ public class Pile
 			pileType = t;
 		}
 		// the top3 are only used by DECK_PILE's
-		drawPile = (pileType == DECK_PILE) ? new Card[3] : null;
+		drawPile = (pileType == DECK_PILE) ? new Card[1] : null;
 	}
 
 	/** Draws the pile of cards */
