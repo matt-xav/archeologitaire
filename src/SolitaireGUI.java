@@ -71,7 +71,7 @@ public class SolitaireGUI
 		panel.setLayout(null);
 		
 		Cursed cursedPanel = new Cursed(frame);
-		frame.add(cursedPanel);
+		frame.getContentPane().add(cursedPanel);
 		
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));
@@ -105,9 +105,15 @@ public class SolitaireGUI
 			}
 		});
 		mnFile.add(mntmQuitGame);
+		
+		JMenuItem mntmUndo = new JMenuItem("Undo");
+		mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mnFile.add(mntmUndo);
+		
+		JMenuItem mntmRedo = new JMenuItem("Redo");
+		mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mnFile.add(mntmRedo);
 
 		panel.repaint();
 	}
-	
-	
 }

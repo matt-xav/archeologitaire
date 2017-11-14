@@ -57,17 +57,17 @@ public class Solitaire extends JPanel
 		// draw all piles and the remaining cards left in the deck
 		for (int i = 0; i < tableauPiles.length; i++)
 		{
-			tableauPiles[i].draw(g);
+			tableauPiles[i].display(g);
 		}
 		for (int i = 0; i < foundationPiles.length; i++)
 		{
-			foundationPiles[i].draw(g);
+			foundationPiles[i].display(g);
 		}
-		deckPile.draw(g);
-		deck.draw(g);
+		deckPile.display(g);
+		deck.display(g);
 		if (selectedPile != null)
 		{
-			selectedPile.draw(g);
+			selectedPile.display(g);
 		}
 	}
 	

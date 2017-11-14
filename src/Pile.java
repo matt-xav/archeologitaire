@@ -57,7 +57,7 @@ public class Pile
 	}
 
 	/** Draws the pile of cards */
-	public void draw(Graphics g)
+	public void display(Graphics g)
 	{
 		if (pile.size() == 0 && pileType != DECK_PILE)
 		{
@@ -74,7 +74,7 @@ public class Pile
 				{
 					try
 					{
-						drawPile[i].draw(g);
+						drawPile[i].display(g);
 					} catch (IOException e)
 					{
 						e.printStackTrace();
@@ -87,7 +87,7 @@ public class Pile
 			{
 				try
 				{
-					pile.get(i).draw(g);
+					pile.get(i).display(g);
 				} catch (IOException e)
 				{
 					e.printStackTrace();

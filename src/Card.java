@@ -80,7 +80,7 @@ public class Card extends Polygon
 		return rank + suit + ".gif";
 	}
 
-	public void draw(Graphics g) throws IOException
+	public void display(Graphics g) throws IOException
 	{
 		if (myCardImage == null)
 		{
@@ -143,13 +143,6 @@ public class Card extends Polygon
 		bottomY = cornerY + HEIGHT;
 	}
 
-//	public boolean equals(Card c)
-//	{
-//		// TODO
-//		// unsure why this will not work
-//		return c.getSuit().equals(this.suit) && c.getRank().equals(this.rank);
-//	}
-
 	@Override
 	public int hashCode()
 	{
@@ -179,12 +172,6 @@ public class Card extends Polygon
 		} else if (!suit.equals(other.suit))
 			return false;
 		return true;
-	}
-
-	// added
-	public void display()
-	{
-		/** Enter Code */
 	}
 
 	// added

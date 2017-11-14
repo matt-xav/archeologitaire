@@ -40,13 +40,13 @@ public class Deck
 	}
 
 	/** Draws each card in the deck */
-	public void draw(Graphics g)
+	public void display(Graphics g)
 	{
 		for (int i = 0; i < deck.size(); i++)
 		{
 			try
 			{
-				this.getCardAt(i).draw(g);
+				this.getCardAt(i).display(g);
 			} catch (IOException e)
 			{
 				e.printStackTrace();
