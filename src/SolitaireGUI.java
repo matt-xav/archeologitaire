@@ -70,6 +70,9 @@ public class SolitaireGUI
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
+		Cursed cursedPanel = new Cursed(frame);
+		frame.add(cursedPanel);
+		
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setJMenuBar(menuBar);
