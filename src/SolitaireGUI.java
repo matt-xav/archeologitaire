@@ -43,6 +43,7 @@ public class SolitaireGUI
 				try
 				{
 					SolitaireGUI window = new SolitaireGUI();
+					window.frame.setVisible(false);
 					window.frame.setVisible(true);
 				} catch (Exception e)
 				{
@@ -58,7 +59,10 @@ public class SolitaireGUI
 	public SolitaireGUI()
 	{
 		initialize();
+		
 		panel.repaint();
+		panel.setVisible(false);
+		panel.setVisible(true);
 	}
 
 	/**
@@ -67,10 +71,10 @@ public class SolitaireGUI
 	private void initialize()
 	{
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Reaper.jpg"));
-		frame.setResizable(false);
 		frame.setTitle("Solitaire Dig");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -81,11 +85,14 @@ public class SolitaireGUI
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		cursedPanel = new Cursed(frame);
-		cursedPanel.setBounds(0, 0, 1064, 639);
-		frame.getContentPane().add(cursedPanel);
-				
+//		cursedPanel = new Cursed(frame);
+//		cursedPanel.setBounds(0, 0, 1064, 639);
+//		frame.getContentPane().add(cursedPanel);
+//				
+		
 		panel.repaint();
+		panel.setVisible(false);
+		panel.setVisible(true);
 
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));

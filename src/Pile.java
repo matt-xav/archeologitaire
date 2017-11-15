@@ -24,10 +24,12 @@ public class Pile
 	private int yLoc;
 	private int width;
 	private int height;
+	
+	private int pileNumber;
 
 	public static final int VERT_DISPL = 22;
 	public static final int HORI_DISPL = 26;
-
+	
 	private Card[] drawPile;
 
 	public Pile()
@@ -70,6 +72,7 @@ public class Pile
 				{
 					try
 					{
+						System.out.println("draw" + this.getCardAt(i));
 						drawPile[i].display(g);
 					} 
 					catch (IOException e)
@@ -85,6 +88,7 @@ public class Pile
 			{
 				try
 				{
+					System.out.println("Pile: " + this.getCardAt(i));
 					pile.get(i).display(g);
 				} 
 				catch (IOException e)
@@ -298,6 +302,7 @@ public class Pile
 				c.setLocation(x, y + (i * VERT_DISPL));
 			}
 		}
+
 	}
 
 	public boolean isEmpty()
@@ -348,4 +353,10 @@ public class Pile
 			}
 		}
 	}
+	
+	public String toString()
+	{
+		return String.format("Pile#: %s", TABLEAU_PILE);
+	} 
+	
 }

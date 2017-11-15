@@ -49,7 +49,7 @@ public class Solitaire extends JPanel
 		CardListener listener = new CardListener(this);
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);
-		this.setFocusable(true);
+		this.setFocusable(true);	
 	}
 	
 	/** Paints the screen on a graphics context */

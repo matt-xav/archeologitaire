@@ -171,6 +171,6 @@ public class Card extends Polygon
 	// added
 	public String toString()
 	{
-		return String.format("Card: %s%s", getSuit(), getRank());// need to add special things for j, k, q, a
+		return String.format("Card: %s %s", getSuit(), getRank());// need to add special things for j, k, q, a
 	}
 }

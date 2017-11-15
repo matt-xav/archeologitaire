@@ -35,7 +35,7 @@ public class Deck
 				deck.add(temp);
 			}
 		}
-		shuffleDeck();
+//		shuffleDeck();
 	}
 
 	/** Draws each card in the deck */
@@ -46,7 +46,8 @@ public class Deck
 			try
 			{
 				this.getCardAt(i).display(g);
-			} catch (IOException e)
+			} 
+			catch (IOException e)
 			{
 				e.printStackTrace();
 			}

@@ -64,6 +64,8 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
+		panel.setVisible(false);
+		panel.setVisible(true);
 		panel.repaint();
 	}
 	
@@ -78,7 +80,11 @@ public class CardListener extends MouseInputAdapter
 			lastX = e.getX();
 			lastY = e.getY();
 		}
+		System.out.println("mouse dragged");
+
 		panel.repaint();
+		panel.setVisible(false);
+		panel.setVisible(true);
 	}
 	
 	/**
@@ -97,6 +103,7 @@ public class CardListener extends MouseInputAdapter
 			{
 				if (tableaPiles[i].droppedOnPile(p))
 				{
+					System.out.println("pile moved: " + i + "pile dropped on");
 					if (tableaPiles[i].isEmpty())
 					{
 						if (p.getCardOnBottom().getRank() == 13)
@@ -178,7 +185,10 @@ public class CardListener extends MouseInputAdapter
 		}
 		panel.selectedPile = null;
 		origPile = null;
+
 		panel.repaint();
+		panel.setVisible(false);
+		panel.setVisible(true);
 	}
 	
 	public void mouseClicked(MouseEvent e)
