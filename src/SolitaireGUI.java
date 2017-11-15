@@ -10,19 +10,26 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
 import java.awt.Font;
-import javax.swing.KeyStroke;
-import java.awt.event.KeyEvent;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.JButton;
 
 public class SolitaireGUI
 {
 	private JFrame frame;
 	private static Solitaire panel;
-	
+	private static Cursed cursedPanel;
+
 	private JMenuBar menuBar;
 	private JMenu mnFile;
+	
 	private JMenuItem mntmNewGame;
 	private JMenuItem mntmQuitGame;
-
+	private JMenuItem mntmUndo;
+	private JMenuItem mntmRedo;
+	
+	private JButton btnUndo;
+	private JButton btnRedo;
 
 	/**
 	 * Launch the application.
@@ -37,8 +44,7 @@ public class SolitaireGUI
 				{
 					SolitaireGUI window = new SolitaireGUI();
 					window.frame.setVisible(true);
-				} 
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -54,7 +60,7 @@ public class SolitaireGUI
 		initialize();
 		panel.repaint();
 	}
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -69,15 +75,18 @@ public class SolitaireGUI
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		panel = new Solitaire();
 		panel.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		Cursed cursedPanel = new Cursed(frame);
+		cursedPanel = new Cursed(frame);
+		cursedPanel.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(cursedPanel);
-		
+				
+		panel.repaint();
+
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setJMenuBar(menuBar);
@@ -98,7 +107,7 @@ public class SolitaireGUI
 				window.frame.setVisible(true);
 				initialize();
 				panel.repaint();
-				JOptionPane.showMessageDialog(frame,"New Game has Begun");
+				JOptionPane.showMessageDialog(frame, "New Game has Begun");
 			}
 		});
 		mnFile.add(mntmNewGame);
@@ -114,15 +123,26 @@ public class SolitaireGUI
 			}
 		});
 		mnFile.add(mntmQuitGame);
-		
-		JMenuItem mntmUndo = new JMenuItem("Undo");
+
+		mntmUndo = new JMenuItem("Undo");
 		mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmUndo);
-		
-		JMenuItem mntmRedo = new JMenuItem("Redo");
+
+		mntmRedo = new JMenuItem("Redo");
 		mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmRedo);
 
-		panel.repaint();
+		Component horizontalStrut = Box.createHorizontalStrut(240);
+		menuBar.add(horizontalStrut);
+		
+		btnUndo = new JButton("Undo");
+		btnUndo.setFont(new Font("Papyrus", Font.PLAIN, 10));
+		menuBar.add(btnUndo);
+		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
+		menuBar.add(horizontalStrut_1);
+		
+				btnRedo = new JButton("Redo");
+				btnRedo.setFont(new Font("Papyrus", Font.PLAIN, 10));
+				menuBar.add(btnRedo);
 	}
 }
