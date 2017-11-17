@@ -30,7 +30,6 @@ public class Pile
 	public static final int VERT_DISPL = 22;
 	public static final int HORI_DISPL = 26;
 
-	// private Card[] drawPile;
 	private Card[] drawPile;
 
 	public Pile()
@@ -53,7 +52,7 @@ public class Pile
 			pileType = t;
 		}
 		// the top3 are only used by DECK_PILE's
-		drawPile = (pileType == DECK_PILE) ? new Card[1] : null;
+		drawPile = (pileType == DECK_PILE) ? new Card[3] : null;
 	}
 
 	/** Draws the pile of cards */
@@ -118,8 +117,7 @@ public class Pile
 		} else if (pileType == DECK_PILE)
 		{
 			c.setLocation(xLoc, yLoc);
-			// updateTop3();
-			dealOneCards();
+			 updateTop3();
 		}
 	}
 
@@ -328,47 +326,24 @@ public class Pile
 		}
 	}
 
-//	public void updateTop3()
-//	{
-//		if (pileType == DECK_PILE)
-//		{
-//			// first clear the top 3
-//			for (int i = 0; i < drawPile.length; i++)
-//			{
-//				drawPile[i] = null;
-//			}
-//
-//			if (this.size() >= 3)
-//			{
-//				for (int i = this.size() - 3, j = 0; i < this.size(); i++, j++)
-//				{
-//					drawPile[j] = this.getCardAt(i);
-//					drawPile[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
-//				}
-//			} else
-//			{
-//				for (int i = 0; i < this.size(); i++)
-//				{
-//					drawPile[i] = this.getCardAt(i);
-//					drawPile[i].setLocation(xLoc + (i * HORI_DISPL), yLoc);
-//				}
-//			}
-//		}
-//	}
-
-	public void dealOneCards()
+	public void updateTop3()
 	{
 		if (pileType == DECK_PILE)
 		{
-			if (this.size() >= 1)
+			// first clear the top 3
+			for (int i = 0; i < drawPile.length; i++)
 			{
-				for (int i = this.size() - 1, j = 0; i < this.size(); i++, j++)
+				drawPile[i] = null;
+			}
+
+			if (this.size() >= 3)
+			{
+				for (int i = this.size() - 3, j = 0; i < this.size(); i++, j++)
 				{
 					drawPile[j] = this.getCardAt(i);
 					drawPile[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
 				}
-			} 
-			else
+			} else
 			{
 				for (int i = 0; i < this.size(); i++)
 				{

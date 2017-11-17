@@ -19,15 +19,15 @@ public class SolitaireGUI
 	private JFrame frame;
 	private static Solitaire panel;
 	private static Cursed cursedPanel;
-
+	
 	private JMenuBar menuBar;
 	private JMenu mnFile;
-	
+
 	private JMenuItem mntmNewGame;
 	private JMenuItem mntmQuitGame;
 	private JMenuItem mntmUndo;
 	private JMenuItem mntmRedo;
-	
+
 	private JButton btnUndo;
 	private JButton btnRedo;
 
@@ -59,7 +59,7 @@ public class SolitaireGUI
 	public SolitaireGUI()
 	{
 		initialize();
-		
+
 		panel.repaint();
 		panel.setVisible(false);
 		panel.setVisible(true);
@@ -84,11 +84,11 @@ public class SolitaireGUI
 		panel.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		cursedPanel = new Cursed(frame);
 		cursedPanel.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(cursedPanel);
-					
+
 		panel.repaint();
 		panel.setVisible(false);
 		panel.setVisible(true);
@@ -140,15 +140,18 @@ public class SolitaireGUI
 
 		Component horizontalStrut = Box.createHorizontalStrut(51);
 		menuBar.add(horizontalStrut);
-		
+
 		btnUndo = new JButton("Undo");
 		btnUndo.setFont(new Font("Papyrus", Font.PLAIN, 10));
 		menuBar.add(btnUndo);
 		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
 		menuBar.add(horizontalStrut_1);
+
+		btnRedo = new JButton("Redo");
+		btnRedo.setFont(new Font("Papyrus", Font.PLAIN, 10));
+		menuBar.add(btnRedo);
 		
-				btnRedo = new JButton("Redo");
-				btnRedo.setFont(new Font("Papyrus", Font.PLAIN, 10));
-				menuBar.add(btnRedo);
+
 	}
 }
+
