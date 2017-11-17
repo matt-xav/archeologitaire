@@ -35,7 +35,7 @@ public class Deck
 				deck.add(temp);
 			}
 		}
-//		shuffleDeck();
+		shuffleDeck();
 	}
 
 	/** Draws each card in the deck */

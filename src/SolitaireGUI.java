@@ -85,11 +85,10 @@ public class SolitaireGUI
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-//		cursedPanel = new Cursed(frame);
-//		cursedPanel.setBounds(0, 0, 1064, 639);
-//		frame.getContentPane().add(cursedPanel);
-//				
-		
+		cursedPanel = new Cursed(frame);
+		cursedPanel.setBounds(0, 0, 1064, 639);
+		frame.getContentPane().add(cursedPanel);
+					
 		panel.repaint();
 		panel.setVisible(false);
 		panel.setVisible(true);
@@ -139,7 +138,7 @@ public class SolitaireGUI
 		mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmRedo);
 
-		Component horizontalStrut = Box.createHorizontalStrut(240);
+		Component horizontalStrut = Box.createHorizontalStrut(51);
 		menuBar.add(horizontalStrut);
 		
 		btnUndo = new JButton("Undo");

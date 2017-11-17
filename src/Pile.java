@@ -24,12 +24,13 @@ public class Pile
 	private int yLoc;
 	private int width;
 	private int height;
-	
+
 	private int pileNumber;
 
 	public static final int VERT_DISPL = 22;
 	public static final int HORI_DISPL = 26;
-	
+
+	// private Card[] drawPile;
 	private Card[] drawPile;
 
 	public Pile()
@@ -52,7 +53,7 @@ public class Pile
 			pileType = t;
 		}
 		// the top3 are only used by DECK_PILE's
-		drawPile = (pileType == DECK_PILE) ? new Card[3] : null;
+		drawPile = (pileType == DECK_PILE) ? new Card[1] : null;
 	}
 
 	/** Draws the pile of cards */
@@ -64,24 +65,23 @@ public class Pile
 			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT, 10, 10);
 			return;
 		}
-		if (pileType == DECK_PILE)
-		{
-			for (int i = 0; i < drawPile.length; i++)
-			{
-				if (drawPile[i] != null)
-				{
-					try
-					{
-						System.out.println("draw" + this.getCardAt(i));
-						drawPile[i].display(g);
-					} 
-					catch (IOException e)
-					{
-						e.printStackTrace();
-					}
-				}
-			}
-		} 
+//		if (pileType == DECK_PILE)
+//		{
+//			for (int i = 0; i < drawPile.length; i++)
+//			{
+//				if (drawPile[i] != null)
+//				{
+//					try
+//					{
+//						System.out.println("draw" + this.getCardAt(i));
+//						drawPile[i].display(g);
+//					} catch (IOException e)
+//					{
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//		}
 		else
 		{
 			for (int i = 0; i < pile.size(); i++)
@@ -90,8 +90,7 @@ public class Pile
 				{
 					System.out.println("Pile: " + this.getCardAt(i));
 					pile.get(i).display(g);
-				} 
-				catch (IOException e)
+				} catch (IOException e)
 				{
 					e.printStackTrace();
 				}
@@ -113,15 +112,14 @@ public class Pile
 			{
 				height += VERT_DISPL;
 			}
-		} 
-		else if (pileType == FOUNDATION_PILE)
+		} else if (pileType == FOUNDATION_PILE)
 		{
 			c.setLocation(xLoc, yLoc);
-		} 
-		else if (pileType == DECK_PILE)
+		} else if (pileType == DECK_PILE)
 		{
 			c.setLocation(xLoc, yLoc);
-			updateTop3();
+			// updateTop3();
+			dealOneCards();
 		}
 	}
 
@@ -153,7 +151,8 @@ public class Pile
 			Card c = this.getCardOnTop();
 			if (c != null)
 			{
-				if ((e.getX() >= c.getX() && e.getX() <= c.getX() + Card.WIDTH) && (e.getY() >= c.getY() && e.getY() <= c.getY() + Card.HEIGHT))
+				if ((e.getX() >= c.getX() && e.getX() <= c.getX() + Card.WIDTH)
+						&& (e.getY() >= c.getY() && e.getY() <= c.getY() + Card.HEIGHT))
 				{
 					return this.getPileAt(this.size() - 1);
 				}
@@ -245,9 +244,12 @@ public class Pile
 	{
 		// this checks to see if any of the cards corners is on a pile
 		return (((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
-			||  ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
-			||  ((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
-			||  ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
+				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width)
+						&& (c.getY() >= yLoc && c.getY() <= yLoc + height))
+				|| ((c.getX() >= xLoc && c.getX() <= xLoc + width)
+						&& (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
+				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width)
+						&& (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
 	}
 
 	public boolean droppedOnPile(Pile p)
@@ -326,24 +328,47 @@ public class Pile
 		}
 	}
 
-	public void updateTop3()
+//	public void updateTop3()
+//	{
+//		if (pileType == DECK_PILE)
+//		{
+//			// first clear the top 3
+//			for (int i = 0; i < drawPile.length; i++)
+//			{
+//				drawPile[i] = null;
+//			}
+//
+//			if (this.size() >= 3)
+//			{
+//				for (int i = this.size() - 3, j = 0; i < this.size(); i++, j++)
+//				{
+//					drawPile[j] = this.getCardAt(i);
+//					drawPile[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
+//				}
+//			} else
+//			{
+//				for (int i = 0; i < this.size(); i++)
+//				{
+//					drawPile[i] = this.getCardAt(i);
+//					drawPile[i].setLocation(xLoc + (i * HORI_DISPL), yLoc);
+//				}
+//			}
+//		}
+//	}
+
+	public void dealOneCards()
 	{
 		if (pileType == DECK_PILE)
 		{
-			// first clear the top 3
-			for (int i = 0; i < drawPile.length; i++)
+			if (this.size() >= 1)
 			{
-				drawPile[i] = null;
-			}
-
-			if (this.size() >= 3)
-			{
-				for (int i = this.size() - 3, j = 0; i < this.size(); i++, j++)
+				for (int i = this.size() - 1, j = 0; i < this.size(); i++, j++)
 				{
 					drawPile[j] = this.getCardAt(i);
 					drawPile[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
 				}
-			} else
+			} 
+			else
 			{
 				for (int i = 0; i < this.size(); i++)
 				{
@@ -353,10 +378,10 @@ public class Pile
 			}
 		}
 	}
-	
+
 	public String toString()
 	{
 		return String.format("Pile#: %s", TABLEAU_PILE);
-	} 
-	
+	}
+
 }
