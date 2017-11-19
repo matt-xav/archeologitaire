@@ -5,6 +5,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.undo.AbstractUndoableEdit;
+import javax.swing.undo.UndoManager;
+import javax.swing.undo.UndoableEdit;
 import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -14,24 +17,20 @@ import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.undo.UndoManager;
-
-import java.awt.Component;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.Box;
 
 public class SolitaireGUI
 {
 	private Clip clip1 = null;
 	private Clip clip2 = null;
-	private static Solitaire panel;
+	private static Solitaire solitaire;
+
+	private UndoManager undoManager = new UndoManager();
+	private UndoableEdit undoableEdit = new AbstractUndoableEdit();
 
 	private JFrame frame;
 	private JMenuBar menuBar;
@@ -41,10 +40,11 @@ public class SolitaireGUI
 
 	private JMenuItem mntmNewGame;
 	private JMenuItem mntmQuitGame;
-	private JMenuItem mntmOption1;
 	private JMenuItem mntmOff;
-
-	private JButton btnUndo;
+	private JMenuItem mntmUndo;
+	private JMenuItem mntmRedo;
+	private JMenuItem mntmOption1;
+	private JMenuItem mntmOption2;
 
 	/**
 	 * Launch the application.
@@ -74,7 +74,8 @@ public class SolitaireGUI
 	{
 		initialize();
 		music1(true);
-		panel.repaint();
+		undoManager.end();
+		solitaire.repaint();
 	}
 
 	/**
@@ -92,10 +93,19 @@ public class SolitaireGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		panel = new Solitaire();
-		panel.setBounds(0, 0, 1064, 639);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
+		solitaire = new Solitaire();
+		solitaire.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				undoManager.addEdit(undoableEdit);
+				
+			}
+		});
+		solitaire.setBounds(0, 0, 1064, 639);
+		frame.getContentPane().add(solitaire);
+		solitaire.setLayout(null);
 
 		// Cursed cursedPanel = new Cursed(frame);
 		// frame.getContentPane().add(cursedPanel);
@@ -120,8 +130,9 @@ public class SolitaireGUI
 				window.frame.setVisible(true);
 				music1(false);
 				music2(false);
+				undoManager.end();
 				initialize();
-				panel.repaint();
+				solitaire.repaint();
 				JOptionPane.showMessageDialog(frame, "New Game has Begun");
 			}
 		});
@@ -139,16 +150,35 @@ public class SolitaireGUI
 		});
 		mnFile.add(mntmQuitGame);
 
-		btnUndo = new JButton("Undo");
-		btnUndo.setHorizontalAlignment(SwingConstants.RIGHT);
-		btnUndo.setFont(new Font("Papyrus", Font.PLAIN, 10));
-		btnUndo.addMouseListener(new MouseAdapter()
+		mntmUndo = new JMenuItem("Undo");
+		mntmUndo.addMouseListener(new MouseAdapter()
 		{
 			@Override
-			public void mouseClicked(MouseEvent arg0)
+			public void mouseClicked(MouseEvent e)
 			{
+				if (undoManager.canUndo())
+				{
+					undoManager.undo();
+				}
 			}
 		});
+		mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mnFile.add(mntmUndo);
+
+		mntmRedo = new JMenuItem("Redo");
+		mntmRedo.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				if (undoManager.canRedo())
+				{
+					undoManager.redo();
+				}
+			}
+		});
+		mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mnFile.add(mntmRedo);
 
 		mnMusic = new JMenu("Music");
 		mnMusic.setFont(new Font("Papyrus", Font.PLAIN, 14));
@@ -176,7 +206,7 @@ public class SolitaireGUI
 			}
 		});
 
-		JMenuItem mntmOption2 = new JMenuItem("Option 2");
+		mntmOption2 = new JMenuItem("Option 2");
 		mntmOption2.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -189,10 +219,6 @@ public class SolitaireGUI
 		mnMusic.add(mntmOption2);
 		mntmOff.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnMusic.add(mntmOff);
-
-		Component horizontalStrut = Box.createHorizontalStrut(26);
-		menuBar.add(horizontalStrut);
-		menuBar.add(btnUndo);
 
 		try
 		{
@@ -213,14 +239,15 @@ public class SolitaireGUI
 		{
 		}
 
-		panel.repaint();
+		solitaire.repaint();
 	}
 
 	public void music1(boolean value)
 	{
 		if (value)
+		{
 			clip1.loop(Clip.LOOP_CONTINUOUSLY);
-		else
+		} else
 		{
 			clip1.stop();
 		}
@@ -229,8 +256,9 @@ public class SolitaireGUI
 	public void music2(boolean value)
 	{
 		if (value)
+		{
 			clip2.loop(Clip.LOOP_CONTINUOUSLY);
-		else
+		} else
 		{
 			clip2.stop();
 		}
