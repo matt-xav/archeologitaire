@@ -93,6 +93,9 @@ public class SolitaireGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+		// Cursed cursedPanel = new Cursed(frame);
+		// frame.getContentPane().add(cursedPanel);
+		
 		solitaire = new Solitaire();
 		solitaire.addMouseListener(new MouseAdapter()
 		{
@@ -106,9 +109,6 @@ public class SolitaireGUI
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
 		solitaire.setLayout(null);
-
-		// Cursed cursedPanel = new Cursed(frame);
-		// frame.getContentPane().add(cursedPanel);
 
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));
