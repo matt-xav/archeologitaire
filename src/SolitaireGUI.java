@@ -87,15 +87,11 @@ public class SolitaireGUI
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Reaper.jpg"));
-		frame.setResizable(false);
 		frame.setTitle("Solitaire Dig");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		// Cursed cursedPanel = new Cursed(frame);
-		// frame.getContentPane().add(cursedPanel);
-		
+	
 		solitaire = new Solitaire();
 		solitaire.addMouseListener(new MouseAdapter()
 		{
@@ -106,6 +102,15 @@ public class SolitaireGUI
 				
 			}
 		});
+		 
+		Dirt dirtPanel = new Dirt(frame);
+		dirtPanel.setBounds(0, 0, 1064, 639);
+		frame.getContentPane().add(dirtPanel);
+		
+		Cursed cursedPanel = new Cursed(frame);
+		cursedPanel.setBounds(0, 0, 1064, 639);
+		frame.getContentPane().add(cursedPanel);
+		 
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
 		solitaire.setLayout(null);
