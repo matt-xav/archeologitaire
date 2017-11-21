@@ -86,8 +86,8 @@ public class SolitaireGUI
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Reaper.jpg"));
-		frame.setTitle("Solitaire Dig");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g794.png"));
+		frame.setTitle("Archeologistaire");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
