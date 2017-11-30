@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Toolkit;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.sound.sampled.AudioInputStream;
@@ -28,7 +30,7 @@ public class SolitaireGUI
 	private Clip clip1 = null;
 	private Clip clip2 = null;
 	private static Solitaire solitaire;
-
+	
 	private UndoManager undoManager = new UndoManager();
 	private UndoableEdit undoableEdit = new AbstractUndoableEdit();
 
@@ -86,7 +88,7 @@ public class SolitaireGUI
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g794.png"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g974.png"));
 		frame.setTitle("Archeologistaire");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,17 +101,16 @@ public class SolitaireGUI
 			public void mouseClicked(MouseEvent e)
 			{
 				undoManager.addEdit(undoableEdit);
-				
 			}
 		});
 		 
-		Dirt dirtPanel = new Dirt(frame);
-		dirtPanel.setBounds(0, 0, 1064, 639);
-		frame.getContentPane().add(dirtPanel);
-		
-		Cursed cursedPanel = new Cursed(frame);
-		cursedPanel.setBounds(0, 0, 1064, 639);
-		frame.getContentPane().add(cursedPanel);
+//		Dirt dirtPanel = new Dirt(frame);
+//		dirtPanel.setBounds(0, 0, 1064, 639);
+//		frame.getContentPane().add(dirtPanel);
+//		
+//		Cursed cursedPanel = new Cursed(frame);
+//		cursedPanel.setBounds(0, 0, 1064, 639);
+//		frame.getContentPane().add(cursedPanel);
 		 
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
@@ -243,10 +244,10 @@ public class SolitaireGUI
 		} catch (LineUnavailableException e2)
 		{
 		}
-
+		
 		solitaire.repaint();
 	}
-
+	
 	public void music1(boolean value)
 	{
 		if (value)

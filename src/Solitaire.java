@@ -2,6 +2,11 @@ package src;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -51,6 +56,21 @@ public class Solitaire extends JPanel
 		this.addMouseMotionListener(listener);
 		this.setFocusable(true);	
 	}
+	
+//	 public void paint(Graphics bg) 
+//	 {
+//
+//		 BufferedImage background = null;
+//			try
+//			{
+//				background = ImageIO.read(new File(""));
+//			} 
+//			catch (IOException e)
+//			{
+//			}
+//		    super.paintComponent(bg);
+//		        bg.drawImage(background, 0, 0, null);
+//		}
 	
 	/** Paints the screen on a graphics context */
 	protected void paintComponent(Graphics g)
