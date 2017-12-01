@@ -67,6 +67,15 @@ public class SolitaireGUI
 				}
 			}
 		});
+		
+		if (solitaire.getTableauPiles() == null)
+		{
+			if (solitaire.getDeckPile() == null)
+			{
+				JOptionPane.showMessageDialog(solitaire, "You have Won!!");
+			}
+		}
+				
 	}
 
 	/**
