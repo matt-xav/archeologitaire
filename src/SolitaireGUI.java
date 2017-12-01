@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Toolkit;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.sound.sampled.AudioInputStream;
@@ -90,6 +89,7 @@ public class SolitaireGUI
 	private void initialize()
 	{
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g974.png"));
