@@ -2,6 +2,8 @@ package src;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.util.Random;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,6 +46,17 @@ public class Solitaire extends JLabel
 														TABLEAU_PILE_X_LOCS[5], 
 														TABLEAU_PILE_X_LOCS[6] };
 
+	public int scale = 2;
+	
+	private final Color BROWN = new Color(185, 122, 87);
+
+	public int[][] dirtLocations;
+	public final int digRadius = 25;
+
+	private Random myRand;
+	
+	private Point mouseLocation;
+	
 	public Solitaire()
 	{
 		//setBackground(Color.lightGray);
@@ -54,6 +67,22 @@ public class Solitaire extends JLabel
 		deckPile = new Pile(deck.getX() + Card.WIDTH + Solitaire.HORI_SPAC, deck.getY(), Pile.DECK_PILE);
 		selectedPile = null;
 		CardListener listener = new CardListener(this);
+		
+		myRand = new Random();
+		dirtLocations = new int[1064 / scale][639 / scale];// initialize dirt locations
+		for (int i = 0; i < 1064 / scale; i++)
+		{
+			// System.out.printf("%3d ", i);
+			for (int j = 0; j < 639 / scale; j++)
+			{
+				// System.out.printf("%3d ", j);
+				dirtLocations[i][j] = myRand.nextInt(2);// randomly pick locations for dirt to be drawn
+			}
+			// System.out.print("\n");
+		}
+		
+		mouseLocation = new Point(0,0);
+		
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);
 		this.setFocusable(true);	
@@ -92,6 +121,21 @@ public class Solitaire extends JLabel
 		if (selectedPile != null)
 		{
 			selectedPile.display(g);
+		}
+		
+		//draw dirt
+		for (int i = 0; i < 1064 / scale; i++)
+		{
+			// System.out.printf("%3d ", i);
+			for (int j = 0; j < 639 / scale; j++)
+			{
+				if (dirtLocations[i][j] == 1)
+				{
+					// System.out.printf("%3d ", j);
+					g.setColor(BROWN);
+					g.fillRect(i * scale, j * scale, scale, scale);// draws a dirt particle
+				}
+			}
 		}
 	}
 	

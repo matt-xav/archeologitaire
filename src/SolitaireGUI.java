@@ -98,13 +98,13 @@ public class SolitaireGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		 Dirt dirtPanel = new Dirt(frame);
-		 dirtPanel.setBounds(0, 0, 1064, 639);
-		 frame.getContentPane().add(dirtPanel);
+		 //Dirt dirtPanel = new Dirt(frame);
+		 //dirtPanel.setBounds(0, 0, 1064, 639);
+		 //frame.getContentPane().add(dirtPanel);
 
-		// Cursed cursedPanel = new Cursed(frame);
-		// cursedPanel.setBounds(0, 0, 1064, 639);
-		// frame.getContentPane().add(cursedPanel);
+		//Cursed cursedPanel = new Cursed(frame);
+		//cursedPanel.setBounds(0, 0, 1064, 639);
+		//frame.getContentPane().add(cursedPanel);
 		
 		
 		solitaire = new Solitaire();
