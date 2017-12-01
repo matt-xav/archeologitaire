@@ -2,16 +2,18 @@ package src;
 
 import java.awt.Color;
 import java.awt.Graphics;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  * The panel that Solitaire is painted on. It is responsible for
  * drawing and initializing all game objects.
  *
- * @author j_min
+ * @author Jason Miner
  *
  */
-public class Solitaire extends JPanel 
+public class Solitaire extends JLabel
 {
 	private static final long serialVersionUID = 1189908838201482535L;
 	
@@ -44,7 +46,7 @@ public class Solitaire extends JPanel
 
 	public Solitaire()
 	{
-		setBackground(Color.lightGray);
+		//setBackground(Color.lightGray);
 		deck = new Deck();
 		tableauPiles = new Pile[7];
 		foundationPiles = new Pile[4];
@@ -140,5 +142,14 @@ public class Solitaire extends JPanel
 	public CardListener getListener()
 	{
 		return listener;
+	}
+	
+	public boolean isGameWon()
+	{
+		if (tableauPiles == null && deckPile == null && selectedPile == null)
+		{
+			return true;
+		}
+		return false;
 	}
 }

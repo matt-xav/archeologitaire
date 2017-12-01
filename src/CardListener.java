@@ -1,6 +1,8 @@
 package src;
 
 import java.awt.event.MouseEvent;
+
+import javax.swing.JOptionPane;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.UndoManager;
@@ -8,9 +10,8 @@ import javax.swing.undo.UndoableEdit;
 
 /**
  * CardListener.java
- */
-/**
- * @author j_min
+ * 
+ * @author Jason Miner
  *
  */
 public class CardListener extends MouseInputAdapter

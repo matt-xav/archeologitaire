@@ -7,9 +7,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Cursed extends JPanel implements MouseMotionListener
+public class Cursed extends JLabel implements MouseMotionListener
 {
 	private static final long serialVersionUID = 1L;
 	private JFrame myFrame;

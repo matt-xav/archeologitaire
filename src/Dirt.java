@@ -13,9 +13,10 @@ import java.awt.event.MouseMotionListener;
 import java.util.Random;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Dirt extends JPanel implements MouseListener, MouseMotionListener
+public class Dirt extends JLabel implements MouseListener, MouseMotionListener
 {
 	/**
 	 * 

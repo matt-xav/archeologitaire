@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * This class represents a pile of cards in solitaire. It can hold anywhere from
  * 0 to 52 cards.
  *
- * @author j_min
+ * @author Jason Miner
  *
  */
 public class Pile

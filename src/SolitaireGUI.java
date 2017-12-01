@@ -6,12 +6,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Toolkit;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.sound.sampled.AudioInputStream;
@@ -22,16 +21,19 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 /**
- * @author j_min
+ * @author Jason Miner
  *
  */
 public class SolitaireGUI
 {
 	private Clip clip1 = null;
 	private Clip clip2 = null;
-	private static Solitaire solitaire;
+	private Solitaire solitaire;
 
 	private JFrame frame;
 	private JMenuBar menuBar;
@@ -46,6 +48,8 @@ public class SolitaireGUI
 	private JMenuItem mntmRedo;
 	private JMenuItem mntmOption1;
 	private JMenuItem mntmOption2;
+	
+	private JLabel backgroundLabel;
 
 	/**
 	 * Launch the application.
@@ -82,30 +86,38 @@ public class SolitaireGUI
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings("deprecation")
 	private void initialize()
 	{
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g974.png"));
-		frame.setTitle("Archeologistaire");
+		frame.setTitle("Archeologitaire");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		solitaire = new Solitaire();
+		 Dirt dirtPanel = new Dirt(frame);
+		 dirtPanel.setBounds(0, 0, 1064, 639);
+		 frame.getContentPane().add(dirtPanel);
 
-		// Dirt dirtPanel = new Dirt(frame);
-		// dirtPanel.setBounds(0, 0, 1064, 639);
-		// frame.getContentPane().add(dirtPanel);
-		//
 		// Cursed cursedPanel = new Cursed(frame);
 		// cursedPanel.setBounds(0, 0, 1064, 639);
 		// frame.getContentPane().add(cursedPanel);
-
+		
+		
+		solitaire = new Solitaire();
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
 		solitaire.setLayout(null);
+		
+		backgroundLabel = new JLabel("");
+		backgroundLabel.setIcon(new ImageIcon("background.jpg"));		
+		backgroundLabel.setVerticalAlignment(SwingConstants.TOP);
+		backgroundLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		backgroundLabel.setBounds(0, 0, 1064, 639);
+		frame.getContentPane().add(backgroundLabel);
 
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Papyrus", Font.PLAIN, 14));
@@ -116,12 +128,9 @@ public class SolitaireGUI
 		menuBar.add(mnFile);
 
 		mntmNewGame = new JMenuItem("New Game");
-		mntmNewGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
-		mntmNewGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		mntmNewGame.addMouseListener(new MouseAdapter()
+		mntmNewGame.addActionListener(new ActionListener()
 		{
-			@Override
-			public void mouseReleased(MouseEvent e)
+			public void actionPerformed(ActionEvent e)
 			{
 				frame.dispose();
 				SolitaireGUI window = new SolitaireGUI();
@@ -133,19 +142,20 @@ public class SolitaireGUI
 				JOptionPane.showMessageDialog(frame, "New Game has Begun");
 			}
 		});
+		mntmNewGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
+		mntmNewGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmNewGame);
 
 		mntmQuitGame = new JMenuItem("Quit Game");
-		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
-		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		mntmQuitGame.addMouseListener(new MouseAdapter()
+		mntmQuitGame.addActionListener(new ActionListener()
 		{
-			@Override
-			public void mouseReleased(MouseEvent e)
+			public void actionPerformed(ActionEvent e)
 			{
 				System.exit(0);
 			}
 		});
+		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
+		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmQuitGame);
 
 		mntmUndo = new JMenuItem("Undo");
@@ -236,18 +246,17 @@ public class SolitaireGUI
 		}
 		catch (UnsupportedAudioFileException e)
 		{
+			System.out.println("Unsupported Audio File");
 		}
 		catch (LineUnavailableException e2)
 		{
+			System.out.println("Line Unavailable");
 		}
-
-		solitaire.repaint();
-
-		Pile count[] = new Pile[52];
-		if (solitaire.getFoundationPiles() == count)
+		if (solitaire.isGameWon() == true)
 		{
 			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
 		}
+		solitaire.repaint();
 	}
 
 	public void music1(boolean value)

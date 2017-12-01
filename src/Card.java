@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
- * @author j_min
+ * @author Jason Miner
  *
  */
 public class Card extends Polygon
