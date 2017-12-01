@@ -2,24 +2,23 @@ package src;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  * The panel that Solitaire is painted on. It is responsible for
  * drawing and initializing all game objects.
+ *
+ * @author j_min
+ *
  */
-public class Solitaire extends JPanel
+public class Solitaire extends JPanel 
 {
 	private static final long serialVersionUID = 1189908838201482535L;
 	
 	private Deck deck;
 	private Pile deckPile;
+	
+	public CardListener listener = new CardListener(this);
 	
 	public Pile selectedPile; // The selected Pile is always drawn last (so it is on top of everything else)
 	
@@ -136,5 +135,10 @@ public class Solitaire extends JPanel
 	public Deck getDeck()
 	{
 		return deck;
+	}
+	
+	public CardListener getListener()
+	{
+		return listener;
 	}
 }

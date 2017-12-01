@@ -5,9 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.undo.AbstractUndoableEdit;
-import javax.swing.undo.UndoManager;
-import javax.swing.undo.UndoableEdit;
 import javax.swing.JMenu;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,8 +12,6 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Toolkit;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.sound.sampled.AudioInputStream;
@@ -24,15 +19,19 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.KeyStroke;
+import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
+/**
+ * @author j_min
+ *
+ */
 public class SolitaireGUI
 {
 	private Clip clip1 = null;
 	private Clip clip2 = null;
 	private static Solitaire solitaire;
-
-	private UndoManager undoManager = new UndoManager();
-	private UndoableEdit undoableEdit = new AbstractUndoableEdit();
 
 	private JFrame frame;
 	private JMenuBar menuBar;
@@ -61,7 +60,8 @@ public class SolitaireGUI
 				{
 					SolitaireGUI window = new SolitaireGUI();
 					window.frame.setVisible(true);
-				} catch (Exception e)
+				}
+				catch (Exception e)
 				{
 					e.printStackTrace();
 				}
@@ -76,7 +76,6 @@ public class SolitaireGUI
 	{
 		initialize();
 		music1(true);
-		undoManager.end();
 		solitaire.repaint();
 	}
 
@@ -95,14 +94,6 @@ public class SolitaireGUI
 		frame.getContentPane().setLayout(null);
 
 		solitaire = new Solitaire();
-		solitaire.addMouseListener(new MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(MouseEvent e)
-			{
-				undoManager.addEdit(undoableEdit);
-			}
-		});
 
 		// Dirt dirtPanel = new Dirt(frame);
 		// dirtPanel.setBounds(0, 0, 1064, 639);
@@ -125,6 +116,7 @@ public class SolitaireGUI
 		menuBar.add(mnFile);
 
 		mntmNewGame = new JMenuItem("New Game");
+		mntmNewGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
 		mntmNewGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mntmNewGame.addMouseListener(new MouseAdapter()
 		{
@@ -136,7 +128,6 @@ public class SolitaireGUI
 				window.frame.setVisible(true);
 				music1(false);
 				music2(false);
-				undoManager.end();
 				initialize();
 				solitaire.repaint();
 				JOptionPane.showMessageDialog(frame, "New Game has Begun");
@@ -145,6 +136,7 @@ public class SolitaireGUI
 		mnFile.add(mntmNewGame);
 
 		mntmQuitGame = new JMenuItem("Quit Game");
+		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
 		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mntmQuitGame.addMouseListener(new MouseAdapter()
 		{
@@ -157,32 +149,30 @@ public class SolitaireGUI
 		mnFile.add(mntmQuitGame);
 
 		mntmUndo = new JMenuItem("Undo");
-		mntmUndo.addMouseListener(new MouseAdapter()
+		mntmUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK));
+		mntmUndo.addActionListener(new ActionListener()
 		{
-			@Override
-			public void mouseClicked(MouseEvent e)
+			public void actionPerformed(ActionEvent e)
 			{
-				if (undoManager.canUndo())
-				{
-					undoManager.undo();
-				}
+				solitaire.getListener().runMyUndo();
+				System.out.println("Undo");
 			}
 		});
+
 		mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmUndo);
 
 		mntmRedo = new JMenuItem("Redo");
-		mntmRedo.addMouseListener(new MouseAdapter()
+		mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_MASK));
+		mntmRedo.addActionListener(new ActionListener()
 		{
-			@Override
-			public void mouseClicked(MouseEvent e)
+			public void actionPerformed(ActionEvent e)
 			{
-				if (undoManager.canRedo())
-				{
-					undoManager.redo();
-				}
+				solitaire.getListener().runMyRedo();
+				System.out.println("Redo");
 			}
 		});
+
 		mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmRedo);
 
@@ -191,6 +181,7 @@ public class SolitaireGUI
 		menuBar.add(mnMusic);
 
 		mntmOption1 = new JMenuItem("Option 1");
+		mntmOption1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.CTRL_MASK));
 		mntmOption1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -203,6 +194,7 @@ public class SolitaireGUI
 		mnMusic.add(mntmOption1);
 
 		mntmOff = new JMenuItem("Off");
+		mntmOff.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, InputEvent.CTRL_MASK));
 		mntmOff.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -213,6 +205,7 @@ public class SolitaireGUI
 		});
 
 		mntmOption2 = new JMenuItem("Option 2");
+		mntmOption2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, InputEvent.CTRL_MASK));
 		mntmOption2.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0)
@@ -230,18 +223,21 @@ public class SolitaireGUI
 		{
 			AudioInputStream audio1;
 			clip1 = AudioSystem.getClip();
-			audio1 = AudioSystem.getAudioInputStream(new File("intro.wav"));
+			audio1 = AudioSystem.getAudioInputStream(new File("overworld.wav"));
 			clip1.open(audio1);
 			AudioInputStream audio2;
 			clip2 = AudioSystem.getClip();
-			audio2 = AudioSystem.getAudioInputStream(new File("overworld.wav"));
+			audio2 = AudioSystem.getAudioInputStream(new File("intro.wav"));
 			clip2.open(audio2);
-		} catch (IOException error)
+		}
+		catch (IOException error)
 		{
 			System.out.println("File Not Found");
-		} catch (UnsupportedAudioFileException e)
+		}
+		catch (UnsupportedAudioFileException e)
 		{
-		} catch (LineUnavailableException e2)
+		}
+		catch (LineUnavailableException e2)
 		{
 		}
 
@@ -259,7 +255,8 @@ public class SolitaireGUI
 		if (value)
 		{
 			clip1.loop(Clip.LOOP_CONTINUOUSLY);
-		} else
+		}
+		else
 		{
 			clip1.stop();
 		}
@@ -270,7 +267,8 @@ public class SolitaireGUI
 		if (value)
 		{
 			clip2.loop(Clip.LOOP_CONTINUOUSLY);
-		} else
+		}
+		else
 		{
 			clip2.stop();
 		}

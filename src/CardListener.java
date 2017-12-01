@@ -2,9 +2,16 @@ package src;
 
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputAdapter;
+import javax.swing.undo.AbstractUndoableEdit;
+import javax.swing.undo.UndoManager;
+import javax.swing.undo.UndoableEdit;
 
 /**
  * CardListener.java
+ */
+/**
+ * @author j_min
+ *
  */
 public class CardListener extends MouseInputAdapter
 {
@@ -20,6 +27,9 @@ public class CardListener extends MouseInputAdapter
 	private int lastX; 
 	private int lastY;
 	
+	private UndoManager undoManager = new UndoManager();
+	private UndoableEdit anEdit = new AbstractUndoableEdit();
+	
 	public CardListener(Solitaire panel)
 	{
 		this.panel = panel;
@@ -29,7 +39,7 @@ public class CardListener extends MouseInputAdapter
 		deckPile = panel.getDeckPile();
 		lastX = 0;
 		lastY = 0;
-		origPile = null;
+		origPile = null;		
 	}
 	
 	/** Selects a card when it is clicked */
@@ -64,6 +74,8 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
+		System.out.println("mouse pressed");
+		
 		panel.setVisible(false);
 		panel.setVisible(true);
 		panel.repaint();
@@ -183,9 +195,11 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
-		panel.selectedPile = null;
-		origPile = null;
-
+		panel.selectedPile = null; ////////////////////
+		origPile = null;           ////////////////////
+		
+		System.out.println("mouse released");
+		
 		panel.repaint();
 		panel.setVisible(false);
 		panel.setVisible(true);
@@ -193,6 +207,8 @@ public class CardListener extends MouseInputAdapter
 	
 	public void mouseClicked(MouseEvent e)
 	{
+		undoManager.addEdit(anEdit); //////////////////////////////
+		System.out.println("mouse clicked");
 	}
 	
 	/** Returns the card that was clicked or null if no card was clicked */
@@ -222,5 +238,25 @@ public class CardListener extends MouseInputAdapter
 			origPile = deckPile;
 		}
 		return clicked;
+	}
+	
+	public boolean runMyUndo()
+	{
+		if (undoManager.canUndo())
+		{
+			undoManager.undo();
+			return true;
+		} 
+		return false;
+	}
+	
+	public boolean runMyRedo()
+	{
+		if (undoManager.canRedo())
+		{
+			undoManager.redo();
+			return true;
+		} 
+		return false;
 	}
 }

@@ -10,6 +10,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+/**
+ * @author j_min
+ *
+ */
 public class Card extends Polygon
 {
 	private static final long serialVersionUID = -1948500488018695977L;

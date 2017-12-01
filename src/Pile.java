@@ -9,6 +9,9 @@ import java.util.ArrayList;
 /**
  * This class represents a pile of cards in solitaire. It can hold anywhere from
  * 0 to 52 cards.
+ *
+ * @author j_min
+ *
  */
 public class Pile
 {
@@ -64,6 +67,10 @@ public class Pile
 			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT, 10, 10);
 			return;
 		}
+		
+		/**
+		 * removed so cards could paint correctly
+		 */
 //		if (pileType == DECK_PILE)
 //		{
 //			for (int i = 0; i < drawPile.length; i++)
@@ -87,7 +94,7 @@ public class Pile
 			{
 				try
 				{
-					System.out.println("Pile: " + this.getCardAt(i));
+					//System.out.println("Pile: " + this.getCardAt(i));
 					pile.get(i).display(g);
 				} catch (IOException e)
 				{
