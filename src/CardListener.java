@@ -1,5 +1,6 @@
 package src;
 
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
@@ -41,6 +42,37 @@ public class CardListener extends MouseInputAdapter
 		lastX = 0;
 		lastY = 0;
 		origPile = null;		
+	}
+	
+	@Override
+	public void mouseMoved(MouseEvent e){
+		//System.out.println("CardListener.mouseMoved");
+		Point p = e.getLocationOnScreen();
+		p.setLocation(p.getX() - 108, p.getY() - 158);
+		int px = (int) (p.getX());
+		int py = (int) (p.getY());
+		int xlim = px + panel.digRadius;
+		int ylim = py + panel.digRadius;
+		for (int i = px - panel.digRadius; i < xlim; i++)
+		{
+			for (int j = py - panel.digRadius; j < ylim; j++)
+			{
+				if (i >= 0 && i < 1064 / panel.scale && j >= 0 && j < 639 / panel.scale)
+				{// ensure we don't go out of bounds
+					if (Math.sqrt((px - i) * (px - i) + (py - j) * (py - j)) <= panel.digRadius)
+					{
+						System.out.println("CardListener.mouseMoved");
+						panel.dirtLocations[i][j] = 0;
+						/*
+						 * if(Math.sqrt((px-i)*(px-i) + (py-j)*(py-j)) == 0) { dirtLocations[i][j] = 1;
+						 * }
+						 */
+					}
+				}
+			}
+		}
+		panel.repaint();
+		
 	}
 	
 	/** Selects a card when it is clicked */

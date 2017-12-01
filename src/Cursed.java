@@ -22,7 +22,7 @@ public class Cursed extends JLabel implements MouseMotionListener
 	private int x;
 	private int y;
 
-	private int radius = 25;// radius of mouse "lantern"
+	private int radius = 100;// radius of mouse "lantern"
 
 	private Point mouseLocation;
 
@@ -118,7 +118,8 @@ public class Cursed extends JLabel implements MouseMotionListener
 	public void mouseMoved(MouseEvent arg0)
 	{
 		Point p = arg0.getLocationOnScreen();
-		p.setLocation(p.getX() - myFrame.getX() - xOffset, p.getY() - myFrame.getY() - yOffset);
+		//p.setLocation(p.getX() - myFrame.getX() - xOffset, p.getY() - myFrame.getY() - yOffset);
+		p.setLocation(p.getX() - 108, p.getY() - 158);
 		// int px = (int) (p.getX()); int py = (int) (p.getY());
 		mouseLocation.setLocation(p);
 		repaint();
