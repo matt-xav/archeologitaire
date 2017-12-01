@@ -47,9 +47,9 @@ public class CardListener extends MouseInputAdapter
 	@Override
 	public void mouseMoved(MouseEvent e){
 		//System.out.println("CardListener.mouseMoved");
-		Point p = e.getLocationOnScreen();
+		Point p = new Point(e.getX(), e.getY());
 		System.out.println(p);
-		p.setLocation(p.getX() - panel.getX(), p.getY() - panel.getY());
+		p.setLocation(p.getX(), p.getY());
 		panel.mouseLocation = p;
 		panel.repaint();
 		

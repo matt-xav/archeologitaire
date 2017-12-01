@@ -49,7 +49,7 @@ public class Solitaire extends JLabel
 	private final Color BROWN = new Color(185, 122, 87);
 
 	private int[][] dirtLocations;
-	private final int digRadius = 25;
+	private final int digRadius = 50;
 
 	private Random myRand;
 	
@@ -138,8 +138,8 @@ public class Solitaire extends JLabel
 			}
 		}
 		
-		g.setColor(Color.BLACK);
-		g.fillOval((int) mouseLocation.getX(), (int) mouseLocation.getY(), digRadius, digRadius);
+		//g.setColor(Color.BLACK);
+		//g.fillOval((int) mouseLocation.getX() - digRadius*2, (int) mouseLocation.getY() - digRadius*2, digRadius*2*scale, digRadius*2*scale);
 		
 		int px = (int) (mouseLocation.getX());
 		int py = (int) (mouseLocation.getY());
