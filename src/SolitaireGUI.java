@@ -24,6 +24,8 @@ import java.awt.event.InputEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
 
 /**
  * @author Jason Miner
@@ -90,6 +92,7 @@ public class SolitaireGUI
 	private void initialize()
 	{
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g974.png"));
