@@ -48,6 +48,7 @@ public class CardListener extends MouseInputAdapter
 	public void mouseMoved(MouseEvent e){
 		//System.out.println("CardListener.mouseMoved");
 		Point p = e.getLocationOnScreen();
+		p.setLocation(p.getX() - 108, p.getY() - 158);
 		int px = (int) (p.getX());
 		int py = (int) (p.getY());
 		int xlim = px + panel.digRadius;
@@ -239,8 +240,7 @@ public class CardListener extends MouseInputAdapter
 	
 	public void mouseClicked(MouseEvent e)
 	{
-		undoManager.addEdit(anEdit); //////////////////////////////
-		System.out.println("mouse clicked");
+//		System.out.println("mouse clicked");
 	}
 	
 	/** Returns the card that was clicked or null if no card was clicked */
@@ -276,9 +276,11 @@ public class CardListener extends MouseInputAdapter
 	{
 		if (undoManager.canUndo())
 		{
-			undoManager.undo();
+			System.out.println("runMyUndo true");
+			undoManager.undoOrRedo();
 			return true;
 		} 
+		System.out.println("runMyUndo false,  " + undoManager.toString());
 		return false;
 	}
 	
@@ -286,9 +288,12 @@ public class CardListener extends MouseInputAdapter
 	{
 		if (undoManager.canRedo())
 		{
+			System.out.println("runMyRedo true");
 			undoManager.redo();
 			return true;
 		} 
+		System.out.println("runMyRedo false");
 		return false;
 	}
+	
 }

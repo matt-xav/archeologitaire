@@ -185,6 +185,7 @@ public class Solitaire extends JLabel
 	
 	public CardListener getListener()
 	{
+		System.out.println("getListener");
 		return listener;
 	}
 	
