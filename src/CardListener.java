@@ -208,8 +208,7 @@ public class CardListener extends MouseInputAdapter
 	
 	public void mouseClicked(MouseEvent e)
 	{
-		undoManager.addEdit(anEdit); //////////////////////////////
-		System.out.println("mouse clicked");
+//		System.out.println("mouse clicked");
 	}
 	
 	/** Returns the card that was clicked or null if no card was clicked */
@@ -245,9 +244,11 @@ public class CardListener extends MouseInputAdapter
 	{
 		if (undoManager.canUndo())
 		{
-			undoManager.undo();
+			System.out.println("runMyUndo true");
+			undoManager.undoOrRedo();
 			return true;
 		} 
+		System.out.println("runMyUndo false,  " + undoManager.toString());
 		return false;
 	}
 	
@@ -255,9 +256,12 @@ public class CardListener extends MouseInputAdapter
 	{
 		if (undoManager.canRedo())
 		{
+			System.out.println("runMyRedo true");
 			undoManager.redo();
 			return true;
 		} 
+		System.out.println("runMyRedo false");
 		return false;
 	}
+	
 }

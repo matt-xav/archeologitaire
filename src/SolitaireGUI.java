@@ -22,6 +22,7 @@ import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
@@ -90,6 +91,7 @@ public class SolitaireGUI
 	private void initialize()
 	{
 		frame = new JFrame();
+		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g974.png"));
@@ -98,9 +100,9 @@ public class SolitaireGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		 Dirt dirtPanel = new Dirt(frame);
-		 dirtPanel.setBounds(0, 0, 1064, 639);
-		 frame.getContentPane().add(dirtPanel);
+//		 Dirt dirtPanel = new Dirt(frame);
+//		 dirtPanel.setBounds(0, 0, 1064, 639);
+//		 frame.getContentPane().add(dirtPanel);
 
 		// Cursed cursedPanel = new Cursed(frame);
 		// cursedPanel.setBounds(0, 0, 1064, 639);
@@ -113,7 +115,7 @@ public class SolitaireGUI
 		solitaire.setLayout(null);
 		
 		backgroundLabel = new JLabel("");
-		backgroundLabel.setIcon(new ImageIcon("background.jpg"));		
+		backgroundLabel.setIcon(new ImageIcon("background.jpg"));	
 		backgroundLabel.setVerticalAlignment(SwingConstants.TOP);
 		backgroundLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		backgroundLabel.setBounds(0, 0, 1064, 639);
