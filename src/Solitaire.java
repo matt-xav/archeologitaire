@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
-
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  * The panel that Solitaire is painted on. It is responsible for

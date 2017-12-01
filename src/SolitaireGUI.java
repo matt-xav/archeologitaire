@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Toolkit;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.sound.sampled.AudioInputStream;
@@ -24,8 +23,6 @@ import java.awt.event.InputEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
 
 /**
  * @author Jason Miner

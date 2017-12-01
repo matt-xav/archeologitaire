@@ -28,8 +28,6 @@ public class Pile
 	private int width;
 	private int height;
 
-	private int pileNumber;
-
 	public static final int VERT_DISPL = 22;
 	public static final int HORI_DISPL = 26;
 
