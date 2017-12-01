@@ -30,7 +30,7 @@ public class SolitaireGUI
 	private Clip clip1 = null;
 	private Clip clip2 = null;
 	private static Solitaire solitaire;
-	
+
 	private UndoManager undoManager = new UndoManager();
 	private UndoableEdit undoableEdit = new AbstractUndoableEdit();
 
@@ -67,15 +67,6 @@ public class SolitaireGUI
 				}
 			}
 		});
-		
-		if (solitaire.getTableauPiles() == null)
-		{
-			if (solitaire.getDeckPile() == null)
-			{
-				JOptionPane.showMessageDialog(solitaire, "You have Won!!");
-			}
-		}
-				
 	}
 
 	/**
@@ -102,7 +93,7 @@ public class SolitaireGUI
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-	
+
 		solitaire = new Solitaire();
 		solitaire.addMouseListener(new MouseAdapter()
 		{
@@ -112,15 +103,15 @@ public class SolitaireGUI
 				undoManager.addEdit(undoableEdit);
 			}
 		});
-		 
-//		Dirt dirtPanel = new Dirt(frame);
-//		dirtPanel.setBounds(0, 0, 1064, 639);
-//		frame.getContentPane().add(dirtPanel);
-//		
-//		Cursed cursedPanel = new Cursed(frame);
-//		cursedPanel.setBounds(0, 0, 1064, 639);
-//		frame.getContentPane().add(cursedPanel);
-		 
+
+		// Dirt dirtPanel = new Dirt(frame);
+		// dirtPanel.setBounds(0, 0, 1064, 639);
+		// frame.getContentPane().add(dirtPanel);
+		//
+		// Cursed cursedPanel = new Cursed(frame);
+		// cursedPanel.setBounds(0, 0, 1064, 639);
+		// frame.getContentPane().add(cursedPanel);
+
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
 		solitaire.setLayout(null);
@@ -253,10 +244,16 @@ public class SolitaireGUI
 		} catch (LineUnavailableException e2)
 		{
 		}
-		
+
 		solitaire.repaint();
+
+		Pile count[] = new Pile[52];
+		if (solitaire.getFoundationPiles() == count)
+		{
+			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
+		}
 	}
-	
+
 	public void music1(boolean value)
 	{
 		if (value)
