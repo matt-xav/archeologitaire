@@ -27,6 +27,8 @@ public class Card extends Polygon
 	private String suit;
 	public boolean faceDown;
 	public Image myCardImage;
+	
+	public boolean cursed;
 
 	// The card's width and height.
 	public static final int HEIGHT = 150;
@@ -44,6 +46,7 @@ public class Card extends Polygon
 		setLocation(x, y);
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
+		cursed = false;
 	}
 
 	public void display(Graphics g) throws IOException
