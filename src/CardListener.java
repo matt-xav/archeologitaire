@@ -2,8 +2,6 @@ package src;
 
 import java.awt.Point;
 import java.awt.event.MouseEvent;
-
-import javax.swing.JOptionPane;
 import javax.swing.event.MouseInputAdapter;
 import javax.swing.undo.AbstractUndoableEdit;
 import javax.swing.undo.UndoManager;
@@ -228,8 +226,8 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
-		panel.selectedPile = null; ////////////////////
-		origPile = null;           ////////////////////
+		panel.selectedPile = null; 
+		origPile = null;           
 		
 		System.out.println("mouse released");
 		

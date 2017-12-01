@@ -47,7 +47,7 @@ public class SolitaireGUI
 	private JMenuItem mntmRedo;
 	private JMenuItem mntmOption1;
 	private JMenuItem mntmOption2;
-	
+
 	private JLabel backgroundLabel;
 
 	/**
@@ -98,22 +98,21 @@ public class SolitaireGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		 //Dirt dirtPanel = new Dirt(frame);
-		 //dirtPanel.setBounds(0, 0, 1064, 639);
-		 //frame.getContentPane().add(dirtPanel);
+		// Dirt dirtPanel = new Dirt(frame);
+		// dirtPanel.setBounds(0, 0, 1064, 639);
+		// frame.getContentPane().add(dirtPanel);
 
-		//Cursed cursedPanel = new Cursed(frame);
-		//cursedPanel.setBounds(0, 0, 1064, 639);
-		//frame.getContentPane().add(cursedPanel);
-		
-		
+		// Cursed cursedPanel = new Cursed(frame);
+		// cursedPanel.setBounds(0, 0, 1064, 639);
+		// frame.getContentPane().add(cursedPanel);
+
 		solitaire = new Solitaire();
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
 		solitaire.setLayout(null);
-		
+
 		backgroundLabel = new JLabel("");
-		backgroundLabel.setIcon(new ImageIcon("background.jpg"));		
+		backgroundLabel.setIcon(new ImageIcon("background.jpg"));
 		backgroundLabel.setVerticalAlignment(SwingConstants.TOP);
 		backgroundLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		backgroundLabel.setBounds(0, 0, 1064, 639);
