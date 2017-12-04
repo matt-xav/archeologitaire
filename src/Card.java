@@ -2,9 +2,13 @@ package src;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Polygon;
 import java.awt.image.BufferedImage;
+import java.awt.image.ByteLookupTable;
+import java.awt.image.LookupOp;
+import java.awt.image.LookupTable;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -28,6 +32,8 @@ public class Card extends Polygon
 	public boolean faceDown;
 	public Image myCardImage;
 	
+	private String changeCursed;
+	public Image invertedImage;
 	public boolean cursed;
 
 	// The card's width and height.
@@ -55,7 +61,7 @@ public class Card extends Polygon
 		{
 			g.setColor(Color.BLACK);
 			g.drawRoundRect(cornerX, cornerY, WIDTH, HEIGHT, 10, 10);
-		} 
+		}
 		else
 		{
 			if (faceDown)
@@ -64,7 +70,7 @@ public class Card extends Polygon
 				try
 				{
 					img = ImageIO.read(new File("back.gif"));
-				} 
+				}
 				catch (IOException e)
 				{
 				}
@@ -75,10 +81,11 @@ public class Card extends Polygon
 		}
 		if (cursed == true)
 		{
-			
+			invertedImage = new ImageIcon(getFileName()).getImage();
+			g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 		}
 	}
-	
+
 	public String getFileName()
 	{
 		// if (!isFaceUp)
@@ -96,12 +103,29 @@ public class Card extends Polygon
 
 		return rank + suit + ".gif";
 	}
+	public String getCursedFileName()
+	{
+		// if (!isFaceUp)
+		// return "back.gif";
+		if (rank == 10)
+			return "t" + suit + changeCursed + ".gif";
+		if (rank == 11)
+			return "j" + suit + changeCursed + ".gif";
+		if (rank == 12)
+			return "q" + suit + changeCursed + ".gif";
+		if (rank == 13)
+			return "k" + suit + changeCursed + ".gif";
+		if (rank == 1)
+			return "a" + suit + changeCursed + ".gif";
 
+		return rank + suit + changeCursed + ".gif";
+	}
+	
 	public boolean isRed()
 	{
 		return (suit.equals("d") || suit.equals("h"));
 	}
-	
+
 	public int getRank()
 	{
 		return rank;
@@ -110,6 +134,11 @@ public class Card extends Polygon
 	public String getSuit()
 	{
 		return suit;
+	}
+	
+	public String getChangeCursed()
+	{
+		return changeCursed;
 	}
 
 	public int getX()
@@ -184,8 +213,10 @@ public class Card extends Polygon
 		{
 			if (other.suit != null)
 				return false;
-		} else if (!suit.equals(other.suit))
-			return false;
+		}
+		else
+			if (!suit.equals(other.suit))
+				return false;
 		return true;
 	}
 
