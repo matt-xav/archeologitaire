@@ -73,8 +73,12 @@ public class Card extends Polygon
 			else
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 		}
+		if (cursed == true)
+		{
+			
+		}
 	}
-
+	
 	public String getFileName()
 	{
 		// if (!isFaceUp)
@@ -126,6 +130,16 @@ public class Card extends Polygon
 	public int getBottomY()
 	{
 		return bottomY;
+	}
+
+	public boolean isCursed()
+	{
+		return cursed;
+	}
+
+	public void setCursed(boolean cursed)
+	{
+		this.cursed = cursed;
 	}
 
 	public void setLocation(int x, int y)
