@@ -44,7 +44,7 @@ public class Solitaire extends JLabel
 														TABLEAU_PILE_X_LOCS[5], 
 														TABLEAU_PILE_X_LOCS[6] };
 
-	private int scale = 2;
+	private int scale = 3;
 	
 	private final Color BROWN = new Color(185, 122, 87);
 
@@ -52,6 +52,9 @@ public class Solitaire extends JLabel
 	private final int digRadius = 50;
 
 	private Random myRand;
+	
+	public boolean cursed;
+	public int cursedRadius = 100;
 	
 	public Point mouseLocation;
 	
@@ -79,7 +82,7 @@ public class Solitaire extends JLabel
 			// System.out.print("\n");
 		}
 		
-		
+		cursed = false;
 		
 		mouseLocation = new Point(0,0);
 		
@@ -122,6 +125,7 @@ public class Solitaire extends JLabel
 		{
 			selectedPile.display(g);
 		}
+			
 		
 		//draw dirt
 		for (int i = 0; i < 1064 / scale; i++)
@@ -140,9 +144,9 @@ public class Solitaire extends JLabel
 		
 		//g.setColor(Color.BLACK);
 		//g.fillOval((int) mouseLocation.getX() - digRadius*2, (int) mouseLocation.getY() - digRadius*2, digRadius*2*scale, digRadius*2*scale);
-		
-		int px = (int) (mouseLocation.getX());
-		int py = (int) (mouseLocation.getY());
+	
+		int px = (int) (mouseLocation.getX())/scale;
+		int py = (int) (mouseLocation.getY())/scale;
 		int xlim = px + digRadius;
 		int ylim = py + digRadius;
 		for (int i = px - digRadius; i < xlim; i++)
@@ -155,14 +159,45 @@ public class Solitaire extends JLabel
 					{
 						//System.out.println("CardListener.mouseMoved");
 						dirtLocations[i][j] = 0;
-						//System.out.println("removed dirt at " + i + ", " + j);
-						/*
-						 * if(Math.sqrt((px-i)*(px-i) + (py-j)*(py-j)) == 0) { dirtLocations[i][j] = 1;
-						 * }
-						 */
 					}
 				}
 			}
+		}
+		
+		if(cursed==true) {
+			g.setColor(Color.BLACK);
+			g.setColor(Color.BLACK); //draw rectangles
+			g.fillRect(0, 0, 1064, (int) mouseLocation.getY() - cursedRadius); //top
+			g.fillRect(0, (int) mouseLocation.getY() + cursedRadius, 1064, 639 - (int) mouseLocation.getY());//bottom
+			g.fillRect(0, 0, (int) mouseLocation.getX() - cursedRadius, 639);//left
+			g.fillRect((int) mouseLocation.getX() + cursedRadius, 0, 1064 - (int) mouseLocation.getX(), 639);//right
+
+			// g.setColor(Color.RED);//rounding
+			double angle;
+			double rangle;
+			for (int i = 0; i < 90; i++)
+			{
+				angle = (double) i;
+				rangle = Math.toRadians(angle);
+				// System.out.println(rangle);
+				g.fillRect(// upper left
+						(int) mouseLocation.getX() - cursedRadius, (int) mouseLocation.getY() - cursedRadius,
+						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))), (int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+				g.fillRect(// upper right
+						(int) (mouseLocation.getX() + (cursedRadius * Math.sin(rangle)) + 1), // 1 is added to compensate for
+																						// the (int) conversion in
+																						// Math.sin
+						(int) mouseLocation.getY() - cursedRadius, (int) (cursedRadius - (cursedRadius * Math.sin(rangle))),
+						(int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+				g.fillRect(// lower left
+						(int) mouseLocation.getX() - cursedRadius,
+						(int) (mouseLocation.getY() + (cursedRadius * Math.cos(rangle)) + 1),
+						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))), (int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+				g.fillRect(// lower left
+						(int) (mouseLocation.getX() + (cursedRadius * Math.sin(rangle)) + 1),
+						(int) (mouseLocation.getY() + (cursedRadius * Math.cos(rangle)) + 1),
+						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))), (int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+		}
 		}
 	}
 	

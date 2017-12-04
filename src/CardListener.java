@@ -108,6 +108,7 @@ public class CardListener extends MouseInputAdapter
 		panel.repaint();
 		panel.setVisible(false);
 		panel.setVisible(true);
+		mouseMoved(e);
 	}
 	
 	/**
