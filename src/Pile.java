@@ -336,7 +336,10 @@ public class Pile
 			System.out.println(cursedNum);
 			if (cursedNum == cursedProb - 1)
 			{
+				if (pileType == TABLEAU_PILE)
+				{
 				this.getCardOnTop().setCursed(true);
+				}
 			}
 		}
 	}
