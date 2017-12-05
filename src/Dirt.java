@@ -36,7 +36,7 @@ public class Dirt extends JLabel implements MouseListener, MouseMotionListener
 	private final int digRadius = 25;
 
 	private Random myRand;
-	
+
 	private Point mouseLocation;
 
 	public Dirt(JFrame frame)
@@ -66,9 +66,9 @@ public class Dirt extends JLabel implements MouseListener, MouseMotionListener
 			}
 			// System.out.print("\n");
 		}
-		
-		mouseLocation = new Point(0,0);
-		
+
+		mouseLocation = new Point(0, 0);
+
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}
@@ -88,10 +88,10 @@ public class Dirt extends JLabel implements MouseListener, MouseMotionListener
 					g.fillRect(i * scale, j * scale, scale, scale);// draws a dirt particle
 				}
 			}
-			
+
 			// System.out.print("\n");
 		}
-		
+
 		int px = (int) (mouseLocation.getX());
 		int py = (int) (mouseLocation.getY());
 		int xlim = px + digRadius;
@@ -124,28 +124,16 @@ public class Dirt extends JLabel implements MouseListener, MouseMotionListener
 				+ "\n" + yOffset + "\n\n");
 		mouseLocation = p;
 		/*
-		int px = (int) (p.getX());
-		int py = (int) (p.getY());
-		int xlim = px + digRadius;
-		int ylim = py + digRadius;
-		for (int i = px - digRadius; i < xlim; i++)
-		{
-			for (int j = py - digRadius; j < ylim; j++)
-			{
-				if (i >= 0 && i < WIDTH / scale && j >= 0 && j < HEIGHT / scale)
-				{// ensure we don't go out of bounds
-					if (Math.sqrt((px - i) * (px - i) + (py - j) * (py - j)) <= digRadius)
-					{
-						dirtLocations[i][j] = 0;
-						/*
-						 * if(Math.sqrt((px-i)*(px-i) + (py-j)*(py-j)) == 0) { dirtLocations[i][j] = 1;
-						 * }
-						 *
-					}
-				}
-			}
-		}
-		*/
+		 * int px = (int) (p.getX()); int py = (int) (p.getY()); int xlim = px +
+		 * digRadius; int ylim = py + digRadius; for (int i = px - digRadius; i < xlim;
+		 * i++) { for (int j = py - digRadius; j < ylim; j++) { if (i >= 0 && i < WIDTH
+		 * / scale && j >= 0 && j < HEIGHT / scale) {// ensure we don't go out of bounds
+		 * if (Math.sqrt((px - i) * (px - i) + (py - j) * (py - j)) <= digRadius) {
+		 * dirtLocations[i][j] = 0; /* if(Math.sqrt((px-i)*(px-i) + (py-j)*(py-j)) == 0)
+		 * { dirtLocations[i][j] = 1; }
+		 *
+		 * } } } }
+		 */
 		repaint();
 	}
 

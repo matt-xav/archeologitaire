@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Creates a deck as a list of 52 cards.
+ * Creates a deck of 52 cards.
  * 
  * @author Jason Miner
  *
@@ -49,7 +49,7 @@ public class Deck
 			try
 			{
 				this.getCardAt(i).display(g);
-			} 
+			}
 			catch (IOException e)
 			{
 				e.printStackTrace();
