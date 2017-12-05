@@ -48,6 +48,7 @@ public class Card extends Polygon
 		setLocation(x, y);
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
+		invertedImage = new ImageIcon(getFileName()).getImage();
 		cursed = true;
 	}
 
@@ -62,7 +63,7 @@ public class Card extends Polygon
 		{
 			if (cursed)
 			{
-				invertedImage = new ImageIcon(getFileName()).getImage();
+				
 				g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
 			else if (faceDown)
