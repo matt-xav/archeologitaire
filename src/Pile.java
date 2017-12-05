@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Creates a pile of cards in solitaire. It can hold anywhere from
- * 0 to 52 cards.
+ * Creates a pile of cards in solitaire. It can hold anywhere from 0 to 52
+ * cards.
  *
  * @author Jason Miner
  *
@@ -33,7 +33,7 @@ public class Pile
 	public static final int HORI_DISPL = 26;
 
 	private Card[] drawPile;
-	
+
 	private Random rand;
 	private int cursedProb = 10;
 	private int cursedNum = 0;
@@ -333,8 +333,12 @@ public class Pile
 		{
 			this.getCardOnTop().faceDown = false;
 			cursedNum = rand.nextInt(cursedProb);
-			if(cursedNum == 0) {
-				this.getCardOnTop().setCursed(true);
+			if (cursedNum == 0)
+			{
+				if (pileType == TABLEAU_PILE)
+				{
+					this.getCardOnTop().setCursed(true);
+				}
 			}
 		}
 	}
