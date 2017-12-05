@@ -103,7 +103,13 @@ public class CardListener extends MouseInputAdapter
 			panel.selectedPile.setLocation(newX, newY);
 			lastX = e.getX();
 			lastY = e.getY();
+			
+			if (panel.selectedPile.getCardOnTop().isCursed())
+			{
+				panel.selectedPile.getCardOnTop().setCursed(false);
+			}
 		}
+		
 		System.out.println("mouse dragged");
 
 		panel.repaint();
