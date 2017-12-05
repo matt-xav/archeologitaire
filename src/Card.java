@@ -81,7 +81,7 @@ public class Card extends Polygon
 			else
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 		}
-		if (cursed)
+		if (cursed == true)
 		{
 			invertedImage = new ImageIcon(getCursedFileName()).getImage();
 			g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
