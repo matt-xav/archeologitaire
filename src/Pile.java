@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * This class represents a pile of cards in solitaire. It can hold anywhere from
@@ -32,6 +33,10 @@ public class Pile
 	public static final int HORI_DISPL = 26;
 
 	private Card[] drawPile;
+	
+	private Random rand;
+	private int cursedProb = 1;
+	private int cursedNum = 0;
 
 	public Pile()
 	{
@@ -40,6 +45,7 @@ public class Pile
 
 	public Pile(int x, int y, int t)
 	{
+		rand = new Random();
 		pile = new ArrayList<Card>();
 		xLoc = x;
 		yLoc = y;
@@ -320,6 +326,10 @@ public class Pile
 		if (this.size() > 0)
 		{
 			this.getCardOnTop().faceDown = false;
+			cursedNum = rand.nextInt(cursedProb);
+			if(cursedNum == 0) {
+				this.getCardOnTop().setCursed(true);
+			}
 		}
 	}
 

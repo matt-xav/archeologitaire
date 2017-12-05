@@ -52,7 +52,7 @@ public class Card extends Polygon
 		setLocation(x, y);
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
-		cursed = false;
+		cursed = true;
 	}
 
 	public void display(Graphics g) throws IOException
@@ -64,7 +64,12 @@ public class Card extends Polygon
 		}
 		else
 		{
-			if (faceDown)
+			if (cursed)
+			{
+				invertedImage = new ImageIcon(getFileName()).getImage();
+				g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
+			}
+			else if (faceDown)
 			{
 				BufferedImage img = null;
 				try
@@ -79,11 +84,7 @@ public class Card extends Polygon
 			else
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 		}
-		if (cursed == true)
-		{
-			invertedImage = new ImageIcon(getFileName()).getImage();
-			g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
-		}
+		
 	}
 
 	public String getFileName()

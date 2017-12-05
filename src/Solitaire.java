@@ -46,7 +46,7 @@ public class Solitaire extends JLabel
 			TABLEAU_PILE_X_LOCS[5],
 			TABLEAU_PILE_X_LOCS[6] };
 
-	private int scale = 3;
+	private int scale = 3;//changes the scale at which the dirt is drawn.
 
 	private final Color BROWN = new Color(185, 122, 87);
 
