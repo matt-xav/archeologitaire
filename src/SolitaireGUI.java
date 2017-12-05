@@ -25,6 +25,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 /**
+ * Creates the GUI interface for the card Game 
+ * 
  * @author Jason Miner
  *
  */

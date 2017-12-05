@@ -7,8 +7,7 @@ import java.util.Random;
 import javax.swing.JLabel;
 
 /**
- * The panel that Solitaire is painted on. It is responsible for drawing and
- * initializing all game objects.
+ * Creates and initializing all game objects.
  *
  * @author Jason Miner
  *
@@ -31,20 +30,18 @@ public class Solitaire extends JLabel
 	public static final int TABLEAU_PILE_Y_LOC = 200;
 	public static final int FOUNDATION_PILE_Y_LOC = 20;
 
-	public static final int[] TABLEAU_PILE_X_LOCS =
-	{ (HORI_SPAC * 1) + (Card.WIDTH * 0),
-			(HORI_SPAC * 2) + (Card.WIDTH * 1),
-			(HORI_SPAC * 3) + (Card.WIDTH * 2),
-			(HORI_SPAC * 4) + (Card.WIDTH * 3),
-			(HORI_SPAC * 5) + (Card.WIDTH * 4),
-			(HORI_SPAC * 6) + (Card.WIDTH * 5),
-			(HORI_SPAC * 7) + (Card.WIDTH * 6) };
-
-	public static final int[] FOUNDATION_PILE_X_LOCS =
-	{ TABLEAU_PILE_X_LOCS[3],
-			TABLEAU_PILE_X_LOCS[4],
-			TABLEAU_PILE_X_LOCS[5],
-			TABLEAU_PILE_X_LOCS[6] };
+	public static final int[] TABLEAU_PILE_X_LOCS ={ (HORI_SPAC * 1) + (Card.WIDTH * 0),
+													 (HORI_SPAC * 2) + (Card.WIDTH * 1),
+													 (HORI_SPAC * 3) + (Card.WIDTH * 2),
+													 (HORI_SPAC * 4) + (Card.WIDTH * 3),
+													 (HORI_SPAC * 5) + (Card.WIDTH * 4),
+													 (HORI_SPAC * 6) + (Card.WIDTH * 5),
+													 (HORI_SPAC * 7) + (Card.WIDTH * 6) };
+	
+	public static final int[] FOUNDATION_PILE_X_LOCS = { TABLEAU_PILE_X_LOCS[3],
+														 TABLEAU_PILE_X_LOCS[4],
+														 TABLEAU_PILE_X_LOCS[5],
+														 TABLEAU_PILE_X_LOCS[6] };
 
 	private int scale = 3;
 

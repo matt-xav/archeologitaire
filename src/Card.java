@@ -15,6 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
+ * Creates and initializing the card objects.
+ * 
  * @author Jason Miner
  *
  */

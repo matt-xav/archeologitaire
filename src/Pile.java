@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * This class represents a pile of cards in solitaire. It can hold anywhere from
+ * Creates a pile of cards in solitaire. It can hold anywhere from
  * 0 to 52 cards.
  *
  * @author Jason Miner

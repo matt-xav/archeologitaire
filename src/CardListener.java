@@ -8,7 +8,7 @@ import javax.swing.undo.UndoManager;
 import javax.swing.undo.UndoableEdit;
 
 /**
- * CardListener.java
+ * Creates and handles all mouse listeners 
  * 
  * @author Jason Miner
  *
