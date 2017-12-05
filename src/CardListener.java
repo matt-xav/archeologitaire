@@ -47,7 +47,7 @@ public class CardListener extends MouseInputAdapter
 	{
 		// System.out.println("CardListener.mouseMoved");
 		Point p = new Point(e.getX(), e.getY());
-		System.out.println(p);
+		//System.out.println(p);
 		p.setLocation(p.getX(), p.getY());
 		panel.mouseLocation = p;
 		panel.repaint();
@@ -86,7 +86,7 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
-		System.out.println("mouse pressed");
+		//System.out.println("mouse pressed");
 
 		panel.setVisible(false);
 		panel.setVisible(true);

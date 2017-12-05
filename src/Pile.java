@@ -35,7 +35,7 @@ public class Pile
 	private Card[] drawPile;
 	
 	private Random rand;
-	private int cursedProb = 10;
+	private int cursedProb = 2;
 	private int cursedNum = 0;
 
 	public Pile()
@@ -333,7 +333,8 @@ public class Pile
 		{
 			this.getCardOnTop().faceDown = false;
 			cursedNum = rand.nextInt(cursedProb);
-			if(cursedNum == 0) {
+			System.out.println(cursedNum);
+			if(cursedNum == cursedProb - 1) {
 				this.getCardOnTop().setCursed(true);
 			}
 		}
