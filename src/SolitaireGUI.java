@@ -35,7 +35,7 @@ public class SolitaireGUI
 	private Clip clip1 = null;
 	private Clip clip2 = null;
 	private Solitaire solitaire;
-
+	
 	private JFrame frame;
 	private JMenuBar menuBar;
 
@@ -140,7 +140,7 @@ public class SolitaireGUI
 				music2(false);
 				initialize();
 				solitaire.repaint();
-				JOptionPane.showMessageDialog(frame, "New Game has Begun");
+//				JOptionPane.showMessageDialog(frame, "New Game has Begun");
 			}
 		});
 		mntmNewGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
@@ -253,10 +253,13 @@ public class SolitaireGUI
 		{
 			System.out.println("Line Unavailable");
 		}
+		
 		if (solitaire.isGameWon() == true)
 		{
 			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
 		}
+		
+		
 		solitaire.repaint();
 	}
 

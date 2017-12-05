@@ -80,7 +80,6 @@ public class Solitaire extends JLabel
 			}
 			// System.out.print("\n");
 		}
-
 		cursed = false;
 
 		mouseLocation = new Point(0, 0);
