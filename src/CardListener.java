@@ -17,19 +17,19 @@ public class CardListener extends MouseInputAdapter
 {
 	private Solitaire panel;
 	private Deck deck;
-	
+
 	private Pile deckPile;
 	private Pile origPile;
-	
+
 	private Pile[] tableaPiles;
 	private Pile[] foundationPiles;
 
-	private int lastX; 
+	private int lastX;
 	private int lastY;
-	
+
 	private UndoManager undoManager = new UndoManager();
 	private UndoableEdit anEdit = new AbstractUndoableEdit();
-	
+
 	public CardListener(Solitaire panel)
 	{
 		this.panel = panel;
@@ -39,20 +39,21 @@ public class CardListener extends MouseInputAdapter
 		deckPile = panel.getDeckPile();
 		lastX = 0;
 		lastY = 0;
-		origPile = null;		
+		origPile = null;
 	}
-	
+
 	@Override
-	public void mouseMoved(MouseEvent e){
-		//System.out.println("CardListener.mouseMoved");
+	public void mouseMoved(MouseEvent e)
+	{
+		// System.out.println("CardListener.mouseMoved");
 		Point p = new Point(e.getX(), e.getY());
 		System.out.println(p);
 		p.setLocation(p.getX(), p.getY());
 		panel.mouseLocation = p;
 		panel.repaint();
-		
+
 	}
-	
+
 	/** Selects a card when it is clicked */
 	public void mousePressed(MouseEvent e)
 	{
@@ -86,12 +87,12 @@ public class CardListener extends MouseInputAdapter
 			}
 		}
 		System.out.println("mouse pressed");
-		
+
 		panel.setVisible(false);
 		panel.setVisible(true);
 		panel.repaint();
 	}
-	
+
 	/** Moves the card as it is dragged by the mouse */
 	public void mouseDragged(MouseEvent e)
 	{
@@ -110,7 +111,7 @@ public class CardListener extends MouseInputAdapter
 		panel.setVisible(true);
 		mouseMoved(e);
 	}
-	
+
 	/**
 	 * Drops a card on a pile only if it has the right face and color
 	 * 
@@ -154,7 +155,8 @@ public class CardListener extends MouseInputAdapter
 					} // end isEmpty() condition
 				}
 			}
-			// if the drop is still invalid, check if it's been dropped on a foundation pile instead
+			// if the drop is still invalid, check if it's been dropped on a foundation pile
+			// instead
 			if (!validDrop)
 			{
 				for (int i = 0; i < foundationPiles.length; i++)
@@ -177,7 +179,8 @@ public class CardListener extends MouseInputAdapter
 						{
 							if (p.size() == 1)
 							{
-								// only single cards can be added to foundation piles the suits must be the same for
+								// only single cards can be added to foundation piles the suits must be the same
+								// for
 								// cards being added
 								if (p.getCardOnBottom().getSuit() == foundationPiles[i].getCardOnTop().getSuit())
 								{
@@ -207,21 +210,21 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
-		panel.selectedPile = null; 
-		origPile = null;           
-		
+		panel.selectedPile = null;
+		origPile = null;
+
 		System.out.println("mouse released");
-		
+
 		panel.repaint();
 		panel.setVisible(false);
 		panel.setVisible(true);
 	}
-	
+
 	public void mouseClicked(MouseEvent e)
 	{
-//		System.out.println("mouse clicked");
+		// System.out.println("mouse clicked");
 	}
-	
+
 	/** Returns the card that was clicked or null if no card was clicked */
 	private Pile getPileClicked(MouseEvent e)
 	{
@@ -250,7 +253,7 @@ public class CardListener extends MouseInputAdapter
 		}
 		return clicked;
 	}
-	
+
 	public boolean runMyUndo()
 	{
 		if (undoManager.canUndo())
@@ -258,11 +261,11 @@ public class CardListener extends MouseInputAdapter
 			System.out.println("runMyUndo true");
 			undoManager.undoOrRedo();
 			return true;
-		} 
+		}
 		System.out.println("runMyUndo false,  " + undoManager.toString());
 		return false;
 	}
-	
+
 	public boolean runMyRedo()
 	{
 		if (undoManager.canRedo())
@@ -270,9 +273,9 @@ public class CardListener extends MouseInputAdapter
 			System.out.println("runMyRedo true");
 			undoManager.redo();
 			return true;
-		} 
+		}
 		System.out.println("runMyRedo false");
 		return false;
 	}
-	
+
 }

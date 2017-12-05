@@ -48,7 +48,8 @@ public class Pile
 		if (t != FOUNDATION_PILE && t != TABLEAU_PILE && t != DECK_PILE)
 		{
 			pileType = TEMP_PILE;
-		} else
+		}
+		else
 		{
 			pileType = t;
 		}
@@ -65,36 +66,37 @@ public class Pile
 			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT, 10, 10);
 			return;
 		}
-		
+
 		/**
 		 * removed so cards could paint correctly
 		 */
-//		if (pileType == DECK_PILE)
-//		{
-//			for (int i = 0; i < drawPile.length; i++)
-//			{
-//				if (drawPile[i] != null)
-//				{
-//					try
-//					{
-//						System.out.println("draw" + this.getCardAt(i));
-//						drawPile[i].display(g);
-//					} catch (IOException e)
-//					{
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		}
+		// if (pileType == DECK_PILE)
+		// {
+		// for (int i = 0; i < drawPile.length; i++)
+		// {
+		// if (drawPile[i] != null)
+		// {
+		// try
+		// {
+		// System.out.println("draw" + this.getCardAt(i));
+		// drawPile[i].display(g);
+		// } catch (IOException e)
+		// {
+		// e.printStackTrace();
+		// }
+		// }
+		// }
+		// }
 		else
 		{
 			for (int i = 0; i < pile.size(); i++)
 			{
 				try
 				{
-					//System.out.println("Pile: " + this.getCardAt(i));
+					// System.out.println("Pile: " + this.getCardAt(i));
 					pile.get(i).display(g);
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					e.printStackTrace();
 				}
@@ -116,14 +118,18 @@ public class Pile
 			{
 				height += VERT_DISPL;
 			}
-		} else if (pileType == FOUNDATION_PILE)
-		{
-			c.setLocation(xLoc, yLoc);
-		} else if (pileType == DECK_PILE)
-		{
-			c.setLocation(xLoc, yLoc);
-			 updateTop3();
 		}
+		else
+			if (pileType == FOUNDATION_PILE)
+			{
+				c.setLocation(xLoc, yLoc);
+			}
+			else
+				if (pileType == DECK_PILE)
+				{
+					c.setLocation(xLoc, yLoc);
+					updateTop3();
+				}
 	}
 
 	public void addToPile(Pile p)
@@ -348,7 +354,8 @@ public class Pile
 					drawPile[j] = this.getCardAt(i);
 					drawPile[j].setLocation(xLoc + (j * HORI_DISPL), yLoc);
 				}
-			} else
+			}
+			else
 			{
 				for (int i = 0; i < this.size(); i++)
 				{

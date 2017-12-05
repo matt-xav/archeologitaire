@@ -31,7 +31,7 @@ public class Card extends Polygon
 	private String suit;
 	public boolean faceDown;
 	public Image myCardImage;
-	
+
 	private String changeCursed;
 	public Image invertedImage;
 	public boolean cursed;
@@ -81,7 +81,7 @@ public class Card extends Polygon
 		}
 		if (cursed == true)
 		{
-			invertedImage = new ImageIcon(getFileName()).getImage();
+			invertedImage = new ImageIcon(getCursedFileName()).getImage();
 			g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 		}
 	}
@@ -103,6 +103,7 @@ public class Card extends Polygon
 
 		return rank + suit + ".gif";
 	}
+
 	public String getCursedFileName()
 	{
 		// if (!isFaceUp)
@@ -120,7 +121,7 @@ public class Card extends Polygon
 
 		return rank + suit + changeCursed + ".gif";
 	}
-	
+
 	public boolean isRed()
 	{
 		return (suit.equals("d") || suit.equals("h"));
@@ -135,7 +136,7 @@ public class Card extends Polygon
 	{
 		return suit;
 	}
-	
+
 	public String getChangeCursed()
 	{
 		return changeCursed;

@@ -49,7 +49,7 @@ public class Deck
 			try
 			{
 				this.getCardAt(i).display(g);
-			} 
+			}
 			catch (IOException e)
 			{
 				e.printStackTrace();
