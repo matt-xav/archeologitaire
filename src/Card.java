@@ -43,13 +43,14 @@ public class Card extends Polygon
 
 	public Card(int newRank, String newSuit, int x, int y)
 	{
+		changeCursed = "c";
 		rank = newRank;
 		suit = newSuit;
 		setLocation(x, y);
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
-		invertedImage = new ImageIcon(getFileName()).getImage();
-		cursed = true;
+		invertedImage = new ImageIcon(getCursedFileName()).getImage();
+		cursed = false;
 	}
 
 	public void display(Graphics g) throws IOException
@@ -61,12 +62,8 @@ public class Card extends Polygon
 		}
 		else
 		{
-			if (cursed)
-			{
-				
-				g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
-			}
-			else if (faceDown)
+			
+			if (faceDown)
 			{
 				BufferedImage img = null;
 				try
@@ -78,8 +75,13 @@ public class Card extends Polygon
 				}
 				g.drawImage(img, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
-			else
+			else {
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
+				if (cursed)
+				{
+					g.drawImage(invertedImage, cornerX, cornerY, WIDTH, HEIGHT, null);
+				}
+			}
 		}
 		
 	}

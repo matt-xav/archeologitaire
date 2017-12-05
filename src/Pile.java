@@ -35,7 +35,7 @@ public class Pile
 	private Card[] drawPile;
 	
 	private Random rand;
-	private int cursedProb = 1;
+	private int cursedProb = 10;
 	private int cursedNum = 0;
 
 	public Pile()
