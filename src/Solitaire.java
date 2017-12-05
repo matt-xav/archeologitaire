@@ -90,21 +90,6 @@ public class Solitaire extends JLabel
 		this.setFocusable(true);
 	}
 
-	// public void paint(Graphics bg)
-	// {
-	//
-	// BufferedImage background = null;
-	// try
-	// {
-	// background = ImageIO.read(new File(""));
-	// }
-	// catch (IOException e)
-	// {
-	// }
-	// super.paintComponent(bg);
-	// bg.drawImage(background, 0, 0, null);
-	// }
-
 	/** Paints the screen on a graphics context */
 	protected void paintComponent(Graphics g)
 	{
