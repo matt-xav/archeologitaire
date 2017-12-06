@@ -52,8 +52,8 @@ public class Solitaire extends JLabel
 
 	private Random myRand;
 
-	public boolean cursed;
-	public int cursedRadius = 100;
+	public boolean blind;
+	public int blindRadius = 100;
 
 	public Point mouseLocation;
 
@@ -80,7 +80,7 @@ public class Solitaire extends JLabel
 			}
 			// System.out.print("\n");
 		}
-		cursed = false;
+		blind = false;
 
 		mouseLocation = new Point(0, 0);
 
@@ -97,6 +97,9 @@ public class Solitaire extends JLabel
 		for (int i = 0; i < tableauPiles.length; i++)
 		{
 			tableauPiles[i].display(g);
+			if(tableauPiles[i].getCardOnTop().isCursed()) {
+				blind = true;
+			}
 		}
 		for (int i = 0; i < foundationPiles.length; i++)
 		{
@@ -147,14 +150,14 @@ public class Solitaire extends JLabel
 			}
 		}
 
-		if (cursed == true)
+		if (blind == true)
 		{
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLACK); // draw rectangles
-			g.fillRect(0, 0, 1064, (int) mouseLocation.getY() - cursedRadius); // top
-			g.fillRect(0, (int) mouseLocation.getY() + cursedRadius, 1064, 639 - (int) mouseLocation.getY());// bottom
-			g.fillRect(0, 0, (int) mouseLocation.getX() - cursedRadius, 639);// left
-			g.fillRect((int) mouseLocation.getX() + cursedRadius, 0, 1064 - (int) mouseLocation.getX(), 639);// right
+			g.fillRect(0, 0, 1064, (int) mouseLocation.getY() - blindRadius); // top
+			g.fillRect(0, (int) mouseLocation.getY() + blindRadius, 1064, 639 - (int) mouseLocation.getY());// bottom
+			g.fillRect(0, 0, (int) mouseLocation.getX() - blindRadius, 639);// left
+			g.fillRect((int) mouseLocation.getX() + blindRadius, 0, 1064 - (int) mouseLocation.getX(), 639);// right
 
 			// g.setColor(Color.RED);//rounding
 			double angle;
@@ -165,27 +168,27 @@ public class Solitaire extends JLabel
 				rangle = Math.toRadians(angle);
 				// System.out.println(rangle);
 				g.fillRect(// upper left
-						(int) mouseLocation.getX() - cursedRadius, (int) mouseLocation.getY() - cursedRadius,
-						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))),
-						(int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+						(int) mouseLocation.getX() - blindRadius, (int) mouseLocation.getY() - blindRadius,
+						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
+						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
 				g.fillRect(// upper right
-						(int) (mouseLocation.getX() + (cursedRadius * Math.sin(rangle)) + 1), // 1 is added to
+						(int) (mouseLocation.getX() + (blindRadius * Math.sin(rangle)) + 1), // 1 is added to
 																								// compensate for
 						// the (int) conversion in
 						// Math.sin
-						(int) mouseLocation.getY() - cursedRadius,
-						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))),
-						(int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+						(int) mouseLocation.getY() - blindRadius,
+						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
+						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
 				g.fillRect(// lower left
-						(int) mouseLocation.getX() - cursedRadius,
-						(int) (mouseLocation.getY() + (cursedRadius * Math.cos(rangle)) + 1),
-						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))),
-						(int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+						(int) mouseLocation.getX() - blindRadius,
+						(int) (mouseLocation.getY() + (blindRadius * Math.cos(rangle)) + 1),
+						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
+						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
 				g.fillRect(// lower left
-						(int) (mouseLocation.getX() + (cursedRadius * Math.sin(rangle)) + 1),
-						(int) (mouseLocation.getY() + (cursedRadius * Math.cos(rangle)) + 1),
-						(int) (cursedRadius - (cursedRadius * Math.sin(rangle))),
-						(int) (cursedRadius - (cursedRadius * Math.cos(rangle))));
+						(int) (mouseLocation.getX() + (blindRadius * Math.sin(rangle)) + 1),
+						(int) (mouseLocation.getY() + (blindRadius * Math.cos(rangle)) + 1),
+						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
+						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
 			}
 		}
 	}

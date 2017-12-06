@@ -30,7 +30,7 @@ public class Card extends Polygon
 	
 	private String changeCursed;
 	public Image invertedImage;
-	public boolean cursed;
+	private boolean cursed;
 
 	// The card's width and height.
 	public static final int HEIGHT = 150;
