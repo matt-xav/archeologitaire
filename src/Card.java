@@ -27,6 +27,7 @@ public class Card extends Polygon
 	private String suit;
 	public boolean faceDown;
 	public Image myCardImage;
+	public Image backImage;
 	
 	private String changeCursed;
 	public Image invertedImage;
@@ -50,6 +51,7 @@ public class Card extends Polygon
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
 		invertedImage = new ImageIcon(getCursedFileName()).getImage();
+		backImage = new ImageIcon("back.gif").getImage();
 		cursed = false;
 	}
 
@@ -65,15 +67,15 @@ public class Card extends Polygon
 			
 			if (faceDown)
 			{
-				BufferedImage img = null;
-				try
-				{
-					img = ImageIO.read(new File("back.gif"));
-				}
-				catch (IOException e)
-				{
-				}
-				g.drawImage(img, cornerX, cornerY, WIDTH, HEIGHT, null);
+//				BufferedImage img = null;
+//				try
+//				{
+//					img = ImageIO.read(new File("back.gif"));
+//				}
+//				catch (IOException e)
+//				{
+//				}
+				g.drawImage(backImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
 			else {
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);

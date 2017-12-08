@@ -52,8 +52,8 @@ public class Solitaire extends JLabel
 
 	private Random myRand;
 
-	public boolean blind;
-	public int blindRadius = 100;
+	private boolean blind;
+	private int blindRadius = 100;
 
 	public Point mouseLocation;
 
@@ -97,9 +97,6 @@ public class Solitaire extends JLabel
 		for (int i = 0; i < tableauPiles.length; i++)
 		{
 			tableauPiles[i].display(g);
-			if(tableauPiles[i].getCardOnTop().isCursed()) {
-				blind = true;
-			}
 		}
 		for (int i = 0; i < foundationPiles.length; i++)
 		{
@@ -126,10 +123,6 @@ public class Solitaire extends JLabel
 				}
 			}
 		}
-
-		// g.setColor(Color.BLACK);
-		// g.fillOval((int) mouseLocation.getX() - digRadius*2, (int)
-		// mouseLocation.getY() - digRadius*2, digRadius*2*scale, digRadius*2*scale);
 
 		int px = (int) (mouseLocation.getX()) / scale;
 		int py = (int) (mouseLocation.getY()) / scale;
