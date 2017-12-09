@@ -139,7 +139,7 @@ public class Solitaire extends JLabel
 			}
 		}
 
-		if (blind == true)
+		if (isBlind() == true)
 		{
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLACK); // draw rectangles
