@@ -49,9 +49,14 @@ public class Card extends Polygon
 		suit = newSuit;
 		setLocation(x, y);
 		faceDown = true;
-		myCardImage = new ImageIcon(getFileName()).getImage();
-		invertedImage = new ImageIcon(getCursedFileName()).getImage();
-		backImage = new ImageIcon(getClass().getClassLoader().getResource("assets/back.gif")).getImage();
+		try {
+			myCardImage = ImageIO.read(new File(getFileName()));
+			invertedImage = ImageIO.read(new File(getCursedFileName()));
+			backImage = ImageIO.read(new File("../solitaredig/assets/cards/back.gif"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cursed = false;
 	}
 
@@ -93,34 +98,34 @@ public class Card extends Polygon
 		// if (!isFaceUp)
 		// return "back.gif";
 		if (rank == 10)
-			return "t" + suit + ".gif";
+			return "../solitaredig/assets/cards/" + "t" + suit + ".gif";
 		if (rank == 11)
-			return "j" + suit + ".gif";
+			return "../solitaredig/assets/cards/" + "j" + suit + ".gif";
 		if (rank == 12)
-			return "q" + suit + ".gif";
+			return "../solitaredig/assets/cards/" + "q" + suit + ".gif";
 		if (rank == 13)
-			return "k" + suit + ".gif";
+			return "../solitaredig/assets/cards/" + "k" + suit + ".gif";
 		if (rank == 1)
-			return "a" + suit + ".gif";
+			return "../solitaredig/assets/cards/" + "a" + suit + ".gif";
 
-		return rank + suit + ".gif";
+		return "../solitaredig/assets/cards/" + rank + suit + ".gif";
 	}
 	public String getCursedFileName()
 	{
 		// if (!isFaceUp)
 		// return "back.gif";
 		if (rank == 10)
-			return "t" + suit + changeCursed + ".gif";
+			return "../solitaredig/assets/cards/" + "t" + suit + changeCursed + ".gif";
 		if (rank == 11)
-			return "j" + suit + changeCursed + ".gif";
+			return "../solitaredig/assets/cards/" + "j" + suit + changeCursed + ".gif";
 		if (rank == 12)
-			return "q" + suit + changeCursed + ".gif";
+			return "../solitaredig/assets/cards/" + "q" + suit + changeCursed + ".gif";
 		if (rank == 13)
-			return "k" + suit + changeCursed + ".gif";
+			return "../solitaredig/assets/cards/" + "k" + suit + changeCursed + ".gif";
 		if (rank == 1)
-			return "a" + suit + changeCursed + ".gif";
+			return "../solitaredig/assets/cards/" + "a" + suit + changeCursed + ".gif";
 
-		return rank + suit + changeCursed + ".gif";
+		return "../solitaredig/assets/cards/" + rank + suit + changeCursed + ".gif";
 	}
 	
 	public boolean isRed()

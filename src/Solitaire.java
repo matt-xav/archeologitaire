@@ -84,11 +84,6 @@ public class Solitaire extends JLabel
 		blind = false;
 
 		mouseLocation = new Point(0, 0);
-		
-		while (card.isCursed())
-		{
-			
-		}
 
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);
