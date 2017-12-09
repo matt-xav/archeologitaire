@@ -18,6 +18,7 @@ public class Solitaire extends JLabel
 
 	private Deck deck;
 	private Pile deckPile;
+	private Card card;
 
 	public CardListener listener = new CardListener(this);
 
@@ -44,18 +45,12 @@ public class Solitaire extends JLabel
 														 TABLEAU_PILE_X_LOCS[6] };
 
 	private int scale = 2;//changes the scale at which the dirt is drawn.
-
 	private final Color BROWN = new Color(188, 175, 141);
-
 	private int[][] dirtLocations;
 	private final int digRadius = 50;
-
 	private Random myRand;
-
-	private boolean blind;
-
+	private boolean blind = false;
 	private int blindRadius = 100;
-
 	public Point mouseLocation;
 
 	public Solitaire()
@@ -235,9 +230,13 @@ public class Solitaire extends JLabel
 		return blind;
 	}
 
-	public void setBlind(boolean blind)
+	public boolean setBlind()
 	{
-		this.blind = blind;
+		if (card.isCursed() == true);
+		{
+			blind = true;
+		}
+			return blind;
 	}
 	
 	public CardListener getListener()
@@ -249,7 +248,7 @@ public class Solitaire extends JLabel
 	public boolean isGameWon()
 	{
 	//	if (tableauPiles == null && deckPile == null && selectedPile == null)
-		if (getFoundationPiles().equals(deck))
+		if (getFoundationPiles().length == 51)
 		{
 			return true;
 		}

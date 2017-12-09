@@ -37,7 +37,6 @@ public class SolitaireGUI
 	private Clip clip1 = null;
 	private Clip clip2 = null;
 	private Solitaire solitaire;
-	private Card card;
 	
 	private JFrame frame;
 	private JMenuBar menuBar;
