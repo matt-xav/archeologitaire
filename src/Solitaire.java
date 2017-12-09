@@ -88,7 +88,7 @@ public class Solitaire extends JLabel
 	{
 		super.paintComponent(g);
 
-		System.out.println("blind = " + blind);
+		//System.out.println("blind = " + blind);
 		
 		boolean foundcurse = false;
 		// draw all piles and the remaining cards left in the deck

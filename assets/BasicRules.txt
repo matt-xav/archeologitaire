@@ -1,0 +1,36 @@
+Basic Game Rules for Archeologitaire
+
+The game is played with a standard pack of 52 cards. 
+The cards come in 4 suits with two colors, spades (black), hearts (red), diamonds (red) and clubs (black). 
+Within a suit, the ranks are, from low to high: ace up to king.
+
+There are 7 piles on the tableau containing 28 cards. 
+    • The first pile has 1 card 
+    • The second 2
+    • The third 3 
+    • So-on up to the seventh pile.
+    • Initially, the top card of each pile is turned face up; all other cards are face down. 
+
+The remaining cards that are not part of the tableau are placed in the deck-pile. 
+Above the tableau there are five more piles that are initially empty, 
+    • Three card discard-pile
+    • Four suit-piles, one for each suit of cards. 
+       o The suit-piles (sometimes called foundations) are built up from aces to kings in one suit. 
+       o They are constructed as the cards become available. 
+       o The object of the game is to build all 52 cards into the suit piles through a number of allowed moves.
+
+The various moves the player can make are the following: 
+    1. Take the faced-down top card from the deck and place it face up on top of the discard pile 
+    2. Take the top card of the discard pile and place it on top of a tableau pile or suit pile
+    3. Take the faced-up top card or a sequence of faced-up cards (called a build) from a tableau pile and place it (still in sequence) on top of another tableau-pile  
+    4. Take a faced-up top card of a tableau-pile and move it to a suit pile 
+    5. Turn over a faced-down top card of a tableau pile 
+    6. When the deck-pile is empty, take the complete content of the discard pile, turn it over, and use it as a new deck-pile. 
+    7. Which cards can be taken and placed during each move is subject to some rules. 
+       a. A move cannot be made when these rules are not satisfied. 
+       b. Then the object of the game is reached or when no more moves can be made, the game is over.
+
+The rules for the placement of cards are the following. 
+    • A card can be placed on a tableau-pile only on top of a faced-up card of next-higher rank and opposite color. 
+    • A build can be placed only when its bottom card matches a faced-up top card in this way. Empty piles that arise during play can only accommodate kings. 
+    • A card can be placed on a suit-pile only if it is of the same suit and next higher card or if the foundation is empty and the card is an ace.

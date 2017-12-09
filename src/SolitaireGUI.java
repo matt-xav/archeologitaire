@@ -5,8 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JMenu;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -24,6 +27,8 @@ import java.awt.event.InputEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.awt.ScrollPane;
+import javax.swing.JTextPane;
 
 /**
  * Creates the GUI interface for the card Game
@@ -54,6 +59,8 @@ public class SolitaireGUI
 	private JLabel backgroundLabel;
 	private JMenu mnHelp;
 	private JMenuItem mntmRules;
+	private ScrollPane scrollPane;
+	private JMenuItem mntmSpecRules;
 
 	/**
 	 * Launch the application.
@@ -245,16 +252,49 @@ public class SolitaireGUI
 		mnHelp.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		menuBar.add(mnHelp);
 
-		mntmRules = new JMenuItem("Game Rules");
+		mntmRules = new JMenuItem("Basic Game Rules");
+		mntmRules.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
 		mntmRules.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JOptionPane.showMessageDialog(solitaire, "../solitaredig/assets/Rules.txt");
+				try 
+				{
+				JTextArea ta = new JTextArea(20, 90);
+				ta.read(new FileReader("../solitaredig/assets/BasicRules.txt"), null);
+				ta.setEditable(false);
+				JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta));
+				}
+				catch (IOException ioe) 
+				{
+					ioe.printStackTrace();
+				}
 			}
 		});
 		mntmRules.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnHelp.add(mntmRules);
+
+		mntmSpecRules = new JMenuItem("Special Game Rules");
+		mntmSpecRules.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, InputEvent.CTRL_MASK | InputEvent.SHIFT_MASK));
+		mntmSpecRules.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				try 
+				{
+				JTextArea ta = new JTextArea(20, 50);
+				ta.read(new FileReader("../solitaredig/assets/SpecialRules.txt"), null);
+				ta.setEditable(false);
+				JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta));
+				}
+				catch (IOException ioe) 
+				{
+					ioe.printStackTrace();
+				}
+			}
+		});
+		mntmSpecRules.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mnHelp.add(mntmSpecRules);
 
 		try
 		{

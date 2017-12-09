@@ -70,7 +70,7 @@ public class Pile
 		{
 			g.setColor(Color.black);
 			g.drawRoundRect(xLoc - 145, yLoc, Card.WIDTH - 1, Card.HEIGHT, 10, 10);
-				// the '-145 is to shift the keeper outline under the facedown draw pile
+			// the '-145 is to shift the keeper outline under the facedown draw pile
 		}
 		if (pile.size() == 0 && pileType != DECK_PILE)
 		{
