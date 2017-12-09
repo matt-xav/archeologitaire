@@ -18,7 +18,6 @@ public class Solitaire extends JLabel
 
 	private Deck deck;
 	private Pile deckPile;
-	private Card card;
 
 	public CardListener listener = new CardListener(this);
 
@@ -54,6 +53,7 @@ public class Solitaire extends JLabel
 	private Random myRand;
 
 	private boolean blind;
+
 	private int blindRadius = 100;
 
 	public Point mouseLocation;
@@ -84,11 +84,6 @@ public class Solitaire extends JLabel
 		blind = false;
 
 		mouseLocation = new Point(0, 0);
-		
-		while (card.isCursed())
-		{
-			
-		}
 
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);
@@ -235,7 +230,16 @@ public class Solitaire extends JLabel
 	{
 		return deck;
 	}
+	public boolean isBlind()
+	{
+		return blind;
+	}
 
+	public void setBlind(boolean blind)
+	{
+		this.blind = blind;
+	}
+	
 	public CardListener getListener()
 	{
 		System.out.println("getListener");

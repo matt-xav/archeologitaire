@@ -51,7 +51,7 @@ public class Card extends Polygon
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
 		invertedImage = new ImageIcon(getCursedFileName()).getImage();
-		backImage = new ImageIcon(getClass().getClassLoader().getResource("assets/back.gif")).getImage();
+		backImage = new ImageIcon("...cards/back.gif").getImage();
 		cursed = false;
 	}
 
@@ -90,37 +90,33 @@ public class Card extends Polygon
 
 	public String getFileName()
 	{
-		// if (!isFaceUp)
-		// return "back.gif";
 		if (rank == 10)
-			return "t" + suit + ".gif";
+			return "...cards/" + "t" + suit + ".gif";
 		if (rank == 11)
-			return "j" + suit + ".gif";
+			return "...cards/"+  "j" + suit + ".gif";
 		if (rank == 12)
-			return "q" + suit + ".gif";
+			return "...cards/"+  "q" + suit + ".gif";
 		if (rank == 13)
-			return "k" + suit + ".gif";
+			return  "...cards/" + "k" + suit + ".gif";
 		if (rank == 1)
-			return "a" + suit + ".gif";
+			return  "...cards/" + "a" + suit + ".gif";
 
-		return rank + suit + ".gif";
+		return  "...cards/" + rank + suit + ".gif";
 	}
 	public String getCursedFileName()
 	{
-		// if (!isFaceUp)
-		// return "back.gif";
 		if (rank == 10)
-			return "t" + suit + changeCursed + ".gif";
+			return  "...cards/" + "t" + suit + changeCursed + ".gif";
 		if (rank == 11)
-			return "j" + suit + changeCursed + ".gif";
+			return "...cards/" + "j" + suit + changeCursed + ".gif";
 		if (rank == 12)
-			return "q" + suit + changeCursed + ".gif";
+			return  "...cards/" + "q" + suit + changeCursed + ".gif";
 		if (rank == 13)
-			return "k" + suit + changeCursed + ".gif";
+			return  "...cards/" + "k" + suit + changeCursed + ".gif";
 		if (rank == 1)
-			return "a" + suit + changeCursed + ".gif";
+			return  "...cards/" + "a" + suit + changeCursed + ".gif";
 
-		return rank + suit + changeCursed + ".gif";
+		return "...cards/" +  rank + suit + changeCursed + ".gif";
 	}
 	
 	public boolean isRed()
