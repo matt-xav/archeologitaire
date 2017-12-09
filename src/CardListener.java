@@ -51,7 +51,6 @@ public class CardListener extends MouseInputAdapter
 		p.setLocation(p.getX(), p.getY());
 		panel.mouseLocation = p;
 		panel.repaint();
-
 	}
 
 	/** Selects a card when it is clicked */
@@ -109,7 +108,6 @@ public class CardListener extends MouseInputAdapter
 				panel.selectedPile.getCardOnTop().setCursed(false);
 			}
 		}
-		
 		System.out.println("mouse dragged");
 
 		panel.repaint();
@@ -161,8 +159,8 @@ public class CardListener extends MouseInputAdapter
 					} // end isEmpty() condition
 				}
 			}
-			// if the drop is still invalid, check if it's been dropped on a foundation pile
-			// instead
+			// if the drop is still invalid, check if it's been 
+			// Dropped on a foundation pile instead
 			if (!validDrop)
 			{
 				for (int i = 0; i < foundationPiles.length; i++)
@@ -186,13 +184,11 @@ public class CardListener extends MouseInputAdapter
 							if (p.size() == 1)
 							{
 								// only single cards can be added to foundation piles the suits must be the same
-								// for
-								// cards being added
+								// for cards being added
 								if (p.getCardOnBottom().getSuit() == foundationPiles[i].getCardOnTop().getSuit())
 								{
 									// the faces must be in ascending order
-									if (p.getCardOnBottom().getRank() == foundationPiles[i].getCardOnTop().getRank()
-											+ 1)
+									if (p.getCardOnBottom().getRank() == foundationPiles[i].getCardOnTop().getRank() + 1)
 									{
 										foundationPiles[i].addToPile(p.getCardOnBottom());
 										origPile.turnTopCardUp();

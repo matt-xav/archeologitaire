@@ -25,10 +25,12 @@ public class Card extends Polygon
 
 	private int rank;
 	private String suit;
+	
 	public boolean faceDown;
+	
 	public Image myCardImage;
 	public Image backImage;
-	
+
 	private String changeCursed;
 	public Image invertedImage;
 	private boolean cursed;
@@ -49,11 +51,14 @@ public class Card extends Polygon
 		suit = newSuit;
 		setLocation(x, y);
 		faceDown = true;
-		try {
+		try
+		{
 			myCardImage = ImageIO.read(new File(getFileName()));
 			invertedImage = ImageIO.read(new File(getCursedFileName()));
 			backImage = ImageIO.read(new File("../solitaredig/assets/cards/back.gif"));
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -69,20 +74,21 @@ public class Card extends Polygon
 		}
 		else
 		{
-			
+
 			if (faceDown)
 			{
-//				BufferedImage img = null;
-//				try
-//				{
-//					img = ImageIO.read(new File("back.gif"));
-//				}
-//				catch (IOException e)
-//				{
-//				}
+				// BufferedImage img = null;
+				// try
+				// {
+				// img = ImageIO.read(new File("back.gif"));
+				// }
+				// catch (IOException e)
+				// {
+				// }
 				g.drawImage(backImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
-			else {
+			else
+			{
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 				if (cursed)
 				{
@@ -90,13 +96,10 @@ public class Card extends Polygon
 				}
 			}
 		}
-		
 	}
 
 	public String getFileName()
 	{
-		// if (!isFaceUp)
-		// return "back.gif";
 		if (rank == 10)
 			return "../solitaredig/assets/cards/" + "t" + suit + ".gif";
 		if (rank == 11)
@@ -110,10 +113,9 @@ public class Card extends Polygon
 
 		return "../solitaredig/assets/cards/" + rank + suit + ".gif";
 	}
+
 	public String getCursedFileName()
 	{
-		// if (!isFaceUp)
-		// return "back.gif";
 		if (rank == 10)
 			return "../solitaredig/assets/cards/" + "t" + suit + changeCursed + ".gif";
 		if (rank == 11)
@@ -127,7 +129,7 @@ public class Card extends Polygon
 
 		return "../solitaredig/assets/cards/" + rank + suit + changeCursed + ".gif";
 	}
-	
+
 	public boolean isRed()
 	{
 		return (suit.equals("d") || suit.equals("h"));
@@ -142,7 +144,7 @@ public class Card extends Polygon
 	{
 		return suit;
 	}
-	
+
 	public String getChangeCursed()
 	{
 		return changeCursed;
@@ -226,7 +228,7 @@ public class Card extends Polygon
 				return false;
 		return true;
 	}
-
+	
 	// added
 	public String toString()
 	{
