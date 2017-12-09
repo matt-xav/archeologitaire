@@ -18,6 +18,7 @@ public class Solitaire extends JLabel
 
 	private Deck deck;
 	private Pile deckPile;
+	private Card card;
 
 	public CardListener listener = new CardListener(this);
 
@@ -83,6 +84,11 @@ public class Solitaire extends JLabel
 		blind = false;
 
 		mouseLocation = new Point(0, 0);
+		
+		while (card.isCursed())
+		{
+			
+		}
 
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);
