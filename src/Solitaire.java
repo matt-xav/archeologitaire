@@ -18,6 +18,7 @@ public class Solitaire extends JLabel
 
 	private Deck deck;
 	private Pile deckPile;
+	private Card card;
 
 	public CardListener listener = new CardListener(this);
 
@@ -52,7 +53,7 @@ public class Solitaire extends JLabel
 
 	private Random myRand;
 
-	private boolean blind;
+	private boolean blind = false;
 
 	private int blindRadius = 100;
 
@@ -235,9 +236,13 @@ public class Solitaire extends JLabel
 		return blind;
 	}
 
-	public void setBlind(boolean blind)
+	public boolean setBlind()
 	{
-		this.blind = blind;
+		if (card.isCursed() == true);
+		{
+			blind = true;
+		}
+			return blind;
 	}
 	
 	public CardListener getListener()
