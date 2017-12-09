@@ -8,7 +8,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import java.io.File;
 import java.io.IOException;
-import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
