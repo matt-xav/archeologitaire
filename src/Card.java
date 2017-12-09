@@ -51,7 +51,7 @@ public class Card extends Polygon
 		faceDown = true;
 		myCardImage = new ImageIcon(getFileName()).getImage();
 		invertedImage = new ImageIcon(getCursedFileName()).getImage();
-		backImage = new ImageIcon("back.gif").getImage();
+		backImage = new ImageIcon(getClass().getClassLoader().getResource("assets/back.gif")).getImage();
 		cursed = false;
 	}
 
