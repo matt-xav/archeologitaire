@@ -258,16 +258,7 @@ public class SolitaireGUI
 		if (solitaire.isGameWon() == true)
 		{
 			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
-		}
-		
-		if (card.isCursed() == true)
-		{
-			solitaire.setBlind(true);
-		}
-		else
-		{
-			solitaire.setBlind(false);
-		}		
+		}	
 		solitaire.repaint();
 	}
 
