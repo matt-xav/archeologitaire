@@ -238,7 +238,7 @@ public class Solitaire extends JLabel
 
 	public boolean isGameWon()
 	{
-		if (foundationPiles[51] != null)
+		if (tableauPiles == null && deckPile == null && selectedPile == null)
 		{
 			return true;
 		}
