@@ -259,7 +259,6 @@ public class SolitaireGUI
 			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
 		}
 		
-		
 		solitaire.repaint();
 	}
 

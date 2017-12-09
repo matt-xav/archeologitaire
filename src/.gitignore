@@ -29,3 +29,6 @@
 /SolitaireGUI$7.class
 /SolitaireGUI$8.class
 /SolitaireGUI$9.class
+/UndoRedoManager.class
+/CommandManager.class
+/Command.class
