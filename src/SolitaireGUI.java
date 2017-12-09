@@ -52,6 +52,8 @@ public class SolitaireGUI
 	private JMenuItem mntmOption2;
 
 	private JLabel backgroundLabel;
+	private JMenu mnHelp;
+	private JMenuItem mntmRules;
 
 	/**
 	 * Launch the application.
@@ -238,6 +240,21 @@ public class SolitaireGUI
 		mnMusic.add(mntmOption2);
 		mntmOff.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnMusic.add(mntmOff);
+
+		mnHelp = new JMenu("Help");
+		mnHelp.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		menuBar.add(mnHelp);
+
+		mntmRules = new JMenuItem("Game Rules");
+		mntmRules.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				JOptionPane.showMessageDialog(solitaire, "../solitaredig/assets/Rules.txt");
+			}
+		});
+		mntmRules.setFont(new Font("Papyrus", Font.PLAIN, 14));
+		mnHelp.add(mntmRules);
 
 		try
 		{

@@ -66,10 +66,16 @@ public class Pile
 	/** Draws the pile of cards */
 	public void display(Graphics g)
 	{
+		if (pileType == DECK_PILE)
+		{
+			g.setColor(Color.black);
+			g.drawRoundRect(xLoc - 145, yLoc, Card.WIDTH - 1, Card.HEIGHT, 10, 10);
+				// the '-145 is to shift the keeper outline under the facedown draw pile
+		}
 		if (pile.size() == 0 && pileType != DECK_PILE)
 		{
 			g.setColor(Color.black);
-			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT,  10, 10);
+			g.drawRoundRect(xLoc, yLoc, Card.WIDTH, Card.HEIGHT, 10, 10);
 			return;
 		}
 
@@ -94,6 +100,7 @@ public class Pile
 		// }
 		// }
 		else
+
 		{
 			for (int i = 0; i < pile.size(); i++)
 			{
@@ -338,7 +345,7 @@ public class Pile
 			{
 				if (pileType == TABLEAU_PILE)
 				{
-				this.getCardOnTop().setCursed(true);
+					this.getCardOnTop().setCursed(true);
 				}
 			}
 		}
@@ -385,10 +392,13 @@ public class Pile
 	{
 		return String.format("Pile#: %s", TABLEAU_PILE);
 	}
-	
-	public boolean getCurseStatus() {
-		for(int i = 0; i < this.size(); i++) {
-			if(this.getCardAt(i).isCursed()) {
+
+	public boolean getCurseStatus()
+	{
+		for (int i = 0; i < this.size(); i++)
+		{
+			if (this.getCardAt(i).isCursed())
+			{
 				return true;
 			}
 		}
