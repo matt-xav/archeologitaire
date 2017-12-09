@@ -25,7 +25,9 @@ public class Card extends Polygon
 
 	private int rank;
 	private String suit;
+	
 	public boolean faceDown;
+	
 	public Image myCardImage;
 	public Image backImage;
 
@@ -94,13 +96,10 @@ public class Card extends Polygon
 				}
 			}
 		}
-
 	}
 
 	public String getFileName()
 	{
-		// if (!isFaceUp)
-		// return "back.gif";
 		if (rank == 10)
 			return "../solitaredig/assets/cards/" + "t" + suit + ".gif";
 		if (rank == 11)
@@ -117,8 +116,6 @@ public class Card extends Polygon
 
 	public String getCursedFileName()
 	{
-		// if (!isFaceUp)
-		// return "back.gif";
 		if (rank == 10)
 			return "../solitaredig/assets/cards/" + "t" + suit + changeCursed + ".gif";
 		if (rank == 11)
@@ -231,7 +228,7 @@ public class Card extends Polygon
 				return false;
 		return true;
 	}
-
+	
 	// added
 	public String toString()
 	{
