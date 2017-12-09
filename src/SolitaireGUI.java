@@ -12,6 +12,8 @@ import java.awt.Toolkit;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -95,7 +97,12 @@ public class SolitaireGUI
 		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("g974.png"));
+		try {
+			frame.setIconImage(ImageIO.read(new File("../solitaredig/assets/g974.png")));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		frame.setTitle("Archeologitaire");
 		frame.setBounds(100, 100, 1079, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,7 +122,12 @@ public class SolitaireGUI
 		solitaire.setLayout(null);
 
 		backgroundLabel = new JLabel("");
-		backgroundLabel.setIcon(new ImageIcon("background.jpg"));
+		try {
+			backgroundLabel.setIcon(new ImageIcon(ImageIO.read(new File("../solitaredig/assets/background.jpg"))));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		backgroundLabel.setVerticalAlignment(SwingConstants.TOP);
 		backgroundLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		backgroundLabel.setBounds(0, 0, 1064, 639);
@@ -235,11 +247,11 @@ public class SolitaireGUI
 		{
 			AudioInputStream audio1;
 			clip1 = AudioSystem.getClip();
-			audio1 = AudioSystem.getAudioInputStream(new File("overworld.wav"));
+			audio1 = AudioSystem.getAudioInputStream(new File("../solitaredig/assets/overworld.wav"));
 			clip1.open(audio1);
 			AudioInputStream audio2;
 			clip2 = AudioSystem.getClip();
-			audio2 = AudioSystem.getAudioInputStream(new File("intro.wav"));
+			audio2 = AudioSystem.getAudioInputStream(new File("../solitaredig/assets/intro.wav"));
 			clip2.open(audio2);
 		}
 		catch (IOException error)
