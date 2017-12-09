@@ -260,6 +260,14 @@ public class SolitaireGUI
 			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
 		}
 		
+		if (card.isCursed() == true)
+		{
+			solitaire.setBlind(true);
+		}
+		else
+		{
+			solitaire.setBlind(false);
+		}		
 		solitaire.repaint();
 	}
 
