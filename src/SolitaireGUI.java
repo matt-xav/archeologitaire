@@ -27,7 +27,7 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
 /**
- * Creates the GUI interface for the card Game 
+ * Creates the GUI interface for the card Game
  * 
  * @author Jason Miner
  *
@@ -37,7 +37,7 @@ public class SolitaireGUI
 	private Clip clip1 = null;
 	private Clip clip2 = null;
 	private Solitaire solitaire;
-	
+
 	private JFrame frame;
 	private JMenuBar menuBar;
 
@@ -96,9 +96,12 @@ public class SolitaireGUI
 		frame.setResizable(false);
 		frame.getContentPane().setFont(new Font("Papyrus", Font.PLAIN, 14));
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		try {
+		try
+		{
 			frame.setIconImage(ImageIO.read(new File("../solitaredig/assets/g974.png")));
-		} catch (IOException e1) {
+		}
+		catch (IOException e1)
+		{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
@@ -107,23 +110,18 @@ public class SolitaireGUI
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		// Dirt dirtPanel = new Dirt(frame);
-		// dirtPanel.setBounds(0, 0, 1064, 639);
-		// frame.getContentPane().add(dirtPanel);
-
-		// Cursed cursedPanel = new Cursed(frame);
-		// cursedPanel.setBounds(0, 0, 1064, 639);
-		// frame.getContentPane().add(cursedPanel);
-
 		solitaire = new Solitaire();
 		solitaire.setBounds(0, 0, 1064, 639);
 		frame.getContentPane().add(solitaire);
 		solitaire.setLayout(null);
 
 		backgroundLabel = new JLabel("");
-		try {
+		try
+		{
 			backgroundLabel.setIcon(new ImageIcon(ImageIO.read(new File("../solitaredig/assets/background.jpg"))));
-		} catch (IOException e1) {
+		}
+		catch (IOException e1)
+		{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
@@ -152,7 +150,7 @@ public class SolitaireGUI
 				music2(false);
 				initialize();
 				solitaire.repaint();
-//				JOptionPane.showMessageDialog(frame, "New Game has Begun");
+				// JOptionPane.showMessageDialog(frame, "New Game has Begun");
 			}
 		});
 		mntmNewGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
@@ -265,11 +263,11 @@ public class SolitaireGUI
 		{
 			System.out.println("Line Unavailable");
 		}
-		
+
 		if (solitaire.isGameWon() == true)
 		{
 			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
-		}	
+		}
 		solitaire.repaint();
 	}
 

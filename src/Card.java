@@ -28,7 +28,7 @@ public class Card extends Polygon
 	public boolean faceDown;
 	public Image myCardImage;
 	public Image backImage;
-	
+
 	private String changeCursed;
 	public Image invertedImage;
 	private boolean cursed;
@@ -49,11 +49,14 @@ public class Card extends Polygon
 		suit = newSuit;
 		setLocation(x, y);
 		faceDown = true;
-		try {
+		try
+		{
 			myCardImage = ImageIO.read(new File(getFileName()));
 			invertedImage = ImageIO.read(new File(getCursedFileName()));
 			backImage = ImageIO.read(new File("../solitaredig/assets/cards/back.gif"));
-		} catch (IOException e) {
+		}
+		catch (IOException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -69,20 +72,21 @@ public class Card extends Polygon
 		}
 		else
 		{
-			
+
 			if (faceDown)
 			{
-//				BufferedImage img = null;
-//				try
-//				{
-//					img = ImageIO.read(new File("back.gif"));
-//				}
-//				catch (IOException e)
-//				{
-//				}
+				// BufferedImage img = null;
+				// try
+				// {
+				// img = ImageIO.read(new File("back.gif"));
+				// }
+				// catch (IOException e)
+				// {
+				// }
 				g.drawImage(backImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
-			else {
+			else
+			{
 				g.drawImage(myCardImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 				if (cursed)
 				{
@@ -90,7 +94,7 @@ public class Card extends Polygon
 				}
 			}
 		}
-		
+
 	}
 
 	public String getFileName()
@@ -110,6 +114,7 @@ public class Card extends Polygon
 
 		return "../solitaredig/assets/cards/" + rank + suit + ".gif";
 	}
+
 	public String getCursedFileName()
 	{
 		// if (!isFaceUp)
@@ -127,7 +132,7 @@ public class Card extends Polygon
 
 		return "../solitaredig/assets/cards/" + rank + suit + changeCursed + ".gif";
 	}
-	
+
 	public boolean isRed()
 	{
 		return (suit.equals("d") || suit.equals("h"));
@@ -142,7 +147,7 @@ public class Card extends Polygon
 	{
 		return suit;
 	}
-	
+
 	public String getChangeCursed()
 	{
 		return changeCursed;

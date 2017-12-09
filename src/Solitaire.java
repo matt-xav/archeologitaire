@@ -31,20 +31,22 @@ public class Solitaire extends JLabel
 	public static final int TABLEAU_PILE_Y_LOC = 200;
 	public static final int FOUNDATION_PILE_Y_LOC = 20;
 
-	public static final int[] TABLEAU_PILE_X_LOCS ={ (HORI_SPAC * 1) + (Card.WIDTH * 0),
-													 (HORI_SPAC * 2) + (Card.WIDTH * 1),
-													 (HORI_SPAC * 3) + (Card.WIDTH * 2),
-													 (HORI_SPAC * 4) + (Card.WIDTH * 3),
-													 (HORI_SPAC * 5) + (Card.WIDTH * 4),
-													 (HORI_SPAC * 6) + (Card.WIDTH * 5),
-													 (HORI_SPAC * 7) + (Card.WIDTH * 6) };
-	
-	public static final int[] FOUNDATION_PILE_X_LOCS = { TABLEAU_PILE_X_LOCS[3],
-														 TABLEAU_PILE_X_LOCS[4],
-														 TABLEAU_PILE_X_LOCS[5],
-														 TABLEAU_PILE_X_LOCS[6] };
+	public static final int[] TABLEAU_PILE_X_LOCS =
+	{ (HORI_SPAC * 1) + (Card.WIDTH * 0),
+			(HORI_SPAC * 2) + (Card.WIDTH * 1),
+			(HORI_SPAC * 3) + (Card.WIDTH * 2),
+			(HORI_SPAC * 4) + (Card.WIDTH * 3),
+			(HORI_SPAC * 5) + (Card.WIDTH * 4),
+			(HORI_SPAC * 6) + (Card.WIDTH * 5),
+			(HORI_SPAC * 7) + (Card.WIDTH * 6) };
 
-	private int scale = 2;//changes the scale at which the dirt is drawn.
+	public static final int[] FOUNDATION_PILE_X_LOCS =
+	{ TABLEAU_PILE_X_LOCS[3],
+			TABLEAU_PILE_X_LOCS[4],
+			TABLEAU_PILE_X_LOCS[5],
+			TABLEAU_PILE_X_LOCS[6] };
+
+	private int scale = 2;// changes the scale at which the dirt is drawn.
 	private final Color BROWN = new Color(188, 175, 141);
 	private int[][] dirtLocations;
 	private final int digRadius = 50;
@@ -139,7 +141,7 @@ public class Solitaire extends JLabel
 			}
 		}
 
-		if (isBlind() == true)
+		if (blind == true)
 		{
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLACK); // draw rectangles
@@ -225,20 +227,17 @@ public class Solitaire extends JLabel
 	{
 		return deck;
 	}
+
 	public boolean isBlind()
 	{
 		return blind;
 	}
 
-	public boolean setBlind()
+	public void setBlind(boolean blind)
 	{
-		if (card.isCursed() == true);
-		{
-			blind = true;
-		}
-			return blind;
+		this.blind = blind;
 	}
-	
+
 	public CardListener getListener()
 	{
 		System.out.println("getListener");
@@ -247,7 +246,7 @@ public class Solitaire extends JLabel
 
 	public boolean isGameWon()
 	{
-	//	if (tableauPiles == null && deckPile == null && selectedPile == null)
+		// if (tableauPiles == null && deckPile == null && selectedPile == null)
 		if (getFoundationPiles().length == 51)
 		{
 			return true;
