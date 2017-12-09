@@ -49,7 +49,7 @@ public class Solitaire extends JLabel
 	private int[][] dirtLocations;
 	private final int digRadius = 50;
 	private Random myRand;
-	private boolean blind = false;
+	private boolean blind;
 	private int blindRadius = 100;
 	public Point mouseLocation;
 
@@ -89,10 +89,24 @@ public class Solitaire extends JLabel
 	protected void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+
+		System.out.println("blind = " + blind);
+		
+		boolean foundcurse = false;
 		// draw all piles and the remaining cards left in the deck
 		for (int i = 0; i < tableauPiles.length; i++)
 		{
 			tableauPiles[i].display(g);
+			if(tableauPiles[i].getCurseStatus())
+			{
+				System.out.println("Solitaire.paintcomponent tableau pile " + i + " is cursed.");
+				foundcurse = true;
+			}
+		}
+		if(foundcurse) {
+			blind = true;
+		}else {
+			blind = false;
 		}
 		for (int i = 0; i < foundationPiles.length; i++)
 		{
@@ -139,8 +153,9 @@ public class Solitaire extends JLabel
 			}
 		}
 
-		if (blind == true)
+		if (blind)
 		{
+			System.out.println("Drawing blindness");
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLACK); // draw rectangles
 			g.fillRect(0, 0, 1064, (int) mouseLocation.getY() - blindRadius); // top

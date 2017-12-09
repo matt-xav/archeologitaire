@@ -385,5 +385,14 @@ public class Pile
 	{
 		return String.format("Pile#: %s", TABLEAU_PILE);
 	}
+	
+	public boolean getCurseStatus() {
+		for(int i = 0; i < this.size(); i++) {
+			if(this.getCardAt(i).isCursed()) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
