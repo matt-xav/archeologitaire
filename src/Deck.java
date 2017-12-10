@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Creates a deck of 52 cards.
  * 
- * @author Jason Miner
+ * @author Jason Miner and Matthew Smillie
  *
  */
 public class Deck

@@ -31,7 +31,7 @@ import javax.swing.UIManager;
 /**
  * Creates the GUI interface for the card Game
  * 
- * @author Jason Miner
+ * @author Jason Miner and Matthew Smillie
  *
  */
 public class SolitaireGUI

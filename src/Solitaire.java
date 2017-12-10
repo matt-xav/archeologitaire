@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 /**
  * Creates and initializing all game objects.
  *
- * @author Jason Miner
+ * @author Jason Miner and Matthew Smillie
  *
  */
 public class Solitaire extends JLabel

@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * @author Jason Miner
+ * @author Jason Miner and Matthew Smillie
  *
  */
 public class Card extends Polygon

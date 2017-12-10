@@ -11,7 +11,7 @@ import java.util.Random;
  * Creates a pile of cards in solitaire. It can hold anywhere from 0 to 52
  * cards.
  *
- * @author Jason Miner
+ * @author Jason Miner and Matthew Smillie
  *
  */
 public class Pile

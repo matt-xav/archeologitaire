@@ -7,7 +7,7 @@ import javax.swing.event.MouseInputAdapter;
 /**
  * Creates and handles all mouse listeners
  * 
- * @author Jason Miner
+ * @author Jason Miner and Matthew Smillie
  *
  */
 public class CardListener extends MouseInputAdapter
