@@ -176,28 +176,30 @@ public class Solitaire extends JLabel
 				angle = (double) i;
 				rangle = Math.toRadians(angle);
 				// System.out.println(rangle);
+				int edgeWidth = (int) (blindRadius - (blindRadius * Math.sin(rangle)));
+				int edgeHeight = (int) (blindRadius - (blindRadius * Math.cos(rangle)));
 				g.fillRect(// upper left
 						(int) mouseLocation.getX() - blindRadius, (int) mouseLocation.getY() - blindRadius,
-						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
-						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
+						edgeWidth,
+						edgeHeight);
 				g.fillRect(// upper right
 						(int) (mouseLocation.getX() + (blindRadius * Math.sin(rangle)) + 1), // 1 is added to
 																								// compensate for
 						// the (int) conversion in
 						// Math.sin
 						(int) mouseLocation.getY() - blindRadius,
-						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
-						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
+						edgeWidth,
+						edgeHeight);
 				g.fillRect(// lower left
 						(int) mouseLocation.getX() - blindRadius,
 						(int) (mouseLocation.getY() + (blindRadius * Math.cos(rangle)) + 1),
-						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
-						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
+						edgeWidth,
+						edgeHeight);
 				g.fillRect(// lower left
 						(int) (mouseLocation.getX() + (blindRadius * Math.sin(rangle)) + 1),
 						(int) (mouseLocation.getY() + (blindRadius * Math.cos(rangle)) + 1),
-						(int) (blindRadius - (blindRadius * Math.sin(rangle))),
-						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
+						edgeWidth,
+						edgeHeight);
 			}
 		}
 		if (deckPile.isGameWon() == true)
