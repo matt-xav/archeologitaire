@@ -12,5 +12,10 @@ Some of the cards are “Cursed Cards”.
         - The board will be concealed in darkness 
             - Except for a specific radius around the cursor. 
 		
+BE CAREFUL OF HOW YOU CLICK 
+   - If you click the right mouse button while the left mouse button is 
+     already pressed then you will blow the card up and lose it forever.
+   - There is no way to get it back once it is blown-up.
+
 
 
