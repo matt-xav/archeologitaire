@@ -296,27 +296,6 @@ public class SolitaireGUI
 			System.out.println("Line Unavailable");
 		}
 		solitaire.repaint();
-		
-		/*
-		 * private JMenuItem mntmUndo;
-		 * private JMenuItem mntmRedo;
-		 * 
-		 * mntmUndo = new JMenuItem("Undo");
-		 * mntmUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
-		 * InputEvent.CTRL_MASK)); mntmUndo.addActionListener(new ActionListener() {
-		 * public void actionPerformed(ActionEvent e) {
-		 * solitaire.getListener().runMyUndo(); System.out.println("Undo"); } });
-		 * 
-		 * mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14)); mnFile.add(mntmUndo);
-		 * 
-		 * mntmRedo = new JMenuItem("Redo");
-		 * mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
-		 * InputEvent.CTRL_MASK)); mntmRedo.addActionListener(new ActionListener() {
-		 * public void actionPerformed(ActionEvent e) {
-		 * solitaire.getListener().runMyRedo(); System.out.println("Redo"); } });
-		 * 
-		 * mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14)); mnFile.add(mntmRedo);
-		 */
 	}
 
 	public void music1(boolean value)
@@ -343,3 +322,24 @@ public class SolitaireGUI
 		}
 	}
 }
+
+/*
+ * private JMenuItem mntmUndo;
+ * private JMenuItem mntmRedo;
+ * 
+ * mntmUndo = new JMenuItem("Undo");
+ * mntmUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+ * InputEvent.CTRL_MASK)); mntmUndo.addActionListener(new ActionListener() {
+ * public void actionPerformed(ActionEvent e) {
+ * solitaire.getListener().runMyUndo(); System.out.println("Undo"); } });
+ * 
+ * mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14)); mnFile.add(mntmUndo);
+ * 
+ * mntmRedo = new JMenuItem("Redo");
+ * mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
+ * InputEvent.CTRL_MASK)); mntmRedo.addActionListener(new ActionListener() {
+ * public void actionPerformed(ActionEvent e) {
+ * solitaire.getListener().runMyRedo(); System.out.println("Redo"); } });
+ * 
+ * mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14)); mnFile.add(mntmRedo);
+ */

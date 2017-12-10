@@ -252,12 +252,11 @@ public class CardListener extends MouseInputAdapter
 		}
 		return clicked;
 	}
-
-	
+}
 /*	
-   private UndoManager undoManager = new UndoManager();
-   private UndoableEdit anEdit = new AbstractUndoableEdit();
-   public boolean runMyUndo()
+private UndoManager undoManager = new UndoManager();
+private UndoableEdit anEdit = new AbstractUndoableEdit();
+public boolean runMyUndo()
 	{
 		if (undoManager.canUndo())
 		{
@@ -281,4 +280,3 @@ public class CardListener extends MouseInputAdapter
 		return false;
 	}
 */
-}
