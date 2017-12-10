@@ -3,7 +3,9 @@ package src;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputAdapter;
-
+import javax.swing.undo.AbstractUndoableEdit;
+import javax.swing.undo.UndoManager;
+import javax.swing.undo.UndoableEdit;
 
 /**
  * Creates and handles all mouse listeners
@@ -82,6 +84,8 @@ public class CardListener extends MouseInputAdapter
 		}
 		// System.out.println("mouse pressed");
 
+		panel.setVisible(false);
+		panel.setVisible(true);
 		panel.repaint();
 	}
 
@@ -104,6 +108,8 @@ public class CardListener extends MouseInputAdapter
 		System.out.println("mouse dragged");
 
 		panel.repaint();
+		panel.setVisible(false);
+		panel.setVisible(true);
 		mouseMoved(e);
 	}
 
@@ -209,10 +215,13 @@ public class CardListener extends MouseInputAdapter
 		System.out.println("mouse released");
 
 		panel.repaint();
+		panel.setVisible(false);
+		panel.setVisible(true);
 	}
 
 	public void mouseClicked(MouseEvent e)
 	{
+		// System.out.println("mouse clicked");
 	}
 
 	/** Returns the card that was clicked or null if no card was clicked */
