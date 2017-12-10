@@ -27,9 +27,6 @@ public class CardListener extends MouseInputAdapter
 	private int lastX;
 	private int lastY;
 
-	private UndoManager undoManager = new UndoManager();
-	private UndoableEdit anEdit = new AbstractUndoableEdit();
-
 	public CardListener(Solitaire panel)
 	{
 		this.panel = panel;
@@ -256,7 +253,11 @@ public class CardListener extends MouseInputAdapter
 		return clicked;
 	}
 
-	public boolean runMyUndo()
+	
+/*	
+   private UndoManager undoManager = new UndoManager();
+   private UndoableEdit anEdit = new AbstractUndoableEdit();
+   public boolean runMyUndo()
 	{
 		if (undoManager.canUndo())
 		{
@@ -279,5 +280,5 @@ public class CardListener extends MouseInputAdapter
 		System.out.println("runMyRedo false");
 		return false;
 	}
-
+*/
 }

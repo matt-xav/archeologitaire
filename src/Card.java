@@ -195,7 +195,7 @@ public class Card extends Polygon
 		rightX = cornerX + WIDTH;
 		bottomY = cornerY + HEIGHT;
 	}
-
+	
 	@Override
 	public int hashCode()
 	{

@@ -1,11 +1,14 @@
 package src;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /**
  * Creates and initializing all game objects.
@@ -200,8 +203,12 @@ public class Solitaire extends JLabel
 		}
 		if (deckPile.isGameWon() == true)
 		{
-			JOptionPane.showMessageDialog(this, "You have Won!!");
+			JTextArea ta = new JTextArea( "You have Won!!");
+			ta.setFont(new Font("Papyrus", Font.PLAIN, 14));
+			ta.setEditable(false);
+			JOptionPane.showMessageDialog(this, new JScrollPane(ta),"Archeologitaire", JOptionPane.WARNING_MESSAGE);
 		}
+		
 	}
 
 	/** Sets the location of all cards to their starting points */
@@ -227,7 +234,7 @@ public class Solitaire extends JLabel
 		}
 		deck.setLocation(HORI_SPAC, FOUNDATION_PILE_Y_LOC);
 	}
-
+	
 	public Pile[] getTableauPiles()
 	{
 		return tableauPiles;

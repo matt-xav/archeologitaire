@@ -17,6 +17,7 @@ import java.util.Random;
 public class Pile
 {
 	private ArrayList<Card> pile;
+	private ArrayList<Card> foundationPileCount;
 
 	public static final int FOUNDATION_PILE = 0;
 	public static final int TABLEAU_PILE = 1;
@@ -34,8 +35,6 @@ public class Pile
 
 	private Card[] drawPile;
 
-	private int allCards = 52;
-
 	private Random rand;
 	private int cursedProb = 2;
 	private int cursedNum = 0;
@@ -49,6 +48,7 @@ public class Pile
 	{
 		rand = new Random();
 		pile = new ArrayList<Card>();
+		foundationPileCount = new ArrayList<Card>();
 		xLoc = x;
 		yLoc = y;
 		width = Card.WIDTH;
@@ -137,6 +137,7 @@ public class Pile
 			if (pileType == FOUNDATION_PILE)
 			{
 				c.setLocation(xLoc, yLoc);
+				foundationPileCount.add(c);
 			}
 			else
 				if (pileType == DECK_PILE)
@@ -401,21 +402,13 @@ public class Pile
 		}
 		return false;
 	}
-
+	
 	public boolean isGameWon()
 	{
-		if (pileType == DECK_PILE)
+		if (foundationPileCount.size() == 51)
 		{
-			if (pileType == TABLEAU_PILE)
-			{
-				if (pileType == TEMP_PILE)
-				{
-					this.isEmpty();
-					return true;
-				}
-			}
+			return true;	
 		}
 		return false;
 	}
-
 }
