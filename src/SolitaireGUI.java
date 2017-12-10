@@ -103,7 +103,8 @@ public class SolitaireGUI
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		try
 		{
-			frame.setIconImage(ImageIO.read(new File("../solitaredig/assets/g974.png")));
+		//	frame.setIconImage(ImageIO.read(new File("../solitaredig/assets/g974.png")));
+			frame.setIconImage(ImageIO.read(new File("g974.png")));
 		}
 		catch (IOException e1)
 		{
@@ -121,15 +122,8 @@ public class SolitaireGUI
 		solitaire.setLayout(null);
 
 		backgroundLabel = new JLabel("");
-		try
-		{
-			backgroundLabel.setIcon(new ImageIcon(ImageIO.read(new File("../solitaredig/assets/background.jpg"))));
-		}
-		catch (IOException e1)
-		{
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+	//		backgroundLabel.setIcon(new ImageIcon(ImageIO.read(new File("../solitaredig/assets/background.jpg"))));
+		backgroundLabel.setIcon(new ImageIcon("background.jpg"));
 		backgroundLabel.setVerticalAlignment(SwingConstants.TOP);
 		backgroundLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		backgroundLabel.setBounds(0, 0, 1064, 639);
@@ -170,7 +164,7 @@ public class SolitaireGUI
 				System.exit(0);
 			}
 		});
-//		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
+		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
 		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmQuitGame);
 
@@ -231,7 +225,8 @@ public class SolitaireGUI
 				{
 					ta1 = new JTextArea(20, 100);
 					ta1.setFont(new Font("Papyrus", Font.PLAIN, 14));
-					ta1.read(new FileReader("../solitaredig/assets/BasicRules.txt"), null);
+				//	ta1.read(new FileReader("../solitaredig/assets/BasicRules.txt"), null);
+					ta1.read(new FileReader("BasicRules.txt"), null);
 					ta1.setEditable(false);
 					UIManager.put("OptionPane.buttonFont", new Font("Papyrus", Font.BOLD, 14));
 					JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta1), "Basic Game Rules for Archeologitaire", JOptionPane.PLAIN_MESSAGE);
@@ -255,7 +250,8 @@ public class SolitaireGUI
 				{
 					ta2 = new JTextArea(20, 50);
 					ta2.setFont(new Font("Papyrus", Font.PLAIN, 14));
-					ta2.read(new FileReader("../solitaredig/assets/SpecialRules.txt"), null);
+				//	ta2.read(new FileReader("../solitaredig/assets/SpecialRules.txt"), null);
+					ta2.read(new FileReader("SpecialRules.txt"), null);
 					ta2.setEditable(false);
 					UIManager.put("OptionPane.buttonFont", new Font("Papyrus", Font.BOLD, 14));
 					JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta2), "Special Rules Specific to Archeologitaire", JOptionPane.PLAIN_MESSAGE);
@@ -273,11 +269,13 @@ public class SolitaireGUI
 		{
 			AudioInputStream audio1;
 			clip1 = AudioSystem.getClip();
-			audio1 = AudioSystem.getAudioInputStream(new File("../solitaredig/assets/overworld.wav"));
+		//	audio1 = AudioSystem.getAudioInputStream(new File("../solitaredig/assets/overworld.wav"));
+			audio1 = AudioSystem.getAudioInputStream(new File("overworld.wav"));
 			clip1.open(audio1);
 			AudioInputStream audio2;
 			clip2 = AudioSystem.getClip();
-			audio2 = AudioSystem.getAudioInputStream(new File("../solitaredig/assets/intro.wav"));
+		//	audio2 = AudioSystem.getAudioInputStream(new File("../solitaredig/assets/intro.wav"));
+			audio2 = AudioSystem.getAudioInputStream(new File("intro.wav"));
 			clip2.open(audio2);
 		}
 		catch (IOException error)

@@ -22,7 +22,6 @@ public class Solitaire extends JLabel
 
 	private Deck deck;
 	private Pile deckPile;
-	private Card card;
 
 	public CardListener listener = new CardListener(this);
 
