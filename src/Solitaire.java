@@ -201,7 +201,7 @@ public class Solitaire extends JLabel
 						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
 			}
 		}
-		if (deckPile.isGameWon() == true)
+		if (deckPile.isGameWon())
 		{
 			JTextArea ta = new JTextArea( "You have Won!!");
 			ta.setFont(new Font("Papyrus", Font.PLAIN, 14));

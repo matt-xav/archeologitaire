@@ -40,7 +40,6 @@ public class SolitaireGUI
 	private Clip clip2 = null;
 
 	private Solitaire solitaire;
-	private Pile pile;
 
 	private JFrame frame;
 	private JMenuBar menuBar;
@@ -59,8 +58,6 @@ public class SolitaireGUI
 	private JMenuItem mntmOption2;
 	private JMenuItem mntmRules;
 	private JMenuItem mntmSpecRules;
-
-	private ImageIcon icon = new ImageIcon("/solitaredig/assets/cards/Reaper.jpg");
 
 	/**
 	 * Launch the application.
@@ -173,7 +170,7 @@ public class SolitaireGUI
 				System.exit(0);
 			}
 		});
-		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
+//		mntmQuitGame.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, InputEvent.CTRL_MASK));
 		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmQuitGame);
 
@@ -271,7 +268,7 @@ public class SolitaireGUI
 		});
 		mntmSpecRules.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnHelp.add(mntmSpecRules);
-
+		
 		try
 		{
 			AudioInputStream audio1;

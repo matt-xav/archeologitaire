@@ -17,7 +17,8 @@ import java.util.Random;
 public class Pile
 {
 	private ArrayList<Card> pile;
-	private ArrayList<Card> foundationPileCount;
+
+	private Card card;
 
 	public static final int FOUNDATION_PILE = 0;
 	public static final int TABLEAU_PILE = 1;
@@ -35,6 +36,8 @@ public class Pile
 
 	private Card[] drawPile;
 
+	private boolean isGameWon;
+	
 	private Random rand;
 	private int cursedProb = 2;
 	private int cursedNum = 0;
@@ -48,7 +51,6 @@ public class Pile
 	{
 		rand = new Random();
 		pile = new ArrayList<Card>();
-		foundationPileCount = new ArrayList<Card>();
 		xLoc = x;
 		yLoc = y;
 		width = Card.WIDTH;
@@ -63,6 +65,7 @@ public class Pile
 		}
 		// the top3 are only used by DECK_PILE's
 		drawPile = (pileType == DECK_PILE) ? new Card[3] : null;
+		isGameWon = false;
 	}
 
 	/** Draws the pile of cards */
@@ -137,7 +140,6 @@ public class Pile
 			if (pileType == FOUNDATION_PILE)
 			{
 				c.setLocation(xLoc, yLoc);
-				foundationPileCount.add(c);
 			}
 			else
 				if (pileType == DECK_PILE)
@@ -405,10 +407,31 @@ public class Pile
 	
 	public boolean isGameWon()
 	{
-		if (foundationPileCount.size() == 51)
+		if (pileType == FOUNDATION_PILE)
 		{
-			return true;	
+			if (card.getRank() == 13 && card.getSuit() == "c")
+			{
+				if (card.getRank() == 13 && card.getSuit() == "d")
+				{
+					if (card.getRank() == 13 && card.getSuit() == "h")
+					{
+						if (card.getRank() == 13 && card.getSuit() == "s")
+						{
+							if (card.getY() == 20)
+							{
+								return true;
+							}
+						}
+					}
+				}
+			}
 		}
-		return false;
+		return isGameWon;
 	}
+
+	public void setGameWon(boolean isGameWon)
+	{
+		this.isGameWon = isGameWon;
+	}
+	
 }
