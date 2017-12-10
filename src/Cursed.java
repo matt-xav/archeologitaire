@@ -45,20 +45,21 @@ public class Cursed extends JLabel implements MouseMotionListener
 
 		addMouseMotionListener(this);
 	}
-	
-	public Cursed(JPanel panel) {
+
+	public Cursed(JPanel panel)
+	{
 		super();
 		myPanel = panel;
 		WIDTH = panel.getWidth();
 		HEIGHT = panel.getHeight();
 		x = getX();
 		y = getY();
-		
+
 		xOffset = 0;
-        yOffset = 0;
-		
-        mouseLocation = new Point(0, 0);
-        
+		yOffset = 0;
+
+		mouseLocation = new Point(0, 0);
+
 		addMouseMotionListener(this);
 	}
 
@@ -67,12 +68,14 @@ public class Cursed extends JLabel implements MouseMotionListener
 		super.paintComponent(g);
 		g.setColor(Color.BLACK);
 		System.out.println("Cursed.paintComponent");
-		if(mouseLocation.getX() > x && mouseLocation.getX() < WIDTH && mouseLocation.getY() > y && mouseLocation.getY() < HEIGHT) {
-			g.setColor(Color.BLACK); //draw rectangles
-			g.fillRect(x, y, WIDTH, (int) mouseLocation.getY() - radius); //top
-			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());//bottom
-			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);//left
-			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);//right
+		if (mouseLocation.getX() > x && mouseLocation.getX() < WIDTH && mouseLocation.getY() > y
+				&& mouseLocation.getY() < HEIGHT)
+		{
+			g.setColor(Color.BLACK); // draw rectangles
+			g.fillRect(x, y, WIDTH, (int) mouseLocation.getY() - radius); // top
+			g.fillRect(x, (int) mouseLocation.getY() + radius, (int) WIDTH, HEIGHT - (int) mouseLocation.getY());// bottom
+			g.fillRect(x, y, (int) mouseLocation.getX() - radius, HEIGHT);// left
+			g.fillRect((int) mouseLocation.getX() + radius, y, WIDTH - (int) mouseLocation.getX(), HEIGHT);// right
 
 			// g.setColor(Color.RED);//rounding
 			double angle;
@@ -100,7 +103,8 @@ public class Cursed extends JLabel implements MouseMotionListener
 						(int) (mouseLocation.getY() + (radius * Math.cos(rangle)) + 1),
 						(int) (radius - (radius * Math.sin(rangle))), (int) (radius - (radius * Math.cos(rangle))));
 			}
-		} else
+		}
+		else
 		{
 			g.fillRect(x, y, WIDTH, HEIGHT);
 			// System.out.println("Something happened");
@@ -118,7 +122,8 @@ public class Cursed extends JLabel implements MouseMotionListener
 	public void mouseMoved(MouseEvent arg0)
 	{
 		Point p = arg0.getLocationOnScreen();
-		//p.setLocation(p.getX() - myFrame.getX() - xOffset, p.getY() - myFrame.getY() - yOffset);
+		// p.setLocation(p.getX() - myFrame.getX() - xOffset, p.getY() - myFrame.getY()
+		// - yOffset);
 		p.setLocation(p.getX() - 108, p.getY() - 158);
 		// int px = (int) (p.getX()); int py = (int) (p.getY());
 		mouseLocation.setLocation(p);

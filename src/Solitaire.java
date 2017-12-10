@@ -41,11 +41,12 @@ public class Solitaire extends JLabel
 													  (HORI_SPAC * 7) + (Card.WIDTH * 6) };
 
 	public static final int[] FOUNDATION_PILE_X_LOCS = { TABLEAU_PILE_X_LOCS[3],
-														 TABLEAU_PILE_X_LOCS[4],
-														 TABLEAU_PILE_X_LOCS[5],
-														 TABLEAU_PILE_X_LOCS[6] };
+													     TABLEAU_PILE_X_LOCS[4],
+													     TABLEAU_PILE_X_LOCS[5],
+													     TABLEAU_PILE_X_LOCS[6] };
 
 	private int scale = 2; // changes the scale at which the dirt is drawn.
+	
 	private final Color BROWN = new Color(188, 175, 141);
 	private int[][] dirtLocations;
 	private final int digRadius = 50;
@@ -89,22 +90,25 @@ public class Solitaire extends JLabel
 	{
 		super.paintComponent(g);
 
-		//System.out.println("blind = " + blind);
-		
+		// System.out.println("blind = " + blind);
+
 		boolean foundcurse = false;
 		// draw all piles and the remaining cards left in the deck
 		for (int i = 0; i < tableauPiles.length; i++)
 		{
 			tableauPiles[i].display(g);
-			if(tableauPiles[i].getCurseStatus())
+			if (tableauPiles[i].getCurseStatus())
 			{
 				System.out.println("Solitaire.paintcomponent tableau pile " + i + " is cursed.");
 				foundcurse = true;
 			}
 		}
-		if(foundcurse) {
+		if (foundcurse)
+		{
 			blind = true;
-		}else {
+		}
+		else
+		{
 			blind = false;
 		}
 		for (int i = 0; i < foundationPiles.length; i++)
@@ -260,5 +264,4 @@ public class Solitaire extends JLabel
 		return listener;
 	}
 
-	
 }

@@ -35,7 +35,7 @@ public class Pile
 	private Card[] drawPile;
 
 	private int allCards = 52;
-	
+
 	private Random rand;
 	private int cursedProb = 2;
 	private int cursedNum = 0;
@@ -102,7 +102,6 @@ public class Pile
 		// }
 		// }
 		else
-
 		{
 			for (int i = 0; i < pile.size(); i++)
 			{
@@ -267,13 +266,10 @@ public class Pile
 	public boolean droppedOnPile(Card c)
 	{
 		// this checks to see if any of the cards corners is on a pile
-		return (((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
-				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width)
-						&& (c.getY() >= yLoc && c.getY() <= yLoc + height))
-				|| ((c.getX() >= xLoc && c.getX() <= xLoc + width)
-						&& (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
-				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width)
-						&& (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
+		return    (((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
+				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getY() >= yLoc && c.getY() <= yLoc + height))
+				|| ((c.getX() >= xLoc && c.getX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height))
+				|| ((c.getRightX() >= xLoc && c.getRightX() <= xLoc + width) && (c.getBottomY() >= yLoc && c.getBottomY() <= yLoc + height)));
 	}
 
 	public boolean droppedOnPile(Pile p)
@@ -405,19 +401,19 @@ public class Pile
 		}
 		return false;
 	}
-	
+
 	public boolean isGameWon()
 	{
 		if (pileType == DECK_PILE)
 		{
-			if ( pileType == TABLEAU_PILE)
+			if (pileType == TABLEAU_PILE)
 			{
-				if (pileType == TEMP_PILE) 
+				if (pileType == TEMP_PILE)
 				{
 					this.isEmpty();
 					return true;
-				}	
-			}		
+				}
+			}
 		}
 		return false;
 	}

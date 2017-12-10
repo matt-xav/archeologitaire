@@ -25,9 +25,9 @@ public class Card extends Polygon
 
 	private int rank;
 	private String suit;
-	
+
 	public boolean faceDown;
-	
+
 	public Image myCardImage;
 	public Image backImage;
 
@@ -228,7 +228,7 @@ public class Card extends Polygon
 				return false;
 		return true;
 	}
-	
+
 	// added
 	public String toString()
 	{

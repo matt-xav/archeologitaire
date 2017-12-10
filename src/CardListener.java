@@ -8,7 +8,7 @@ import javax.swing.undo.UndoManager;
 import javax.swing.undo.UndoableEdit;
 
 /**
- * Creates and handles all mouse listeners 
+ * Creates and handles all mouse listeners
  * 
  * @author Jason Miner
  *
@@ -47,7 +47,7 @@ public class CardListener extends MouseInputAdapter
 	{
 		// System.out.println("CardListener.mouseMoved");
 		Point p = new Point(e.getX(), e.getY());
-		//System.out.println(p);
+		// System.out.println(p);
 		p.setLocation(p.getX(), p.getY());
 		panel.mouseLocation = p;
 		panel.repaint();
@@ -85,7 +85,7 @@ public class CardListener extends MouseInputAdapter
 				}
 			}
 		}
-		//System.out.println("mouse pressed");
+		// System.out.println("mouse pressed");
 
 		panel.setVisible(false);
 		panel.setVisible(true);
@@ -102,7 +102,7 @@ public class CardListener extends MouseInputAdapter
 			panel.selectedPile.setLocation(newX, newY);
 			lastX = e.getX();
 			lastY = e.getY();
-			
+
 			if (panel.selectedPile.getCardOnTop().isCursed())
 			{
 				panel.selectedPile.getCardOnTop().setCursed(false);
@@ -159,7 +159,7 @@ public class CardListener extends MouseInputAdapter
 					} // end isEmpty() condition
 				}
 			}
-			// if the drop is still invalid, check if it's been 
+			// if the drop is still invalid, check if it's been
 			// Dropped on a foundation pile instead
 			if (!validDrop)
 			{
