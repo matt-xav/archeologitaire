@@ -414,7 +414,7 @@ public class Pile
 			{
 				if (pileType == TEMP_PILE) 
 				{
-					pile.isEmpty();
+					this.isEmpty();
 					return true;
 				}	
 			}		

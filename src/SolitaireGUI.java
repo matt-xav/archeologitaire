@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -25,8 +24,12 @@ import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.plaf.FontUIResource;
+
 import java.awt.ScrollPane;
 import javax.swing.JTextPane;
 
@@ -40,6 +43,7 @@ public class SolitaireGUI
 {
 	private Clip clip1 = null;
 	private Clip clip2 = null;
+	
 	private Solitaire solitaire;
 
 	private JFrame frame;
@@ -59,8 +63,9 @@ public class SolitaireGUI
 	private JLabel backgroundLabel;
 	private JMenu mnHelp;
 	private JMenuItem mntmRules;
-	private ScrollPane scrollPane;
 	private JMenuItem mntmSpecRules;
+	
+	private ImageIcon icon = new ImageIcon("/solitaredig/assets/cards/Reaper.jpg");
 
 	/**
 	 * Launch the application.
@@ -177,34 +182,23 @@ public class SolitaireGUI
 		mntmQuitGame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		mnFile.add(mntmQuitGame);
 
-		mntmUndo = new JMenuItem("Undo");
-		mntmUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_MASK));
-		mntmUndo.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				solitaire.getListener().runMyUndo();
-				System.out.println("Undo");
-			}
-		});
-
-		mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		mnFile.add(mntmUndo);
-
-		mntmRedo = new JMenuItem("Redo");
-		mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_MASK));
-		mntmRedo.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				solitaire.getListener().runMyRedo();
-				System.out.println("Redo");
-			}
-		});
-
-		mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14));
-		mnFile.add(mntmRedo);
-
+		/*
+		 * mntmUndo = new JMenuItem("Undo");
+		 * mntmUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,
+		 * InputEvent.CTRL_MASK)); mntmUndo.addActionListener(new ActionListener() {
+		 * public void actionPerformed(ActionEvent e) {
+		 * solitaire.getListener().runMyUndo(); System.out.println("Undo"); } });
+		 * 
+		 * mntmUndo.setFont(new Font("Papyrus", Font.PLAIN, 14)); mnFile.add(mntmUndo);
+		 * 
+		 * mntmRedo = new JMenuItem("Redo");
+		 * mntmRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
+		 * InputEvent.CTRL_MASK)); mntmRedo.addActionListener(new ActionListener() {
+		 * public void actionPerformed(ActionEvent e) {
+		 * solitaire.getListener().runMyRedo(); System.out.println("Redo"); } });
+		 * 
+		 * mntmRedo.setFont(new Font("Papyrus", Font.PLAIN, 14)); mnFile.add(mntmRedo);
+		 */
 		mnMusic = new JMenu("Music");
 		mnMusic.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		menuBar.add(mnMusic);
@@ -258,14 +252,16 @@ public class SolitaireGUI
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				try 
+				try
 				{
-				JTextArea ta = new JTextArea(20, 90);
-				ta.read(new FileReader("../solitaredig/assets/BasicRules.txt"), null);
-				ta.setEditable(false);
-				JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta));
+					JTextArea ta = new JTextArea(20, 100);
+					ta.setFont(new Font("Papyrus", Font.PLAIN, 14));
+					ta.read(new FileReader("../solitaredig/assets/BasicRules.txt"), null);
+					ta.setEditable(false);
+					UIManager.put("OptionPane.buttonFont", new Font("Papyrus", Font.BOLD, 14));
+					JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta), "Basic Game Rules for Archeologitaire", JOptionPane.PLAIN_MESSAGE);
 				}
-				catch (IOException ioe) 
+				catch (IOException ioe)
 				{
 					ioe.printStackTrace();
 				}
@@ -280,14 +276,16 @@ public class SolitaireGUI
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				try 
+				try
 				{
-				JTextArea ta = new JTextArea(20, 50);
-				ta.read(new FileReader("../solitaredig/assets/SpecialRules.txt"), null);
-				ta.setEditable(false);
-				JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta));
+					JTextArea ta = new JTextArea(20, 50);
+					ta.setFont(new Font("Papyrus", Font.PLAIN, 14));
+					ta.read(new FileReader("../solitaredig/assets/SpecialRules.txt"), null);
+					ta.setEditable(false);
+					UIManager.put("OptionPane.buttonFont", new Font("Papyrus", Font.BOLD, 14));
+					JOptionPane.showMessageDialog(solitaire, new JScrollPane(ta), "Special Rules Specific to Archeologitaire", JOptionPane.PLAIN_MESSAGE);
 				}
-				catch (IOException ioe) 
+				catch (IOException ioe)
 				{
 					ioe.printStackTrace();
 				}

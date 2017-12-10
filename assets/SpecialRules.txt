@@ -1,5 +1,3 @@
-Special Rules Specific to Archeologitaire
-
 This is a more fun take on the basic solitaire game. 
 The whole game more resembles an  dig. 
 
