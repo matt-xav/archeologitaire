@@ -4,11 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Polygon;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  * @author Jason Miner
@@ -51,20 +49,17 @@ public class Card extends Polygon
 		suit = newSuit;
 		setLocation(x, y);
 		faceDown = true;
-		myCardImage = new ImageIcon(getFileName()).getImage();
-		invertedImage = new ImageIcon(getCursedFileName()).getImage();
-//		try
-//		{
-//			myCardImage = ImageIO.read(new File(getFileName()));
-//			invertedImage = ImageIO.read(new File(getCursedFileName()));
-//			backImage = ImageIO.read(new File("../solitaredig/assets/cards/back.gif"));
-//			backImage = ImageIO.read(new File("back.gif"));
-//		}
-//		catch (IOException e)
-//		{
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try
+		{
+			myCardImage = ImageIO.read(new File(getFileName()));
+			invertedImage = ImageIO.read(new File(getCursedFileName()));
+			backImage = ImageIO.read(new File("../solitaredig/assets/cards/back.gif"));
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cursed = false;
 	}
 
@@ -80,15 +75,15 @@ public class Card extends Polygon
 
 			if (faceDown)
 			{
-				BufferedImage img = null;
-				try
-				{
-					img = ImageIO.read(new File("back.gif"));
-				}
-				catch (IOException e)
-				{
-				}
-				g.drawImage(img, cornerX, cornerY, WIDTH, HEIGHT, null);
+				// BufferedImage img = null;
+				// try
+				// {
+				// img = ImageIO.read(new File("back.gif"));
+				// }
+				// catch (IOException e)
+				// {
+				// }
+				g.drawImage(backImage, cornerX, cornerY, WIDTH, HEIGHT, null);
 			}
 			else
 			{
@@ -104,19 +99,6 @@ public class Card extends Polygon
 	public String getFileName()
 	{
 		if (rank == 10)
-			return "t" + suit + ".gif";
-		if (rank == 11)
-			return "j" + suit + ".gif";
-		if (rank == 12)
-			return "q" + suit + ".gif";
-		if (rank == 13)
-			return "k" + suit + ".gif";
-		if (rank == 1)
-			return "a" + suit + ".gif";
-
-		return rank + suit + ".gif";
-		/*
-	 	if (rank == 10)
 			return "../solitaredig/assets/cards/" + "t" + suit + ".gif";
 		if (rank == 11)
 			return "../solitaredig/assets/cards/" + "j" + suit + ".gif";
@@ -127,25 +109,11 @@ public class Card extends Polygon
 		if (rank == 1)
 			return "../solitaredig/assets/cards/" + "a" + suit + ".gif";
 
-		return "../solitaredig/assets/cards/" + rank + suit + ".gif";	
-		*/
+		return "../solitaredig/assets/cards/" + rank + suit + ".gif";
 	}
 
 	public String getCursedFileName()
 	{
-		if (rank == 10)
-			return "t" + suit + changeCursed + ".gif";
-		if (rank == 11)
-			return "j" + suit + changeCursed + ".gif";
-		if (rank == 12)
-			return "q" + suit + changeCursed + ".gif";
-		if (rank == 13)
-			return "k" + suit + changeCursed + ".gif";
-		if (rank == 1)
-			return "a" + suit + changeCursed + ".gif";
-
-		return rank + suit + changeCursed + ".gif";
-		/*
 		if (rank == 10)
 			return "../solitaredig/assets/cards/" + "t" + suit + changeCursed + ".gif";
 		if (rank == 11)
@@ -158,7 +126,6 @@ public class Card extends Polygon
 			return "../solitaredig/assets/cards/" + "a" + suit + changeCursed + ".gif";
 
 		return "../solitaredig/assets/cards/" + rank + suit + changeCursed + ".gif";
-		*/
 	}
 
 	public boolean isRed()
