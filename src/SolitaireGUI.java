@@ -319,11 +319,6 @@ public class SolitaireGUI
 		{
 			System.out.println("Line Unavailable");
 		}
-
-		if (solitaire.isGameWon() == true)
-		{
-			JOptionPane.showMessageDialog(solitaire, "You have Won!!");
-		}
 		solitaire.repaint();
 	}
 

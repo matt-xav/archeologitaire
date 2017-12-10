@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  * Creates and initializing all game objects.
@@ -193,6 +194,10 @@ public class Solitaire extends JLabel
 						(int) (blindRadius - (blindRadius * Math.cos(rangle))));
 			}
 		}
+		if (deckPile.isGameWon() == true)
+		{
+			JOptionPane.showMessageDialog(this, "You have Won!!");
+		}
 	}
 
 	/** Sets the location of all cards to their starting points */
@@ -255,13 +260,5 @@ public class Solitaire extends JLabel
 		return listener;
 	}
 
-	public boolean isGameWon()
-	{
-		// if (tableauPiles == null && deckPile == null && selectedPile == null)
-		if (getFoundationPiles().length == 51)
-		{
-			return true;
-		}
-		return false;
-	}
+	
 }

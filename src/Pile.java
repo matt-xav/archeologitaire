@@ -34,6 +34,8 @@ public class Pile
 
 	private Card[] drawPile;
 
+	private int allCards = 52;
+	
 	private Random rand;
 	private int cursedProb = 2;
 	private int cursedNum = 0;
@@ -326,7 +328,6 @@ public class Pile
 				c.setLocation(x, y + (i * VERT_DISPL));
 			}
 		}
-
 	}
 
 	public boolean isEmpty()
@@ -401,6 +402,22 @@ public class Pile
 			{
 				return true;
 			}
+		}
+		return false;
+	}
+	
+	public boolean isGameWon()
+	{
+		if (pileType == DECK_PILE)
+		{
+			if ( pileType == TABLEAU_PILE)
+			{
+				if (pileType == TEMP_PILE) 
+				{
+					pile.isEmpty();
+					return true;
+				}	
+			}		
 		}
 		return false;
 	}
