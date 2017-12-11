@@ -103,7 +103,7 @@ public class SolitaireGUI
 		frame.setFont(new Font("Papyrus", Font.PLAIN, 14));
 		try
 		{
-			frame.setIconImage(ImageIO.read(new File("../solitaredig/assets/g974.png")));
+			frame.setIconImage(ImageIO.read(new File("../archeologitaire/assets/g974.png")));
 		}
 		catch (IOException e1)
 		{
@@ -123,7 +123,7 @@ public class SolitaireGUI
 		backgroundLabel = new JLabel("");
 		try
 		{
-			backgroundLabel.setIcon(new ImageIcon(ImageIO.read(new File("../solitaredig/assets/background.jpg"))));
+			backgroundLabel.setIcon(new ImageIcon(ImageIO.read(new File("../archeologitaire/assets/background.jpg"))));
 		}
 		catch (IOException e1)
 		{

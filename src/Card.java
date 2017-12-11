@@ -53,7 +53,7 @@ public class Card extends Polygon
 		{
 			myCardImage = ImageIO.read(new File(getFileName()));
 			invertedImage = ImageIO.read(new File(getCursedFileName()));
-			backImage = ImageIO.read(new File("../solitaredig/assets/cards/back.gif"));
+			backImage = ImageIO.read(new File("../archeologitaire/assets/cards/back.gif"));
 		}
 		catch (IOException e)
 		{
@@ -99,33 +99,33 @@ public class Card extends Polygon
 	public String getFileName()
 	{
 		if (rank == 10)
-			return "../solitaredig/assets/cards/" + "t" + suit + ".gif";
+			return "../archeologitaire/assets/cards/" + "t" + suit + ".gif";
 		if (rank == 11)
-			return "../solitaredig/assets/cards/" + "j" + suit + ".gif";
+			return "../archeologitaire/assets/cards/" + "j" + suit + ".gif";
 		if (rank == 12)
-			return "../solitaredig/assets/cards/" + "q" + suit + ".gif";
+			return "../archeologitaire/assets/cards/" + "q" + suit + ".gif";
 		if (rank == 13)
-			return "../solitaredig/assets/cards/" + "k" + suit + ".gif";
+			return "../archeologitaire/assets/cards/" + "k" + suit + ".gif";
 		if (rank == 1)
-			return "../solitaredig/assets/cards/" + "a" + suit + ".gif";
+			return "../archeologitaire/assets/cards/" + "a" + suit + ".gif";
 
-		return "../solitaredig/assets/cards/" + rank + suit + ".gif";
+		return "../archeologitaire/assets/cards/" + rank + suit + ".gif";
 	}
 
 	public String getCursedFileName()
 	{
 		if (rank == 10)
-			return "../solitaredig/assets/cards/" + "t" + suit + changeCursed + ".gif";
+			return "../archeologitaire/assets/cards/" + "t" + suit + changeCursed + ".gif";
 		if (rank == 11)
-			return "../solitaredig/assets/cards/" + "j" + suit + changeCursed + ".gif";
+			return "../archeologitaire/assets/cards/" + "j" + suit + changeCursed + ".gif";
 		if (rank == 12)
-			return "../solitaredig/assets/cards/" + "q" + suit + changeCursed + ".gif";
+			return "../archeologitaire/assets/cards/" + "q" + suit + changeCursed + ".gif";
 		if (rank == 13)
-			return "../solitaredig/assets/cards/" + "k" + suit + changeCursed + ".gif";
+			return "../archeologitaire/assets/cards/" + "k" + suit + changeCursed + ".gif";
 		if (rank == 1)
-			return "../solitaredig/assets/cards/" + "a" + suit + changeCursed + ".gif";
+			return "../archeologitaire/assets/cards/" + "a" + suit + changeCursed + ".gif";
 
-		return "../solitaredig/assets/cards/" + rank + suit + changeCursed + ".gif";
+		return "../archeologitaire/assets/cards/" + rank + suit + changeCursed + ".gif";
 	}
 
 	public boolean isRed()
