@@ -80,7 +80,7 @@ public class Solitaire extends JLabel
 			// System.out.print("\n");
 		}
 		blind = false;
-		mouseLocation = new Point(0, 0);
+		mouseLocation = new Point(1064+digRadius, 639+digRadius);
 
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);
