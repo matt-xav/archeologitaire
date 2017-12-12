@@ -202,6 +202,7 @@ public class Solitaire extends JLabel
 						edgeHeight);
 			}
 		}
+		
 		if (deckPile.isGameWon() == true)
 		{
 			JTextArea ta = new JTextArea( "You have Won!!");
