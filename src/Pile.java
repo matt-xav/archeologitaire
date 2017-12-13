@@ -17,7 +17,6 @@ import java.util.Random;
 public class Pile
 {
 	private ArrayList<Card> pile;
-	private ArrayList<Card> foundationPileCount;
 
 	public static final int FOUNDATION_PILE = 0;
 	public static final int TABLEAU_PILE = 1;
@@ -48,7 +47,6 @@ public class Pile
 	{
 		rand = new Random();
 		pile = new ArrayList<Card>();
-		foundationPileCount = new ArrayList<Card>();
 		xLoc = x;
 		yLoc = y;
 		width = Card.WIDTH;

@@ -23,6 +23,8 @@ public class Solitaire extends JLabel
 	private Deck deck;
 	private Pile deckPile;
 
+	private int moveCounter;
+	
 	public CardListener listener = new CardListener(this);
 
 	public Pile selectedPile; // The selected Pile is always drawn last (so it is on top of everything else)
@@ -59,6 +61,7 @@ public class Solitaire extends JLabel
 
 	public Solitaire()
 	{
+		moveCounter = 0;
 		deck = new Deck();
 		tableauPiles = new Pile[7];
 		foundationPiles = new Pile[4];
@@ -80,7 +83,7 @@ public class Solitaire extends JLabel
 			// System.out.print("\n");
 		}
 		blind = false;
-		mouseLocation = new Point(1064+digRadius, 639+digRadius);
+		mouseLocation = new Point(0, 0);
 
 		this.addMouseListener(listener);
 		this.addMouseMotionListener(listener);

@@ -41,6 +41,7 @@ public class SolitaireGUI
 
 	private Solitaire solitaire;
 
+	
 	private JFrame frame;
 	private JMenuBar menuBar;
 	private JLabel backgroundLabel;
